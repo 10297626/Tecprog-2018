@@ -1,8 +1,8 @@
 
 /*//////////////////////////////////////////////////////////////////////
 Nome: Henrique Suzuki                 NUSP: 10297626
-Nome:                                 NUSP:         
-Nome:                                 NUSP:         
+Nome: Rubens Gomes Neto               NUSP: 9318484
+Nome: Alessandro Bezerra da Silva     NUSP: 10284351        
 //////////////////////////////////////////////////////////////////////*/
 
 //Elemento
