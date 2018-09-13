@@ -7,41 +7,41 @@ Nome:                                 NUSP:
 
 //Elemento
 typedef struct{
-  char name[20];//nome do objeto
-  char articles[4][10];// artigos 
+  char nome[20];//nome do objeto
+  char artigo[4][10];// artigos 
   char desclong[100];//descrição longa para quando examinar o objeto
   char desc[40];// descrição curta
-}element
+}elemento
 
 //Objeto
 typedef struct {
-  element ele;
-  char adj[];//adjetivos
+  elemento ele;
+  char adj[];//adjetivos por enquanto array, mas é pra ser uma lista
   int invis;// quando 1 o objeto é invisivel
-}object;
+}objeto;
 
-void exam(object o);// função para examinar o objeto
+void exam(objeto o);// função para examinar o objeto
 
-void catch(object o);//função para pegar o objeto
+void catch(objeto o);//função para pegar o objeto
 
-void drop(object o); // função para soltar o objeto caso ele esteja no invetário
+void drop(objeto o); // função para soltar o objeto caso ele esteja no invetário
 
 //Lugares
 typedef struct {
-  elemente ele;
-  exit ex;// saida do lugar
-}place;
+  elemento ele;
+  saida ex;// saida do lugar
+}lugar;
 
 typedef struct{
-  char destiny[100];// referencia ao destino dessa saida
+  char destino[100];// referencia key do hashtable do destino dessa saida
   int closed;// quando 1 a sáida esta fechada
-}exit
+}saida
 
 //imcompletos
 typedef struct{
-}verb;//verbos
+}verbo;//verbos
 
 typedef struct{
-}adventurer;//o aventureiro
+}aventureiro;//o aventureiro
 
 
