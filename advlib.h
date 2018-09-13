@@ -1,23 +1,23 @@
 
 /*//////////////////////////////////////////////////////////////////////
+Nome: Alessandro Bezerra da Silva     NUSP: 10284351
 Nome: Henrique Suzuki                 NUSP: 10297626
 Nome: Rubens Gomes Neto               NUSP: 9318484
-Nome: Alessandro Bezerra da Silva     NUSP: 10284351        
 //////////////////////////////////////////////////////////////////////*/
 
 //Elemento
 typedef struct{
   char nome[20];//nome do objeto
-  char artigo[4][10];// artigos 
-  char desclong[100];//descrição longa para quando examinar o objeto
-  char desc[40];// descrição curta
+  char artigos[4][10];// artigos 
+  char longa[100];//descrição longa para quando examinar o objeto
+  char curta[40];// descrição curta
 }elemento
 
 //Objeto
 typedef struct {
   elemento ele;
-  char adj[];//adjetivos por enquanto array, mas é pra ser uma lista
-  int invis;// quando 1 o objeto é invisivel
+  char adjetivos[];//adjetivos por enquanto array, mas é pra ser uma lista
+  int invisivel;// quando 1 o objeto é invisivel
 }objeto;
 
 void exam(objeto o);// função para examinar o objeto
@@ -29,12 +29,12 @@ void drop(objeto o); // função para soltar o objeto caso ele esteja no invetá
 //Lugares
 typedef struct {
   elemento ele;
-  saida ex;// saida do lugar
+  saida saida;// saida do lugar
 }lugar;
 
 typedef struct{
   char destino[100];// referencia key do hashtable do destino dessa saida
-  int closed;// quando 1 a sáida esta fechada
+  int fechada;// quando 1 a sáida esta fechada
 }saida
 
 //imcompletos
