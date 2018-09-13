@@ -9,7 +9,7 @@ Nome:                                 NUSP:
 typedef struct{
   elemento ele;
   char* key;
-}simbol;
+}simbolo;
 
 typedef struct{
   int size;
