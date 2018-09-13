@@ -9,4 +9,10 @@ Nome:                                 NUSP:
 typedef struct{
   elemento ele;
   int key;
-}hItem;
+}h_Item;
+
+typedef struct{
+  int size;
+  int count;
+  h_item** item;
+}h_table;
