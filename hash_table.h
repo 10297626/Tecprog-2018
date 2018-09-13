@@ -8,11 +8,22 @@ Nome:                                 NUSP:
 
 typedef struct{
   elemento ele;
-  int key;
-}h_Item;
+  char* key;
+}simbol;
 
 typedef struct{
   int size;
   int count;
-  h_item** item;
-}h_table;
+  simbol** item;
+}tabsim;
+
+tabsim Cria(int tam);
+
+void destroi(tabsim t);
+
+int insere(tabsim t, char *n,elemento *val);
+
+elemento *busca(tabsim t, char *n);
+
+int retira(tabsim t, char*n);
+
