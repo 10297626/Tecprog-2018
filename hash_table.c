@@ -8,3 +8,13 @@ Nome:                                 NUSP:
 #include <string.h>
 #include "hash_table.h"
 #include "advlib.h"
+
+tabsim cria(int tam){
+  tabsim *tab=malloc(sizeof(tabsim));
+  tabsim->tab=malloc(sizeof(simbolo * ) * tam)
+	for( i = 0; i < tam; i++ ) {
+		tabsim->tab[i] = NULL;
+	}
+  tabsim->size=tam;
+  return tabsim;
+}
