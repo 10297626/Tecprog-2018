@@ -13,8 +13,7 @@ typedef struct{
 
 typedef struct{
   int size;
-  int count;
-  simbol** item;
+  simbolo **tab;
 }tabsim;
 
 tabsim Cria(int tam);
