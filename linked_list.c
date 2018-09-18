@@ -29,20 +29,35 @@ lista insere(lista l, elemeento *val, char *n){
   }    
 }
 
-elemento busca(lista l, char *n){
+node busca(lista l, char *n){
   node atual;
-  atual=l.head
+  atual=l->head
   if(atual.nome==n){
-    return head.ele;
+    return head;
   }
   while(atual.next!=null){
-    atual = head.next;
+    atual = atual.next;
     if (atual.nome==n){
-      return atual.ele;
+      return atual;
     }
   }
   return null;      
  }
-  
-  
+
+node retira(lista l, char *n){
+  node atual;
+  atual=l->head;
+  if(atual->nome==n){
+    l->head=atual->next;
+    return l->head;
+  }
+  while(atual.next!=null){
+    if(atual.next.nome==n){
+      node rem=atual.next;
+      atual.next=rem.next;
+      rem.next=null;
+      return l->head;
+    }
+  }
+  return null;
 }
