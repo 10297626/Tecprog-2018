@@ -15,7 +15,7 @@ void destroi(lista *l){
 }
 
 lista insere(lista l, elemeento *val, char *n){
-  node new;
+  node *new=(node*) malloc(sizeof(node));
   new->ele=val;
   new->next=null;
   new->nome=n;
