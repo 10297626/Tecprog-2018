@@ -25,6 +25,7 @@ void ht_destroi(tabsim tab){
 	free(tab);
 }
 
+
 int hashCode(char *key, int tam) {
 	//soma todos os ascii de cada caractere da key
 	int x = strlen(key)-1;
@@ -35,6 +36,7 @@ int hashCode(char *key, int tam) {
 		x+= -1;			
 	}
 	
+	//retorna o resultado da divisão inteira da soma pelo tamanho da hash table
 	return asc % tam;
 }
 
@@ -49,6 +51,8 @@ int ht_insere(tabsim tab, char *n,elemento *val){
 	int hi=hashcode(n,tab->size);//manda o codigo ascII do n;
 	int lim=hi;//pra saber se deu uma volta completa
 	
+	// esse código resolve a possibilidade de colisões na hash table
+	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
 	while(tab[hi]!=NULL){//até achar um espaço vazio
 		//vai pra proxima 
 		hi+=1;
