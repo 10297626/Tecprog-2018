@@ -10,13 +10,13 @@ typedef struct node{
   elemento ele;
   struct node next;
   char *nome;
-}node;
+};
 
 typedef struct lista{
   node head;
   node last;
   int count;
-}lista
+};
 
 lista l_cria();
 
