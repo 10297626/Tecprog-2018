@@ -12,14 +12,14 @@ typedef struct elemento{
   char artigos[4][10];// artigos 
   char longa[100];//descrição longa para quando examinar o objeto
   char curta[40];// descrição curta
-}elemento
+};
 
 //Objeto
 typedef struct objeto{
   elemento ele;
   char adjetivos[][];//adjetivos 
   int invisivel;// quando 1 o objeto é invisivel
-}objeto;
+};
 
 void exam(objeto o);// função para examinar o objeto
 
@@ -32,19 +32,19 @@ void drop(objeto o); // função para soltar o objeto caso ele esteja no invetá
 typedef struct saida{
   char destino[100];// referencia key do hashtable do destino dessa saida
   int fechada;// quando 1 a sáida esta fechada
-}saida
+};
 
 typedef struct lugar {
   elemento ele;
   saida saida;// saida do lugar
-}lugar;
+};
 
 //imcompletos
-/*
-typedef struct{
-}verbo;//verbos
+//
+//typedef struct{
+//}verbo;//verbos
 
-typedef struct{
-}aventureiro;//o aventureiro
-*/
+//typedef struct{
+//}aventureiro;//o aventureiro
+
 
