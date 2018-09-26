@@ -6,12 +6,12 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 #include "advlib.h"
 
-typedef struct{
+typedef struct simbolo{
   elemento ele;
   char* key;
 }simbolo;
 
-typedef struct{
+typedef struct tabsim{
   int size;
   simbolo **tab;
 }tabsim;
