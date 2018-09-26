@@ -4,7 +4,7 @@ Nome: Henrique Suzuki                 NUSP: 10297626
 Nome: Rubens Gomes Neto               NUSP: 9318484
 //////////////////////////////////////////////////////////////////////*/
 
-#include "stdio.h"
+#include <stdio.h>
 #include "linked_list.h"
 #include "advlib.h"
 
