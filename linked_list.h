@@ -12,15 +12,15 @@ typedef struct{
   int count;
 }lista
 
-lista cria();
+lista l_cria();
 
-void destroi(lista l);
+void l_destroi(lista l);
 
-lista insere(lista l, elemento *val, char *n);
+lista l_insere(lista l, elemento *val, char *n);
 
-elemento busca(lista l, char *n);
+elemento l_busca(lista l, char *n);
 
-elemento retira(lista l, elemento  *val);
+elemento l_retira(lista l, elemento  *val);
 
 
   
