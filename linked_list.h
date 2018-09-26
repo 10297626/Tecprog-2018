@@ -6,13 +6,13 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 #include "advlib.h"
 
-typedef struct{
+typedef struct node{
   elemento ele;
   struct node next;
   char *nome;
 }node;
 
-typedef struct{
+typedef struct lista{
   node head;
   node last;
   int count;
