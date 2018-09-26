@@ -16,13 +16,13 @@ typedef struct{
   simbolo **tab;
 }tabsim;
 
-tabsim Cria(int tam);
+tabsim ht_cria(int tam);
 
-void destroi(tabsim t);
+void ht_destroi(tabsim t);
 
-int insere(tabsim t, char *n,elemento *val);
+int ht_insere(tabsim t, char *n,elemento *val);
 
-elemento *busca(tabsim t, char *n);
+elemento ht_busca(tabsim t, char *n);
 
-int retira(tabsim t, char*n);
+int ht_retira(tabsim t, char*n);
 
