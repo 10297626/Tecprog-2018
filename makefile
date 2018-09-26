@@ -1,5 +1,5 @@
 # pro terminal 
-# gcc teste.c hash_table.c hash_table.h linked_list.c linked_list.h advlib.h -o teste
+# gcc advlib.h  hash_table.h hash_table.c linked_list.h linked_list.c teste.c -o teste
 CC=gcc
 CFLAGS=-I.
 
