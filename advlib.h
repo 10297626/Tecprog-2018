@@ -4,6 +4,7 @@ Nome: Alessandro Bezerra da Silva     NUSP: 10284351
 Nome: Henrique Suzuki                 NUSP: 10297626
 Nome: Rubens Gomes Neto               NUSP: 9318484
 //////////////////////////////////////////////////////////////////////*/
+#include "linked_list.h"
 
 //Elemento
 typedef struct{
@@ -16,7 +17,7 @@ typedef struct{
 //Objeto
 typedef struct {
   elemento ele;
-  char adjetivos[];//adjetivos por enquanto array, mas é pra ser uma lista
+  char adjetivos[][];//adjetivos 
   int invisivel;// quando 1 o objeto é invisivel
 }objeto;
 
