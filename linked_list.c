@@ -2,7 +2,7 @@
 #include "linked_list.h"
 #include "advlib.h"
 
-lista cria(){
+lista l_cria(){
   lista *l= (lista*)malloc(sixeof(lista));
   l->count=0;
   l->head=null;
@@ -10,11 +10,11 @@ lista cria(){
   return l;
 }
 
-void destroi(lista *l){
+void l_destroi(lista *l){
   free(l);
 }
 
-lista insere(lista l, elemeento *val, char *n){
+lista l_insere(lista l, elemeento *val, char *n){
   node *new=(node*) malloc(sizeof(node));
   new->ele=val;
   new->next=null;
@@ -29,7 +29,7 @@ lista insere(lista l, elemeento *val, char *n){
   }    
 }
 
-node busca(lista l, char *n){
+node l_busca(lista l, char *n){
   node atual;
   atual=l->head
   if(atual.nome==n){
@@ -44,7 +44,7 @@ node busca(lista l, char *n){
   return null;      
  }
 
-node retira(lista l, char *n){
+node l_retira(lista l, char *n){
   node atual;
   atual=l->head;
   if(atual->nome==n){
