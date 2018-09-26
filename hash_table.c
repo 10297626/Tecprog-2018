@@ -25,14 +25,14 @@ void ht_destroi(tabsim tab){
 	free(tab);
 }
 
-int hashCode(char key, int tam) {
+int hashCode(char *key, int tam) {
 	//soma todos os ascii de cada caractere da key
 	int x = strlen(key)-1;
 	int asc=0;
 	
-	while (n>=0){
-		asc+=atoi(n[x]);
-		n+= -1;			
+	while (x>=0){
+		asc+= (int) key[x];
+		x+= -1;			
 	}
 	
 	return asc % tam;
