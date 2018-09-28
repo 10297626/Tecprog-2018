@@ -12,6 +12,8 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 static simbolo 	HT_DUMMY = {NULL, NULL};
 
+
+//NO FUTURO COPIE KEY E ELE PARA FAZER SENTIDO ESSE MALLOC, MSM COISA PRA LISTA
 static simbolo* ht_novosim(elemento* ele, char *key){
 	simbolo *i = malloc(sizeof(simbolo));
 	i->key=key;
@@ -90,9 +92,9 @@ elemento* ht_busca(tabsim *tab, char *key){
 	int hi = hashcode(key,tab->size);
 	int lim=hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi]!=NULL && tab->simbolos[hi] != &HT_DUMMY){
+	while(tab->simbolos[hi]!=NULL ){
 		
-		if(tab->simbolos[hi]->key==key){
+		if(tab->simbolos[hi]->key==key && tab->simbolos[hi] != &HT_DUMMY){
 			//encontrou
 			return tab->simbolos[hi]->ele;
 		}
