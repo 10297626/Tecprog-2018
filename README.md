@@ -1,9 +1,9 @@
 
-Nome: Alessandro Bezerra da Silva     NUSP: 10284351
-Nome: Henrique Suzuki                 NUSP: 10297626
-Nome: Rubens Gomes Neto               NUSP: 9318484
+	Nome: Alessandro Bezerra da Silva     NUSP: 10284351
+	Nome: Henrique Suzuki                 NUSP: 10297626
+	Nome: Rubens Gomes Neto               NUSP: 9318484
 
-Relatório Projeto Tecprog 2018 "Aventura"
+#Relatório Projeto Tecprog 2018 "Aventura"
 
 	Primeira Fase
 	
