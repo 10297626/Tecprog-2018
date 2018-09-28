@@ -22,5 +22,5 @@
 	
 	Dificuldades encontradas:
 	-Char*, char array e strings são confusas, a solução foi fazer com que uma char array receba uma string e um char* receba o endereço da char array;
-	-Dificuldades com ponteiros, já que é a primeira que o grupo programa em C. Mas achamos que conseguimos entender o suficiente.
+	-Dificuldades com ponteiros, já que é a primeira vez que o grupo programa em C. Mas achamos que conseguimos entender o suficiente.
 	-Makefile ainda não funciona.
