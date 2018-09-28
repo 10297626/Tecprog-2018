@@ -1,5 +1,6 @@
 # pro terminal 
-# gcc advlib.h  hash_table.h hash_table.c linked_list.h linked_list.c teste.c -o teste
+# gcc  teste.c hash_table.c  linked_list.c -o teste 
+# depois rode teste
 CC=gcc
 CFLAGS=-I.
 
