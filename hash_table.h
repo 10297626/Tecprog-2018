@@ -12,14 +12,14 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 
 typedef struct simbolo{
-  elemento *ele;
-  char *key;
+	elemento *ele;
+	char *key;
 }simbolo;
 
 typedef struct tabsim{
-  int size;
-  int count;
-  simbolo** simbolos;
+	int size;
+	int count;
+	simbolo** simbolos;
 }tabsim;
 
 tabsim *ht_cria(int tam);

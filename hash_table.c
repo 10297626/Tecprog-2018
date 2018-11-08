@@ -42,8 +42,8 @@ void ht_destroi(tabsim *tab){
 			ht_delsim(sim);
 		} 
 	}
-    free(tab->simbolos);
-    free(tab);
+	free(tab->simbolos);
+	free(tab);
 }
 
 static int hashcode(char *key, int tam) {
@@ -53,7 +53,7 @@ static int hashcode(char *key, int tam) {
 	
 	while (x>=0){
 		asc+= (int) key[x];
-		x+= -1;			
+		x+= -1;
 	}
 	
 	//retorna o resultado da divisão inteira da soma pelo tamanho da hash table
@@ -79,7 +79,7 @@ int ht_insere(tabsim *tab, char *key,elemento *ele){
 		//se der uma volta completa e não achar espaço
 		if (hi==lim){
 			return 0;
-		}	
+		}
 	}
 	//insere o item na hashtable
 	tab->simbolos[hi] = sim1;
@@ -105,7 +105,7 @@ elemento* ht_busca(tabsim *tab, char *key){
 		//se der uma volta completa e não achar o item
 		if (hi==lim){
 			return NULL;
-		}	
+		}
 	}
 	return NULL;
 }
@@ -138,8 +138,7 @@ int ht_retira(tabsim *tab, char *key){
 		//se der uma volta completa e não achar o item
 		if (hi==lim){
 			return 0;
-		}	
+		}
 	}
 	return 0;
 }
-

@@ -43,34 +43,34 @@ int main(){
 	}
 
 	//destroi a hash table
-    ht_destroi(tab);
-    printf("hash table destruida\n\n");
+	ht_destroi(tab);
+	printf("hash table destruida\n\n");
 
-    //teste da lista ligada
-    //criando a lista
-    lista *l = l_cria();
-   	printf("lista criada\n");
+	//teste da lista ligada
+	//criando a lista
+	lista *l = l_cria();
+	printf("lista criada\n");
 
-   	//inserindo um elemento
-   	l=l_insere(l,&ele);
+	//inserindo um elemento
+	l=l_insere(l,&ele);
 	printf("sucesso na insercao da lista\n");
 
-   	//busca na lista
-   	if (&ele==l_busca(l,ele.nome)){
-   		printf("sucesso na busca da lista\n");
-   	}
-   	
-   	//retirando um elemento
-   	if (&ele==l_retira(l,&ele)){
-   		printf("sucesso na retirada da lista\n");
-   	}
+	//busca na lista
+	if (&ele==l_busca(l,ele.nome)){
+		printf("sucesso na busca da lista\n");
+	}
+	
+	//retirando um elemento
+	if (&ele==l_retira(l,&ele)){
+		printf("sucesso na retirada da lista\n");
+	}
 
-   	//busca na lista
-   	if (l_busca(l,"ola")==NULL){
-   		printf("item nao esta na lista\n");
-   	}
-   	//
-   	l_destroi(l);
-   	printf("lista destruida\n\n");
-   	
+	//busca na lista
+	if (l_busca(l,"ola")==NULL){
+		printf("item nao esta na lista\n");
+	}
+
+	l_destroi(l);
+	printf("lista destruida\n\n");
+	
 }

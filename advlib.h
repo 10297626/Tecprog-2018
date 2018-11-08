@@ -12,7 +12,7 @@ typedef struct elemento{
 	char *nome;//nome do objeto
 //	char *artigos[4][10];// artigos 
 //	char *longa[100];//descrição longa para quando examinar o objeto
-// 	char *curta[40];// descrição curta
+//	char *curta[40];// descrição curta
 }elemento;
 
 //Objeto
