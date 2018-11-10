@@ -4,7 +4,7 @@
 CC= gcc
 CFLAGS= -Wall
 
-teste: hash_table.o linkedlist.o advlib.o teste.o
+teste: hashtable.o linkedlist.o advlib.o teste.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 hashtable.o: hashtable.c advlib.h hashtable.h
