@@ -20,8 +20,8 @@ static Simbolo  ht_novosim(Elemento ele, char *key){
 	return i;
 }
 
-TabSimb ht_cria(int tam){
-	TabSimb  tab = malloc(sizeof(tabsim));
+TabSim ht_cria(int tam){
+	TabSim  tab = malloc(sizeof(tabsim));
 	tab->size = tam;
 	tab->count = 0;
 	tab->simbolos = calloc((size_t)tab->size,sizeof(Simbolo));
@@ -34,7 +34,7 @@ static void ht_delsim(Simbolo sim){
 	free(sim);
 }
 
-void ht_destroi(TabSimb tab){
+void ht_destroi(TabSim tab){
 	for(int i = 0; i < tab->size; i++){
 
 		Simbolo sim = tab->simbolos[i];
@@ -60,7 +60,7 @@ static int hashcode(char *key, int tam) {
 	return asc % tam;
 }
 
-int ht_insere(TabSimb tab, char *key, Elemento ele){
+int ht_insere(TabSim tab, char *key, Elemento ele){
 	// retorna 0 caso não tenha sucesso
 	// retorna 1 caso tenha sucesso
 	
@@ -87,7 +87,7 @@ int ht_insere(TabSimb tab, char *key, Elemento ele){
 	return 1;
 }
 
-Elemento ht_busca(TabSimb tab, char *key){
+Elemento ht_busca(TabSim tab, char *key){
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
@@ -112,7 +112,7 @@ Elemento ht_busca(TabSimb tab, char *key){
 
 
 
-int ht_retira(TabSimb tab, char *key){
+int ht_retira(TabSim tab, char *key){
 	// retorna 0 caso não tenha sucesso
 	// retorna 1 caso tenha sucesso
 	

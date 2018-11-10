@@ -12,7 +12,7 @@ int main(){
 
 	//teste de hash table
 	//criação da hash table
-	TabSimb tab = ht_cria(30);
+	TabSim tab = ht_cria(30);
 	printf("hash table criada\n");
 	//item exemplo
 	elemento ele;

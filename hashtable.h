@@ -22,16 +22,16 @@ typedef struct tabsim{
 	int count;
 	Simbolo* simbolos;
 }tabsim;
-typedef tabsim* TabSimb;
+typedef tabsim* TabSim;
 
-TabSimb ht_cria(int tam);
+TabSim ht_cria(int tam);
 
-void ht_destroi(TabSimb tab);
+void ht_destroi(TabSim tab);
 
-int ht_insere(TabSimb tab, char *key, Elemento ele);
+int ht_insere(TabSim tab, char *key, Elemento ele);
 
-Elemento ht_busca(TabSimb tab, char *key);
+Elemento ht_busca(TabSim tab, char *key);
 
-int ht_retira(TabSimb tab, char*key);
+int ht_retira(TabSim tab, char*key);
 
 #endif /* hashtable_h */
