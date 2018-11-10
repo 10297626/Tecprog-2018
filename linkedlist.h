@@ -10,7 +10,7 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 #include "advlib.h"
 
 typedef struct node{
-	elemento *ele;
+	Elemento ele;
 	struct node *next;
 }node;
 
@@ -18,15 +18,16 @@ typedef struct lista{
 	node *head;
 	int count;
 }lista;
+typedef lista* Lista;
 
-lista* l_cria();
+Lista l_cria();
 
-void l_destroi(lista *l);
+void l_destroi(Lista l);
 
-lista* l_insere(lista *l, elemento *ele);
+Lista l_insere(Lista l, Elemento ele);
 
-elemento* l_busca(lista *l, char *nome);
+Elemento l_busca(Lista l, char *nome);
 
-elemento* l_retira(lista *l, elemento  *val);
+Elemento l_retira(Lista l, Elemento  val);
 
 #endif /* linkedlist_h */

@@ -12,24 +12,26 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 
 typedef struct simbolo{
-	elemento *ele;
+	Elemento ele;
 	char *key;
 }simbolo;
+typedef simbolo* Simbolo;
 
 typedef struct tabsim{
 	int size;
 	int count;
-	simbolo** simbolos;
+	Simbolo* simbolos;
 }tabsim;
+typedef tabsim* TabSimb;
 
-tabsim *ht_cria(int tam);
+TabSimb ht_cria(int tam);
 
-void ht_destroi(tabsim *tab);
+void ht_destroi(TabSimb tab);
 
-int ht_insere(tabsim *tab, char *key,elemento *ele);
+int ht_insere(TabSimb tab, char *key, Elemento ele);
 
-elemento* ht_busca(tabsim *tab, char *key);
+Elemento ht_busca(TabSimb tab, char *key);
 
-int ht_retira(tabsim *tab, char*key);
+int ht_retira(TabSimb tab, char*key);
 
 #endif /* hashtable_h */

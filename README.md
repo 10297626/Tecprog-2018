@@ -7,9 +7,9 @@
 	
 	Instrunções:
 	Pra compilar o programa coloque todos os arquivos .c e .h em um diretório e no terminal execute:
-	gcc teste.c hash_table.c linked_list.c -o teste
+	gcc teste.c hashtable.c linkedlist.c -o teste
 	e depois execute o teste.
-	O programa teste.c testa todas as funções do hash_table.c e do linked_list.c.
+	O programa teste.c testa todas as funções do hashtable.c e do linkedlist.c.
 	
 	Detalhes da implementação:
 	Os objetos e elementos tem somente informações mínimas para teste nessa fase, mais serão implementadas no futuro.
@@ -21,4 +21,3 @@
 	Dificuldades encontradas:
 	-Char*, char array e strings são confusas, a solução foi fazer com que uma char array receba uma string e um char* receba o endereço da char array;
 	-Dificuldades com ponteiros, já que é a primeira vez que o grupo programa em C. Mas achamos que conseguimos entender o suficiente.
-	-Makefile ainda não funciona.

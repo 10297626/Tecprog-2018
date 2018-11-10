@@ -14,10 +14,11 @@ typedef struct elemento{
 //	char *longa[100];//descrição longa para quando examinar o objeto
 //	char *curta[40];// descrição curta
 }elemento;
+typedef elemento* Elemento;
 
 //Objeto
 typedef struct objeto{
-	elemento *ele;
+	Elemento ele;
 //	char *adjetivos[][];//adjetivos 
 	int invisivel;// quando 1 o objeto é invisivel
 }objeto;
@@ -36,7 +37,7 @@ typedef struct saida{
 }saida;
 
 typedef struct lugar {
-	elemento *ele;
+	Elemento ele;
 	saida *saida;// saida do lugar
 }lugar;
 
