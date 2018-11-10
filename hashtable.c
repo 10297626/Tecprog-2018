@@ -6,7 +6,7 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "hash_table.h"
+#include "hashtable.h"
 #include "advlib.h"
 
 static simbolo 	HT_DUMMY = {NULL, NULL};

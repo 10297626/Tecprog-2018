@@ -6,7 +6,7 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "linked_list.h"
+#include "linkedlist.h"
 #include "advlib.h"
 
 lista* l_cria(){
