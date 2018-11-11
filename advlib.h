@@ -1,6 +1,6 @@
 /*//////////////////////////////////////////////////////////////////////
 Nome: Henrique Suzuki                 NUSP: 10297626
-Nome: Rubens Gomes Neto               NUSP: 9318484
+Nome: Rubens Gomes Neto               NUSP:  9318484
 //////////////////////////////////////////////////////////////////////*/
 
 //#include guards
@@ -9,7 +9,7 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 //Booleanos
 typedef enum {
-False, True
+	False, True
 } Boolean;
 //Elemento
 typedef struct elemento{
@@ -36,12 +36,12 @@ typedef struct objeto{
 
 typedef struct saida{
 	char *destino[100];// referencia key do hashtable do destino dessa saida
-	int fechada;// quando 1 a sáida esta fechada
+	Boolean fechada;// quando 1 a sáida esta fechada
 }saida;
 
 typedef struct lugar {
 	Elemento ele;
-	saida *saida;// saida do lugar
+	saida *saidas;// saida do lugar
 }lugar;
 
 //imcompletos

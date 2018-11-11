@@ -1,6 +1,6 @@
 /*//////////////////////////////////////////////////////////////////////
 Nome: Henrique Suzuki                 NUSP: 10297626
-Nome: Rubens Gomes Neto               NUSP: 9318484
+Nome: Rubens Gomes Neto               NUSP:  9318484
 //////////////////////////////////////////////////////////////////////*/
 
 //#include guards
@@ -28,10 +28,10 @@ TabSim ht_cria(int tam);
 
 void ht_destroi(TabSim tab);
 
-int ht_insere(TabSim tab, char *key, Elemento ele);
+Boolean ht_insere(TabSim tab, char *key, Elemento ele);
 
 Elemento ht_busca(TabSim tab, char *key);
 
-int ht_retira(TabSim tab, char*key);
+Boolean ht_retira(TabSim tab, char*key);
 
 #endif /* hashtable_h */
