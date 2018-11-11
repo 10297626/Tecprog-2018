@@ -1,6 +1,6 @@
 # pro terminal 
 # gcc  teste.c hash_table.c linked_list.c -o teste 
-# depois rode teste\
+# depois rode teste
 #$(info $(SHELL))
 CC = gcc
 CFLAGS = -Wall
