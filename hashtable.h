@@ -9,17 +9,17 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include "advlib.h"
 
-typedef struct simbolo{
+typedef struct simbolo {
 	Elemento ele;
 	char *key;
-}simbolo;
+} simbolo;
 typedef simbolo* Simbolo;
 
-typedef struct tabsim{
+typedef struct tabsim {
 	int size;
 	int count;
 	Simbolo* simbolos;
-}tabsim;
+} tabsim;
 typedef tabsim* TabSim;
 
 TabSim ht_cria(int tam);
@@ -30,6 +30,6 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele);
 
 Elemento ht_busca(TabSim tab, char *key);
 
-Boolean ht_retira(TabSim tab, char*key);
+Boolean ht_retira(TabSim tab, char *key);
 
 #endif /* hashtable_h */

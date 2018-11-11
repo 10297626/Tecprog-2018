@@ -9,16 +9,16 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 #include "advlib.h"
 
-typedef struct node{
+typedef struct node {
 	Elemento ele;
 	struct node *next;
-}node;
+} node;
 typedef struct node* Node;
 
-typedef struct lista{
+typedef struct lista {
 	Node head;
 	int count;
-}lista;
+} lista;
 typedef lista* Lista;
 
 Lista l_cria();

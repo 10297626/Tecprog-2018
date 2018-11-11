@@ -11,49 +11,50 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 typedef enum {
 	False, True
 } Boolean;
+
 //Elemento
-typedef struct elemento{
+typedef struct elemento {
 	char *nome; //nome do objeto
-//	char *artigos[4][10]; // artigos
-	char *curta[40]; //descrição curta
-	char *longa[100]; //descrição longa para quando examinar o objeto
+	//char *artigos[4][10]; // artigos
+	char *curta; //descrição curta [40]
+	char *longa; //descrição longa para quando examinar o objeto [100]
 	Boolean ativo; //indica se elemento existe no jogo
 	Boolean visivel; //indicador de visibilidade
 	Boolean conhecido; //indicador de conhecimento do jogador
-//	Lista conteudo; //itens dentro do elemento
-//	Lista acoes; // lista de acoes
-}elemento;
+	//Lista conteudo; //itens dentro do elemento
+	//Lista acoes; // lista de acoes
+} elemento;
 typedef elemento* Elemento;
 
 //Objeto
-typedef struct objeto{
+typedef struct objeto {
 	Elemento ele;
-//	char *adjetivos[][];//adjetivos 
-	int invisivel;// quando 1 o objeto é invisivel
-}objeto;
+	//char *adjetivos[][]; //adjetivos 
+	int invisivel; // quando 1 o objeto é invisivel
+} objeto;
 
 //Lugares
 
-typedef struct saida{
-	char *destino[100];// referencia key do hashtable do destino dessa saida
-	Boolean fechada;// quando 1 a sáida esta fechada
-}saida;
+typedef struct saida {
+	char *destino; // referencia key do hashtable do destino dessa saida [100]
+	Boolean fechada; // quando 1 a sáida esta fechada
+} saida;
 
 typedef struct lugar {
 	Elemento ele;
 	saida *saidas;// saida do lugar
-}lugar;
+} lugar;
 
 //imcompletos
 //
-//typedef struct{
-//}verbo;//verbos
+//typedef struct {
+//} verbo; //verbos
 
-//typedef struct{
-//}aventureiro;//o aventureiro
+//typedef struct {
+//} aventureiro; //o aventureiro
 
-void exam(objeto o);// função para examinar o objeto
-void pegar(objeto o);//função para pegar o objeto
+void exam(objeto o); // função para examinar o objeto
+void pegar(objeto o); //função para pegar o objeto
 void drop(objeto o); // função para soltar o objeto caso ele esteja no invetário
 
 

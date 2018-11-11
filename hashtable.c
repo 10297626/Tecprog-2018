@@ -12,14 +12,14 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 static simbolo HT_DUMMY = {NULL, NULL};
 
 //NO FUTURO COPIE KEY E ELE PARA FAZER SENTIDO ESSE MALLOC, MSM COISA PRA LISTA
-static Simbolo ht_novosim(Elemento ele, char *key){
+static Simbolo ht_novosim(Elemento ele, char *key) {
 	Simbolo i = malloc(sizeof(simbolo));
 	i->key = key;
 	i->ele = ele;
 	return i;
 }
 
-TabSim ht_cria(int tam){
+TabSim ht_cria(int tam) {
 	TabSim tab = malloc(sizeof(tabsim));
 	tab->size = tam;
 	tab->count = 0;
@@ -27,7 +27,7 @@ TabSim ht_cria(int tam){
 	return tab;
 }
 
-static void ht_delsim(Simbolo sim){
+static void ht_delsim(Simbolo sim) {
 	free(sim->ele);
 	sim->ele = NULL;
 	free(sim->key);
@@ -36,11 +36,11 @@ static void ht_delsim(Simbolo sim){
 	sim = NULL;
 }
 
-void ht_destroi(TabSim tab){
-	for(int i = 0; i < tab->size; i++){
+void ht_destroi(TabSim tab) {
+	for(int i = 0; i < tab->size; i++) {
 
 		Simbolo sim = tab->simbolos[i];
-		if (sim != NULL){
+		if(sim != NULL) {
 			ht_delsim(sim);
 		} 
 	}
@@ -55,7 +55,7 @@ static int hashcode(char *key, int tam) {
 	int x = strlen(key)-1;
 	int asc = 0;
 	
-	while (x >= 0){
+	while(x >= 0) {
 		asc += (int)key[x];
 		x -= 1;
 	}
@@ -64,7 +64,7 @@ static int hashcode(char *key, int tam) {
 	return asc % tam;
 }
 
-Boolean ht_insere(TabSim tab, char *key, Elemento ele){
+Boolean ht_insere(TabSim tab, char *key, Elemento ele) {
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
 	
@@ -75,13 +75,13 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele){
 	
 	// esse código resolve a possibilidade de colisões na hash table
 	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
-	while(tab->simbolos[hi] != NULL && tab->simbolos[hi] != &HT_DUMMY){//até achar um espaço vazio
+	while(tab->simbolos[hi] != NULL && tab->simbolos[hi] != &HT_DUMMY) {//até achar um espaço vazio
 		//vai pra proxima 
 		hi += 1;
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar espaço
-		if (hi == lim){
+		if(hi == lim) {
 			return False;
 		}
 	}
@@ -91,13 +91,13 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele){
 	return True;
 }
 
-Elemento ht_busca(TabSim tab, char *key){
+Elemento ht_busca(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi] != NULL ){
+	while(tab->simbolos[hi] != NULL ) {
 		
-		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY){
+		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY) {
 			//encontrou
 			return tab->simbolos[hi]->ele;
 		}
@@ -107,7 +107,7 @@ Elemento ht_busca(TabSim tab, char *key){
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar o item
-		if (hi == lim){
+		if(hi == lim) {
 			return NULL;
 		}
 	}
@@ -116,17 +116,17 @@ Elemento ht_busca(TabSim tab, char *key){
 
 
 
-Boolean ht_retira(TabSim tab, char *key){
+Boolean ht_retira(TabSim tab, char *key) {
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
 	
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi] != NULL){
+	while(tab->simbolos[hi] != NULL) {
 		Simbolo item = tab->simbolos[hi];
-		if(item != &HT_DUMMY){
-			if(strcmp(item->key, key) == 0){
+		if(item != &HT_DUMMY) {
+			if(strcmp(item->key, key) == 0) {
 				ht_delsim(item);
 				tab->simbolos[hi] = &HT_DUMMY;
 				tab->count--;
@@ -140,7 +140,7 @@ Boolean ht_retira(TabSim tab, char *key){
 		hi %= tab->size;
 		
 		//se der uma volta completa e não achar o item
-		if (hi == lim){
+		if(hi == lim) {
 			return False;
 		}
 	}
