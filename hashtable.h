@@ -9,8 +9,6 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include "advlib.h"
 
-
-
 typedef struct simbolo{
 	Elemento ele;
 	char *key;
