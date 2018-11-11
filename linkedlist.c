@@ -9,6 +9,10 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 #include "linkedlist.h"
 #include "advlib.h"
 
+/**
+ * Cria uma lista ligada
+ * @return [description]
+ */
 Lista l_cria(){
 	Lista l = malloc(sizeof(lista));
 	l->count = 0;
@@ -17,7 +21,7 @@ Lista l_cria(){
 }
 
 void l_destroi(Lista l){
-	node *atual = l->head;
+	Node atual = l->head;
 	while (atual != NULL){
 		free(l->head);
 		l->head = atual;
@@ -28,8 +32,8 @@ void l_destroi(Lista l){
 }
 
 
-Lista l_insere(Lista l, elemento *val){
-	node *new = malloc(sizeof(node));
+Lista l_insere(Lista l, Elemento val){
+	Node new = malloc(sizeof(node));
 	new->ele = val;
 	new->next = l->head;
 	l->head = new;
@@ -38,7 +42,7 @@ Lista l_insere(Lista l, elemento *val){
 
 
 Elemento l_busca(Lista l, char *n){
-	node *atual = l->head;
+	Node atual = l->head;
 
 	while(atual != NULL){
 		char *na = atual->ele->nome;

@@ -11,7 +11,6 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 static simbolo HT_DUMMY = {NULL, NULL};
 
-
 //NO FUTURO COPIE KEY E ELE PARA FAZER SENTIDO ESSE MALLOC, MSM COISA PRA LISTA
 static Simbolo ht_novosim(Elemento ele, char *key){
 	Simbolo i = malloc(sizeof(simbolo));

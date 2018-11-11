@@ -13,9 +13,10 @@ typedef struct node{
 	Elemento ele;
 	struct node *next;
 }node;
+typedef struct node* Node;
 
 typedef struct lista{
-	node *head;
+	Node head;
 	int count;
 }lista;
 typedef lista* Lista;
