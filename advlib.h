@@ -39,12 +39,12 @@ typedef struct objeto {
 
 typedef struct saida {
 	char *destino; // referencia key do hashtable do destino dessa saida [100]
-	Boolean fechada; // quando 1 a sáida esta fechada
+	Boolean fechada; // quando True a sáida esta fechada
 } saida;
 
 typedef struct lugar {
 	Elemento ele;
-	saida *saidas;// saida do lugar
+	saida *saidas;// saidas do lugar
 } lugar;
 
 //imcompletos
