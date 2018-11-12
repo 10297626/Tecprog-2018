@@ -13,7 +13,7 @@ typedef struct node {
 	Elemento ele;
 	struct node *next;
 } node;
-typedef struct node* Node;
+typedef node* Node;
 
 typedef struct lista {
 	Node head;
