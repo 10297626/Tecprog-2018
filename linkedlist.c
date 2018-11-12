@@ -77,7 +77,7 @@ Elemento l_busca(Lista l, char *n) {
  * Retira um item da lista ligada
  * @param  l   lista de onde tirar o elemento
  * @param  val elemento a ser retirado
- * @return     [description]
+ * @return     retorna o elemento ou NULL caso nao encontrado
  */
 Elemento l_retira(Lista l, Elemento val) {
 	Node atual = l->head;

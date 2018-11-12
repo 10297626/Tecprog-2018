@@ -26,6 +26,8 @@ typedef struct elemento {
 } elemento;
 typedef elemento* Elemento;
 
+Elemento cria_ele();
+
 //Objeto
 typedef struct objeto {
 	Elemento ele;
