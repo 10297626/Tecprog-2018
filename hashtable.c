@@ -23,7 +23,7 @@ TabSim ht_cria(int tam) {
 	TabSim tab = malloc(sizeof(tabsim));
 	tab->size = tam;
 	tab->count = 0;
-	tab->simbolos = calloc((size_t)tab->size,sizeof(Simbolo));
+	tab->simbolos = calloc((size_t)tab->size, sizeof(Simbolo));
 	return tab;
 }
 
@@ -38,11 +38,9 @@ static void ht_delsim(Simbolo sim) {
 
 void ht_destroi(TabSim tab) {
 	for(int i = 0; i < tab->size; i++) {
-
 		Simbolo sim = tab->simbolos[i];
-		if(sim != NULL) {
+		if(sim != NULL)
 			ht_delsim(sim);
-		} 
 	}
 	free(tab->simbolos);
 	tab->simbolos = NULL;
@@ -54,12 +52,10 @@ static int hashcode(char *key, int tam) {
 	//soma todos os ascii de cada caractere da key
 	int x = strlen(key)-1;
 	int asc = 0;
-	
 	while(x >= 0) {
 		asc += (int)key[x];
 		x -= 1;
 	}
-	
 	//retorna o resultado da divisão inteira da soma pelo tamanho da hash table
 	return asc % tam;
 }
@@ -68,10 +64,14 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele) {
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
 	
+	//nao ha espaco na tabela
+	if(tab->size == tab->count)
+		return False;
+	
 	Simbolo sim1 = ht_novosim(ele, key);
 	
 	int hi = hashcode(key, tab->size);//manda o codigo ascII do n;
-	int lim = hi;//pra saber se deu uma volta completa
+	//int lim = hi;//pra saber se deu uma volta completa
 	
 	// esse código resolve a possibilidade de colisões na hash table
 	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
@@ -81,9 +81,9 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele) {
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar espaço
-		if(hi == lim) {
+		/*if(hi == lim) {
 			return False;
-		}
+		}*/
 	}
 	//insere o item na hashtable
 	tab->simbolos[hi] = sim1;
@@ -95,26 +95,21 @@ Elemento ht_busca(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi] != NULL ) {
+	while(tab->simbolos[hi] != NULL) {
 		
-		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY) {
-			//encontrou
-			return tab->simbolos[hi]->ele;
-		}
+		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY)
+			return tab->simbolos[hi]->ele; //encontrou
 		
 		//vai pra proxima 
 		hi += 1;
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar o item
-		if(hi == lim) {
+		if(hi == lim)
 			return NULL;
-		}
 	}
 	return NULL;
 }
-
-
 
 Boolean ht_retira(TabSim tab, char *key) {
 	// retorna False caso não tenha sucesso
@@ -125,24 +120,19 @@ Boolean ht_retira(TabSim tab, char *key) {
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
 	while(tab->simbolos[hi] != NULL) {
 		Simbolo item = tab->simbolos[hi];
-		if(item != &HT_DUMMY) {
-			if(strcmp(item->key, key) == 0) {
-				ht_delsim(item);
-				tab->simbolos[hi] = &HT_DUMMY;
-				tab->count--;
-				return True;
-			}
+		if(item != &HT_DUMMY && strcmp(item->key, key) == 0){
+			ht_delsim(item);
+			tab->simbolos[hi] = &HT_DUMMY;
+			tab->count--;
+			return True;
 		}
-		
 		//vai pra proxima 
 		hi += 1;
 		//volta ao inicio caso passe
 		hi %= tab->size;
-		
 		//se der uma volta completa e não achar o item
-		if(hi == lim) {
+		if(hi == lim)
 			return False;
-		}
 	}
 	return False;
 }

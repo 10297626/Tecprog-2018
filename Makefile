@@ -1,6 +1,7 @@
-# pro terminal 
-# gcc  teste.c hash_table.c linked_list.c -o teste 
-# depois rode teste
+#########################################################################
+#Nome: Henrique Suzuki                 NUSP: 10297626					#
+#Nome: Rubens Gomes Neto               NUSP:  9318484					#
+#########################################################################
 #$(info $(SHELL))
 CC = gcc
 CFLAGS = -Wall
