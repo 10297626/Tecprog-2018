@@ -84,7 +84,7 @@ Elemento l_retira(Lista l, Elemento val) {
 	Node anterior = atual;
 	while(atual != NULL) {
 		if(strcmp(atual->ele->nome, val->nome) == 0) {
-			if(atual == l->head) {//se for o primeiro da lista
+			if(atual == l->head) { //se for o primeiro da lista
 				l->head = atual->next;
 				atual->next = NULL;
 			} else { // caso esteja no meio da lista
