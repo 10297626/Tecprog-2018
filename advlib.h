@@ -15,7 +15,7 @@ typedef enum {
 //Elemento
 typedef struct elemento {
 	char *nome; //nome do objeto
-	//char *artigos[4][10]; // artigos
+	char *artigos[4]; // artigos
 	char *curta; //descrição curta [40]
 	char *longa; //descrição longa para quando examinar o objeto [100]
 	Boolean ativo; //indica se elemento existe no jogo
@@ -52,8 +52,8 @@ typedef struct lugar {
 //typedef struct {
 //} verbo; //verbos
 
-//typedef struct {
-//} aventureiro; //o aventureiro
+typedef struct {
+} aventureiro; //o aventureiro
 
 void exam(objeto o); // função para examinar o objeto
 void pegar(objeto o); //função para pegar o objeto

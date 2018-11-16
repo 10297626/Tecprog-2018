@@ -9,8 +9,10 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include "advlib.h"
 
+typedef Elemento TipoDaLista;
+
 typedef struct node {
-	Elemento ele;
+	TipoDaLista ele;
 	struct node *next;
 } node;
 typedef node* Node;
@@ -25,10 +27,10 @@ Lista l_cria();
 
 void l_destroi(Lista l);
 
-Lista l_insere(Lista l, Elemento ele);
+Lista l_insere(Lista l, TipoDaLista ele);
 
-Elemento l_busca(Lista l, char *nome);
+TipoDaLista l_busca(Lista l, char *nome);
 
-Elemento l_retira(Lista l, Elemento  val);
+TipoDaLista l_retira(Lista l, TipoDaLista  val);
 
 #endif /* linkedlist_h */

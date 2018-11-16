@@ -45,7 +45,7 @@ void l_destroi(Lista l) {
  * @param  val item a ser adicionado
  * @return     retorna a lista atualizada
  */
-Lista l_insere(Lista l, Elemento val) {
+Lista l_insere(Lista l, TipoDaLista val) {
 	Node new = malloc(sizeof(node));
 	new->ele = val;
 	new->next = l->head;
@@ -58,9 +58,9 @@ Lista l_insere(Lista l, Elemento val) {
  * Busca linearmente um item na lista e retorna o elemento
  * @param  l lista para busca
  * @param  n item a ser encontrado na lista
- * @return   retorna o Elemento encontrado , ou NULL caso não encontre
+ * @return   retorna o TipoDaLista encontrado , ou NULL caso não encontre
  */
-Elemento l_busca(Lista l, char *n) {
+TipoDaLista l_busca(Lista l, char *n) {
 	Node atual = l->head;
 
 	while(atual != NULL) {
@@ -79,7 +79,7 @@ Elemento l_busca(Lista l, char *n) {
  * @param  val elemento a ser retirado
  * @return     retorna o elemento ou NULL caso nao encontrado
  */
-Elemento l_retira(Lista l, Elemento val) {
+TipoDaLista l_retira(Lista l, TipoDaLista val) {
 	Node atual = l->head;
 	Node anterior = atual;
 	while(atual != NULL) {
