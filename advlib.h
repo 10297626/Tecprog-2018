@@ -21,8 +21,9 @@ typedef struct elemento {
 	Boolean ativo; //indica se elemento existe no jogo
 	Boolean visivel; //indicador de visibilidade
 	Boolean conhecido; //indicador de conhecimento do jogador
-	//Lista conteudo; //itens dentro do elemento
-	//Lista acoes; // lista de acoes
+	//Lista contem; //itens dentro do elemento
+	//Lista acao; // lista de acoes
+	//Lista animacao;
 } elemento;
 typedef elemento* Elemento;
 
@@ -31,20 +32,21 @@ Elemento cria_ele();
 //Objeto
 typedef struct objeto {
 	Elemento ele;
-	//char *adjetivos[][]; //adjetivos 
-	int invisivel; // quando 1 o objeto é invisivel
+	char *adjetivos; //adjetivos 
+	Boolean invisivel; // quando 1 o objeto é invisivel
 } objeto;
 
 //Lugares
 
-typedef struct saida {
+typedef struct saidas {
+	objeto *obj; // caracteristicas de objetos
 	char *destino; // referencia key do hashtable do destino dessa saida [100]
 	Boolean fechada; // quando True a sáida esta fechada
-} saida;
+} saidas;
 
 typedef struct lugar {
 	Elemento ele;
-	saida *saidas;// saidas do lugar
+	saidas *saida;// saidas do lugar
 } lugar;
 
 //imcompletos
@@ -55,9 +57,9 @@ typedef struct lugar {
 typedef struct {
 } aventureiro; //o aventureiro
 
-void exam(objeto o); // função para examinar o objeto
+void examinar(objeto o); // função para examinar o objeto
 void pegar(objeto o); //função para pegar o objeto
-void drop(objeto o); // função para soltar o objeto caso ele esteja no invetário
+void largar(objeto o); // função para soltar o objeto caso ele esteja no invetário
 
 
 #endif /* advlib_h */

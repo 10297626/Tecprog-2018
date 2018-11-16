@@ -13,7 +13,7 @@ Elemento cria_ele() {
 	return ele;
 }
 
-void exam(objeto o) { // função para examinar o objeto
+void examinar(objeto o) { // função para examinar o objeto
 
 };
 
@@ -21,6 +21,6 @@ void pegar(objeto o) { //função para pegar o objeto
 
 };
 
-void drop(objeto o) { // função para soltar o objeto caso ele esteja no inventário
+void largar(objeto o) { // função para soltar o objeto caso ele esteja no inventário
 
 };
