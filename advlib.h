@@ -15,15 +15,17 @@ typedef enum {
 	False, True
 } Boolean;
 */
+
+// union entre string a int
 typedef union {
 	char* valor1;
 	int valor2;
 } StrInt;
 
-//Objeto
+// struct contendo os atributos, especificos de objetos
 typedef struct objeto {
 	//Elemento ele;
-	Lista atributos; //adjetivos 
+	Lista atributos;
 } Objeto;
 
 //Lugares
@@ -34,6 +36,7 @@ typedef struct objeto {
 	Boolean fechada; // quando True a sáida esta fechada
 } saidas;*/
 
+// struct contendo os atributos, especificos de lugares
 typedef struct lugar {
 	//Elemento ele;
 	void* saida[6];// saidas do lugar

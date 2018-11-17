@@ -70,7 +70,7 @@ Node l_busca(Lista l, char* val, int (*COMPARE)(void*, void*)) {
 		}
 		atual = atual->next;
 	}
-	return NULL;      
+	return NULL;
 }
 
 /**

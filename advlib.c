@@ -28,7 +28,7 @@ int examinar(Elemento* e1, Elemento* e2) { // função para examinar o objeto
 	if(!(e1->conhecido)) {
 		printf("%s\n", e1->longa);
 		e1->conhecido = 1;
-	} else 
+	} else
 		printf("%s\n", e1->curta);
 
 	return 1;
