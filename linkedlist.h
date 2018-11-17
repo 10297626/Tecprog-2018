@@ -12,7 +12,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 typedef Elemento TipoDaLista;
 
 typedef struct node {
-	TipoDaLista ele;
+	TipoDaLista info;
 	struct node *next;
 } node;
 typedef node* Node;
@@ -27,9 +27,9 @@ Lista l_cria();
 
 void l_destroi(Lista l);
 
-Lista l_insere(Lista l, TipoDaLista ele);
+Lista l_insere(Lista l, TipoDaLista val);
 
-TipoDaLista l_busca(Lista l, char *nome);
+TipoDaLista l_busca(Lista l, char *n);
 
 TipoDaLista l_retira(Lista l, TipoDaLista  val);
 

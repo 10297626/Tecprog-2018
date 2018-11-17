@@ -47,7 +47,7 @@ void l_destroi(Lista l) {
  */
 Lista l_insere(Lista l, TipoDaLista val) {
 	Node new = malloc(sizeof(node));
-	new->ele = val;
+	new->info = val;
 	new->next = l->head;
 	l->head = new;
 	l->count++;
