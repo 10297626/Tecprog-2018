@@ -20,3 +20,5 @@
 	'''
 
 	Dificuldades encontradas:
+	Acredito que pode ser benfico adicionar um novo arquivo .c e .h com algumas das estruturas mais basicas, tipo booleans. Mas seria mais pra facilidade de leitura do codigo, mas pode ser usada pra criar estruturas pra serem usadas pela linkedlist e hashtable.
+	Seria bom alterar o hashtable no sentido da lista pra remover a dependencia em string.h, pensei em alterar a implementação para resolver as colisoes com listas, mas a implementacao atual é o suficiente
