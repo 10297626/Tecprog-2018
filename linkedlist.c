@@ -4,10 +4,9 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 //////////////////////////////////////////////////////////////////////*/
 
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include "linkedlist.h"
-#include "advlib.h"
+//#include "advlib.h"
 
 /**
  * Cria uma lista ligada
@@ -46,7 +45,7 @@ void l_destroi(Lista l) {
  * @return     retorna a lista atualizada
  */
 Lista l_insere(Lista l, TipoDaLista val) {
-	Node new = malloc(sizeof(node));
+	Node new = (Node)malloc(sizeof(node));
 	new->info = val;
 	new->next = l->head;
 	l->head = new;
@@ -56,17 +55,18 @@ Lista l_insere(Lista l, TipoDaLista val) {
 
 /**
  * Busca linearmente um item na lista e retorna o elemento
- * @param  l lista para busca
- * @param  n item a ser encontrado na lista
- * @return   retorna o TipoDaLista encontrado , ou NULL caso não encontre
+ * @param  l          lista para busca
+ * @param  n          item a ser encontrado na lista
+ * @param  (*COMPARE) funcao usada para comparar os itens da lista
+ * @return            retorna o TipoDaLista encontrado , ou NULL caso não encontre
  */
-TipoDaLista l_busca(Lista l, char *n) {
+Node l_busca(Lista l, char* val, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 
 	while(atual != NULL) {
 		//char *na = atual->ele->nome;
-		if(strcmp(atual->ele->nome, n) == 0) {
-			return atual->ele;
+		if(COMPARE(atual->info, val) == 0) {
+			return atual->info;
 		}
 		atual = atual->next;
 	}
@@ -75,26 +75,31 @@ TipoDaLista l_busca(Lista l, char *n) {
 
 /**
  * Retira um item da lista ligada
- * @param  l   lista de onde tirar o elemento
- * @param  val elemento a ser retirado
- * @return     retorna o elemento ou NULL caso nao encontrado
+ * @param  l          lista de onde tirar o elemento
+ * @param  val        elemento a ser retirado
+ * @param  (*COMPARE) funcao usada para comparar os itens da lista
+ * @return            retorna 1 se teve sucesso e 0 caso nao encontrado
  */
-TipoDaLista l_retira(Lista l, TipoDaLista val) {
+int l_retira(Lista l, char* val, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 	Node anterior = atual;
 	while(atual != NULL) {
-		if(strcmp(atual->ele->nome, val->nome) == 0) {
+		if(COMPARE(atual->info, val) == 0) {
 			if(atual == l->head) {//se for o primeiro da lista
 				l->head = atual->next;
 				atual->next = NULL;
+				free(atual);
+				atual = NULL;
 			} else { // caso esteja no meio da lista
 				anterior->next = atual->next;
 				atual->next = NULL;
+				free(atual);
+				atual = NULL;
 			}
-			return atual->ele;
+			return 1;
 		}
 		anterior = atual;
 		atual = atual->next;
 	}
-	return NULL;
+	return 0;
 }

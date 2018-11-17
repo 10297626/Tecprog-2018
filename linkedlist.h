@@ -7,9 +7,9 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef linkedlist_h
 #define linkedlist_h
 
-#include "advlib.h"
+//#include "advlib.h"
 
-typedef Elemento TipoDaLista;
+typedef void* TipoDaLista;
 
 typedef struct node {
 	TipoDaLista info;
@@ -29,8 +29,8 @@ void l_destroi(Lista l);
 
 Lista l_insere(Lista l, TipoDaLista val);
 
-TipoDaLista l_busca(Lista l, char *n);
+Node l_busca(Lista l, char* n, int (*COMPARE)(void*, void*));
 
-TipoDaLista l_retira(Lista l, TipoDaLista  val);
+int l_retira(Lista l, char* val, int (*COMPARE)(void*, void*));
 
 #endif /* linkedlist_h */

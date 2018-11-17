@@ -16,7 +16,7 @@ int main(){
 	TabSim tab = ht_cria(30);
 	printf("hash table criada\n");
 	//item exemplo
-	Elemento ele = cria_ele();
+	Elemento* ele = cria_ele();
 	char *n = "ola";
 	//char *ptrn = n;
 	ele->nome = n;
@@ -55,7 +55,7 @@ int main(){
 	//inserindo um elemento
 	l = l_insere(l, ele);
 	printf("sucesso na insercao da lista\n");
-
+	/*
 	//busca na lista
 	if (ele == l_busca(l, ele->nome)) {
 		printf("sucesso na busca da lista\n");
@@ -65,12 +65,12 @@ int main(){
 	if (ele == l_retira(l, ele)) {
 		printf("sucesso na retirada da lista\n");
 	}
-
+	
 	//busca na lista
 	if (l_busca(l, "ola") == NULL) {
 		printf("item nao esta na lista\n");
 	}
-
+	*/
 	l_destroi(l);
 	printf("lista destruida\n\n");
 	

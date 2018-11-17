@@ -6,16 +6,16 @@
 CC = gcc
 CFLAGS = -Wall
 
-teste: hashtable.o linkedlist.o advlib.o teste.o
+teste: advlib.o hashtable.o linkedlist.o teste.o
 	$(CC) $(CFLAGS) -o $@ $^
 
-hashtable.o: hashtable.c advlib.h hashtable.h
+advlib.o: advlib.c advlib.h linkedlist.h hashtable.h
 	$(CC) $(CFLAGS) -c $<
 
-linkedlist.o: linkedlist.c advlib.h linkedlist.h
+hashtable.o: hashtable.c hashtable.h
 	$(CC) $(CFLAGS) -c $<
 
-advlib.o: advlib.c advlib.h
+linkedlist.o: linkedlist.c linkedlist.h
 	$(CC) $(CFLAGS) -c $<
 
 teste.o: teste.c hashtable.h linkedlist.h advlib.h

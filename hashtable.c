@@ -7,12 +7,12 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include <stdio.h>
 #include <string.h>
 #include "hashtable.h"
-#include "advlib.h"
+//#include "advlib.h"
 
 static simbolo HT_DUMMY = {NULL, NULL};
 
 //NO FUTURO COPIE KEY E ELE PARA FAZER SENTIDO ESSE MALLOC, MSM COISA PRA LISTA
-static Simbolo ht_novosim(Elemento ele, char *key) {
+static Simbolo ht_novosim(TipoDaTab ele, char *key) {
 	Simbolo i = malloc(sizeof(simbolo));
 	i->key = key;
 	i->ele = ele;
@@ -60,13 +60,13 @@ static int hashcode(char *key, int tam) {
 	return asc % tam;
 }
 
-Boolean ht_insere(TabSim tab, char *key, Elemento ele) {
+int ht_insere(TabSim tab, char *key, TipoDaTab ele) {
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
 	
 	//nao ha espaco na tabela
 	if(tab->size == tab->count)
-		return False;
+		return 0;
 	
 	Simbolo sim1 = ht_novosim(ele, key);
 	
@@ -82,16 +82,16 @@ Boolean ht_insere(TabSim tab, char *key, Elemento ele) {
 		hi %= tab->size;
 		//se der uma volta completa e não achar espaço
 		/*if(hi == lim) {
-			return False;
+			return 0;
 		}*/
 	}
 	//insere o item na hashtable
 	tab->simbolos[hi] = sim1;
 	tab->count += 1;
-	return True;
+	return 1;
 }
 
-Elemento ht_busca(TabSim tab, char *key) {
+TipoDaTab ht_busca(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
@@ -111,7 +111,7 @@ Elemento ht_busca(TabSim tab, char *key) {
 	return NULL;
 }
 
-Boolean ht_retira(TabSim tab, char *key) {
+int ht_retira(TabSim tab, char *key) {
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
 	
@@ -124,7 +124,7 @@ Boolean ht_retira(TabSim tab, char *key) {
 			ht_delsim(item);
 			tab->simbolos[hi] = &HT_DUMMY;
 			tab->count--;
-			return True;
+			return 1;
 		}
 		//vai pra proxima 
 		hi += 1;
@@ -132,7 +132,7 @@ Boolean ht_retira(TabSim tab, char *key) {
 		hi %= tab->size;
 		//se der uma volta completa e não achar o item
 		if(hi == lim)
-			return False;
+			return 0;
 	}
-	return False;
+	return 0;
 }
