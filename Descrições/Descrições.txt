@@ -1,0 +1,135 @@
+Estoria:
+Estilo escape the room onde o objetivo é escapar de uma casa.
+O Protagonista acorda nessa casa sem lembranças da noite anterior e nota que está preso
+com as janelas emparedadas e com uma porta de ferro trancada na entrada. O objetivo é resolver 
+os puzzles e escapar da casa.
+
+Mecânicas:
+Como no jogo só existe o protagonista na casa, não existem objetos com animações. Os puzzles 
+giram em torno de duas mecânicas:
+-Examinar as salas/objetos e achar items(Que são essencialmente objetos que o protagonista
+pode carregar no inventário)
+-combinar items (Exemplo: uma faca e um travesseiro pra pegar algo dentro do travesseiro)
+-Usar items nos objetos imóveis (Ex: Usar uma chave em uma porta trancada)
+
+Salas:
+-Sala de estar
+-Cozinha
+-Banheiro
+-Quarto
+-Closet
+-entrada
+
+Descrição das salas:
+	Sala de estar
+
+Descrição Longa:
+Você está em uma sala. Um sofa branco está encostado no lado leste da sala,
+ na frente dele uma  mesa de centro. Ao oeste da sala uma mesa de tv com gavetas,
+ ao sul uma mesa de jantar com duas cadeiras.Pro Sul tem a cozinha, ao leste o quarto
+ e ao norte uma janela emparedada. 
+
+Descrição Curta:
+Você esta em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto.
+
+Objetos:
+-Sofa
+-Mesa  de centro
+-mesa de jantar com 2 cadeiras
+-janela emparedada
+-mesa de tv
+
+Saidas:
+-Cozinha
+-Quarto
+
+	Cozinha
+Descrição Longa:
+Você está em uma cozinha. Um Balcão branco cobre toda a parede oeste, encostado no balcão 
+tem um fogão branco, em cima do balcão tem uma pia, ao sul uma geladeira. Encostado na parede
+tem um armário. Pro norte tem a sala de estar e pro leste tem a entrada.
+
+Descrição Curta:
+Você está em uma cozinha. Pro norte tem a sala de estar e pro leste tem a entrada.
+
+Objetos:
+-fogão
+-geladeira
+-pia
+-balcão
+-Armário com pratos
+
+Saidas:
+-Entrada
+-Sala de estar
+
+
+	Banheiro
+Descrição Longa:
+Você está em um banheiro. Uma banheira está encostada na parede. Ao sul tem uma privada 
+e uma pia, em cima da pia um espelho. Pro norte tem o quarto e pra oeste a Entrada.
+
+Descrição Curta:
+Você está em um banheiro.Pro norte tem o quarto e pra oeste a Entrada.
+
+Objetos:
+-privada
+-pia
+-banheira
+-espelho
+
+Saida:
+-Quarto
+-Entrada
+
+	Quarto
+Descrição Longa:
+Você está em um quarto. Uma cama esta encostada na parede ao leste, do lado dela um criado mudo.
+Na parede oeste tem um grande armário de duas portas. Ao norte tem uma janela emparedada.
+Pro sudeste tem o banheiro, pro sudoeste o closet e pra oeste tem a sala de estar. 
+
+Descrição Curta:
+Você está em um quarto.Pro sudeste tem o banheiro, pro sudoeste o closet e
+pra oeste tem a sala de estar. 
+
+Objetos:
+-Cama
+-Armario
+-Criado Mudo
+-Janela emparedada
+
+Saidas:
+-Closet
+-Sala de estar
+-Banheiro
+
+	Closet
+Descrição Longa:
+Você está em um closet. Tem um cofre eletrônico nele. Pro norte tem o quarto.
+
+Descrição Curta:
+Você está em um closet. Pro norte tem o quarto.
+
+Objetos:
+-Cofre eletrônico
+-....
+
+Saidas:
+-quarto
+
+
+
+	Entrada
+
+Descrição Longa:
+Você está na Entrada. No Sul tem uma grande porta de ferro trancada, você sente um vento saindo de debaixo
+da porta, provavelmente ela abre pro mundo. Pra leste tem o banheiro e pra oeste tem a cozinha.
+
+Descrição Curta:
+Você está na Entrada. Pra leste tem o banheiro e pra oeste tem a cozinha.
+Objetos:
+-Porta de ferro trancada
+
+Saidas:
+-Cozinha
+-Banheiro
