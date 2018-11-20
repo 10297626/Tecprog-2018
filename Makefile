@@ -6,6 +6,9 @@
 CC = gcc
 CFLAGS = -Wall
 
+jogo: advlib.o hashtable.o linkedlist.o jogo.o
+	$(CC) $(CFLAGS) -o $@ $^
+
 teste: advlib.o hashtable.o linkedlist.o teste.o
 	$(CC) $(CFLAGS) -o $@ $^
 
@@ -21,5 +24,8 @@ linkedlist.o: linkedlist.c linkedlist.h
 teste.o: teste.c hashtable.h linkedlist.h advlib.h
 	$(CC) $(CFLAGS) -c $<
 
+jogo.o: jogo.c hashtable.h linkedlist.h advlib.h
+	$(CC) $(CFLAGS) -c $<
+
 clean:
-	rm -f *.o *~ teste
+	rm -f *.o *~ jogo
