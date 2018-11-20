@@ -7,16 +7,17 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef linkedlist_h
 #define linkedlist_h
 
-//#include "advlib.h"
+#include "base.h"
 
 typedef void* TipoDaLista;
 
 // definicao de um no de uma lista
 typedef struct node {
+	char* nome;
 	TipoDaLista info;
-	struct node *next;
+	struct node* next;
 } node;
-typedef node* Node;
+typedef struct node* Node;
 
 // struct que guarda a cabeca da lista, efetivamente guardando o local da lista
 typedef struct lista {
@@ -27,8 +28,8 @@ typedef lista* Lista;
 
 Lista l_cria();
 void l_destroi(Lista l);
-Lista l_insere(Lista l, TipoDaLista val);
-TipoDaLista l_busca(Lista l, char* n, int (*COMPARE)(void*, void*));
-TipoDaLista l_retira(Lista l, char* val, int (*COMPARE)(void*, void*));
+Lista l_insere(Lista l, TipoDaLista val, char* nome);
+TipoDaLista l_busca(Lista l, char* nome, int (*COMPARE)(void*, void*));
+TipoDaLista l_retira(Lista l, char* nome, int (*COMPARE)(void*, void*));
 
 #endif /* linkedlist_h */

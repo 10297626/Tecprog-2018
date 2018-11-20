@@ -5,9 +5,9 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+//#include <string.h>
+#include "base.h"
 #include "hashtable.h"
-//#include "advlib.h"
 
 static simbolo HT_DUMMY = {NULL, NULL};
 
@@ -74,11 +74,12 @@ void ht_destroi(TabSim tab) {
  */
 static int hashcode(char *key, int tam) {
 	//soma todos os ascii de cada caractere da key
-	int x = strlen(key)-1;
+	//int x = strlen(key)-1;
+	char c = *key;
 	int asc = 0;
-	while(x >= 0) {
-		asc += (int)key[x];
-		x -= 1;
+	while(c != 0) {
+		asc += (int)c;
+		c = *key++;
 	}
 	//retorna o resultado da divisão inteira da soma pelo tamanho da hash table
 	return asc % tam;
@@ -89,37 +90,46 @@ static int hashcode(char *key, int tam) {
  * @param  tab  tabela de simbolos
  * @param  key  chave associada
  * @param  info conjunto de dados
- * @return      retorna 1 se obter sucesso, e 0 caso contrário
+ * @return      retorna True se obter sucesso, e False caso contrário
  */
-int ht_insere(TabSim tab, char *key, TipoDaTab info) {
+Boolean ht_insere(TabSim tab, char *key, TipoDaTab info) {
+	//printf("ht_insere\n");
+
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
+	//printf("passagem 01\n");
 
 	//nao ha espaco na tabela
 	if(tab->size == tab->count)
-		return 0;
+		return False;
 
 	Simbolo sim1 = ht_novosim(info, key);
+	//printf("passagem 02\n");
 
 	int hi = hashcode(key, tab->size);//manda o codigo ascII do n;
 	//int lim = hi;//pra saber se deu uma volta completa
+	//printf("passagem 03\n");
 
 	// esse código resolve a possibilidade de colisões na hash table
 	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
+	int cont = 0;
 	while(tab->simbolos[hi] != NULL && tab->simbolos[hi] != &HT_DUMMY) {//até achar um espaço vazio
 		//vai pra proxima
+		//printf("while %02d\n", cont);
+		cont++;
+
 		hi += 1;
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar espaço
 		/*if(hi == lim) {
-			return 0;
+			return False;
 		}*/
 	}
 	//insere o item na hashtable
 	tab->simbolos[hi] = sim1;
 	tab->count += 1;
-	return 1;
+	return True;
 }
 
 /**
@@ -129,10 +139,19 @@ int ht_insere(TabSim tab, char *key, TipoDaTab info) {
  * @return     retorna o conjunto de dados
  */
 TipoDaTab ht_busca(TabSim tab, char *key) {
+	//printf("ht_busca\n");
+
+	//printf("passagem 01\n");
+
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
+	//printf("passagem 02 - hi: %d; lim: %d\n", hi, lim);
+	//int cont = 0;
+
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
 	while(tab->simbolos[hi] != NULL) {
+		//printf("while %02d\n", cont);
+		//cont++;
 
 		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY)
 			return tab->simbolos[hi]->info; //encontrou
@@ -154,20 +173,31 @@ TipoDaTab ht_busca(TabSim tab, char *key) {
  * @param  key chave associada
  * @return     retorna 1 se obter sucesso, e 0 caso contrário
  */
-int ht_retira(TabSim tab, char *key) {
+Boolean ht_retira(TabSim tab, char *key, int (*COMPARE)(void*, void*)) {
+	//printf("ht_retira\n");
+
 	// retorna False caso não tenha sucesso
 	// retorna True caso tenha sucesso
-
+	//printf("passagem 01\n");
 	int hi = hashcode(key, tab->size);
 	int lim = hi;
+	//printf("passagem 02 - hi: %d; lim: %d\n", hi, lim);
+	//int cont = 0;
 	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
 	while(tab->simbolos[hi] != NULL) {
+		//printf("while %02d\n", cont);
+		//cont++;
+		//printf("%s\n", tab->simbolos[hi]->key);
 		Simbolo item = tab->simbolos[hi];
-		if(item != &HT_DUMMY && strcmp(item->key, key) == 0){
+		//printf("passagem 03\n");
+		if((item != &HT_DUMMY) && (COMPARE(item->key, key) == 0)) {
+			//printf("passagem 04 if - key: %s\n", key);
 			ht_delsim(item);
+			//printf("passagem 05 delsim\n");
+
 			tab->simbolos[hi] = &HT_DUMMY;
 			tab->count--;
-			return 1;
+			return True;
 		}
 		//vai pra proxima
 		hi += 1;
@@ -175,7 +205,7 @@ int ht_retira(TabSim tab, char *key) {
 		hi %= tab->size;
 		//se der uma volta completa e não achar o item
 		if(hi == lim)
-			return 0;
+			return False;
 	}
-	return 0;
+	return False;
 }

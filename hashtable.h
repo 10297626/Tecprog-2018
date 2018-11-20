@@ -7,7 +7,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef hashtable_h
 #define hashtable_h
 
-//#include "advlib.h"
+#include "base.h"
 
 typedef void* TipoDaTab;
 
@@ -28,8 +28,8 @@ typedef tabsim* TabSim;
 
 TabSim ht_cria(int tam);
 void ht_destroi(TabSim tab);
-int ht_insere(TabSim tab, char *key, TipoDaTab info);
+Boolean ht_insere(TabSim tab, char *key, TipoDaTab info);
 TipoDaTab ht_busca(TabSim tab, char *key);
-int ht_retira(TabSim tab, char *key);
+Boolean ht_retira(TabSim tab, char *key, int (*COMPARE)(void*, void*));
 
 #endif /* hashtable_h */

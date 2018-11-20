@@ -5,6 +5,7 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 #include <stdio.h>
 #include <string.h>
+#include "base.h"
 #include "advlib.h"
 #include "hashtable.h"
 #include "linkedlist.h"
@@ -34,10 +35,10 @@ int main(){
 	}
 
 	//retirada da hash table
-	if(ht_retira(tab, key) == 1) {
+	if(ht_retira(tab, key, compareStr) == 1) {
 		printf("sucesso na retirada da hash table \n");
 	}
-	
+
 	//busca após retirada
 	if(ht_busca(tab,key) == NULL) {
 		printf("item nao esta na hash table\n");
@@ -53,25 +54,25 @@ int main(){
 	printf("lista criada\n");
 
 	//inserindo um elemento
-	l = l_insere(l, ele);
+	l = l_insere(l, ele, "ola");
 	printf("sucesso na insercao da lista\n");
-	/*
+
 	//busca na lista
-	if (ele == l_busca(l, ele->nome)) {
+	if (ele == l_busca(l, "ola", compareStr)) {
 		printf("sucesso na busca da lista\n");
 	}
-	
+
 	//retirando um elemento
-	if (ele == l_retira(l, ele)) {
+	if (ele == l_retira(l, "ola", compareStr)) {
 		printf("sucesso na retirada da lista\n");
 	}
-	
+
 	//busca na lista
-	if (l_busca(l, "ola") == NULL) {
+	if (l_busca(l, "ola", compareStr) == NULL) {
 		printf("item nao esta na lista\n");
 	}
-	*/
+
 	l_destroi(l);
 	printf("lista destruida\n\n");
-	
+
 }

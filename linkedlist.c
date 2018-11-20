@@ -25,15 +25,12 @@ Lista l_cria() {
  */
 void l_destroi(Lista l) {
 	Node atual = l->head;
-	Node prox = l->head->next;
-	while(prox != NULL) {
-		/*atual->ele = NULL;
-		atual->next = NULL;*/
+	Node prox;
+	while(atual != NULL) {
+		prox = atual->next;
 		free(atual);
 		atual = prox;
-		prox = prox->next;
 	}
-	free(atual);
 	free(l);
 	l = NULL;
 }
@@ -44,8 +41,9 @@ void l_destroi(Lista l) {
  * @param  val item a ser adicionado
  * @return     retorna a lista atualizada
  */
-Lista l_insere(Lista l, TipoDaLista val) {
-	Node new = (Node)malloc(sizeof(node));
+Lista l_insere(Lista l, TipoDaLista val, char* nome) {
+	Node new = malloc(sizeof(node));
+	new->nome = nome;
 	new->info = val;
 	new->next = l->head;
 	l->head = new;
@@ -60,12 +58,12 @@ Lista l_insere(Lista l, TipoDaLista val) {
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
  * @return            retorna o TipoDaLista encontrado , ou NULL caso não encontre
  */
-TipoDaLista l_busca(Lista l, char* val, int (*COMPARE)(void*, void*)) {
+TipoDaLista l_busca(Lista l, char* nome, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 
 	while(atual != NULL) {
 		//char *na = atual->ele->nome;
-		if(COMPARE(atual->info, val) == 0) {
+		if(COMPARE(atual->nome, nome) == 0) {
 			return atual->info;
 		}
 		atual = atual->next;
@@ -80,11 +78,11 @@ TipoDaLista l_busca(Lista l, char* val, int (*COMPARE)(void*, void*)) {
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
  * @return            retorna 1 se teve sucesso e 0 caso nao encontrado
  */
-TipoDaLista l_retira(Lista l, char* val, int (*COMPARE)(void*, void*)) {
+TipoDaLista l_retira(Lista l, char* nome, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 	Node anterior = atual;
 	while(atual != NULL) {
-		if(COMPARE(atual->info, val) == 0) {
+		if(COMPARE(atual->nome, nome) == 0) {
 			if(atual == l->head) {//se for o primeiro da lista
 				l->head = atual->next;
 				atual->next = NULL;

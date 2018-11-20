@@ -7,20 +7,9 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef advlib_h
 #define advlib_h
 
+#include "base.h"
 #include "linkedlist.h"
 #include "hashtable.h"
-/*
-//Booleanos
-typedef enum {
-	False, True
-} Boolean;
-*/
-
-// union entre string a int
-typedef union {
-	char* valor1;
-	int valor2;
-} StrInt;
 
 // struct contendo os atributos, especificos de objetos
 typedef struct objeto {
@@ -43,8 +32,8 @@ typedef struct lugar {
 } Lugar;
 
 typedef union {
-	Lugar L;
-	Objeto O;
+	Lugar* L;
+	Objeto* O;
 } Spec;
 
 //Elemento
@@ -72,7 +61,7 @@ Elemento* cria_ele();
 
 //typedef struct {} aventureiro; //o aventureiro
 
-int examinar(Elemento* e1, Elemento* e2); // função para examinar o objeto
+Boolean examinar(Elemento* e1, Elemento* e2); // função para examinar o objeto
 int pegar(Elemento* e1, Elemento* e2); //função para pegar o objeto
 int largar(Elemento* e1, Elemento* e2); // função para soltar o objeto caso ele esteja no invetário
 
