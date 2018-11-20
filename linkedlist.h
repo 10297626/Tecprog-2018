@@ -28,7 +28,7 @@ typedef lista* Lista;
 Lista l_cria();
 void l_destroi(Lista l);
 Lista l_insere(Lista l, TipoDaLista val);
-Node l_busca(Lista l, char* n, int (*COMPARE)(void*, void*));
-int l_retira(Lista l, char* val, int (*COMPARE)(void*, void*));
+TipoDaLista l_busca(Lista l, char* n, int (*COMPARE)(void*, void*));
+TipoDaLista l_retira(Lista l, char* val, int (*COMPARE)(void*, void*));
 
 #endif /* linkedlist_h */
