@@ -15,8 +15,10 @@
 	A hash function implementada na Hash Table(ht) somando todos os caracteres da key (como numeros inteiros do ASCII) e pega o resto da divisão dessa soma com o tamanho da ht. Caso aconteça uma colisão ele segue adiante no vetor.
 	Portanto um item ao ser retirado da ht é substituido por um DUMMY, assim é possivel buscar todos os items.
 	A lista ligada funciona de forma padrão, com inserção no inicio da lista.
-	As funções de ação foram adaptadas para seguir o formato geral de '''
-	int (*FUNC)(Elemento* e1, Elemento* e2);
+	As listas e tabelas
+	As funções de ação foram adaptadas para seguir o formato geral de
+	'''
+		int (*FUNC)(Elemento* e1, Elemento* e2);
 	'''
 
 	Dificuldades encontradas:

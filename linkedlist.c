@@ -58,7 +58,7 @@ Lista l_insere(Lista l, TipoDaLista val, char* nome) {
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
  * @return            retorna o TipoDaLista encontrado , ou NULL caso não encontre
  */
-TipoDaLista l_busca(Lista l, char* nome, int (*COMPARE)(void*, void*)) {
+TipoDaLista l_busca(Lista l, void* nome, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 
 	while(atual != NULL) {
@@ -78,7 +78,7 @@ TipoDaLista l_busca(Lista l, char* nome, int (*COMPARE)(void*, void*)) {
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
  * @return            retorna 1 se teve sucesso e 0 caso nao encontrado
  */
-TipoDaLista l_retira(Lista l, char* nome, int (*COMPARE)(void*, void*)) {
+TipoDaLista l_retira(Lista l, void* nome, int (*COMPARE)(void*, void*)) {
 	Node atual = l->head;
 	Node anterior = atual;
 	while(atual != NULL) {
