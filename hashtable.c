@@ -107,24 +107,24 @@ Boolean ht_insere(TabSim tab, char *key, TipoDaTab info) {
 	//printf("passagem 02\n");
 
 	int hi = hashcode(key, tab->size);//manda o codigo ascII do n;
-	//int lim = hi;//pra saber se deu uma volta completa
+	int lim = hi;//pra saber se deu uma volta completa
 	//printf("passagem 03\n");
 
 	// esse código resolve a possibilidade de colisões na hash table
 	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
-	int cont = 0;
+	//int cont = 0;
 	while(tab->simbolos[hi] != NULL && tab->simbolos[hi] != &HT_DUMMY) {//até achar um espaço vazio
 		//vai pra proxima
 		//printf("while %02d\n", cont);
-		cont++;
+		//cont++;
 
 		hi += 1;
 		//volta ao inicio caso passe
 		hi %= tab->size;
 		//se der uma volta completa e não achar espaço
-		/*if(hi == lim) {
+		if(hi == lim) {
 			return False;
-		}*/
+		}
 	}
 	//insere o item na hashtable
 	tab->simbolos[hi] = sim1;

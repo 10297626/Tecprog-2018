@@ -12,9 +12,16 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "advlib.h"
 
 Elemento* cria_ele() {
-	//printf("cria_ele - ");
 	Elemento* ele = malloc(sizeof(Elemento));
-	//printf("saiu\n");
+	ele->nome = NULL;
+	ele->curta = NULL;
+	ele->longa = NULL;
+	ele->ativo = False;
+	ele->visivel = False;
+	ele->conhecido = False;
+	ele->contem = l_cria();
+	ele->acao = l_cria();
+	ele->detalhe = malloc(sizeof(Spec));
 	return ele;
 }
 

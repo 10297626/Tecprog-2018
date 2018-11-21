@@ -12,7 +12,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "hashtable.h"
 
 // struct contendo os atributos, especificos de objetos
-typedef struct objeto {
+typedef struct {
 	//Elemento ele;
 	Lista atributos;
 } Objeto;
@@ -26,8 +26,14 @@ typedef struct objeto {
 } saidas;*/
 
 // struct contendo os atributos, especificos de lugares
-typedef struct lugar {
+typedef struct {
 	//Elemento ele;
+	// [0]: Norte
+	// [1]: Leste
+	// [2]: Sul
+	// [3]: Oeste
+	// [4]: Sobe
+	// [5]: Desce
 	void* saida[6];// saidas do lugar
 } Lugar;
 
@@ -42,13 +48,13 @@ typedef struct elemento {
 	char *artigos[4]; // artigos
 	char *curta; //descrição curta [40]
 	char *longa; //descrição longa para quando examinar o objeto [100]
-	int ativo; //indica se elemento existe no jogo
-	int visivel; //indicador de visibilidade
-	int conhecido; //indicador de conhecimento do jogador
-	//Lista contem; //itens dentro do elemento
-	//Lista acao; // lista de acoes
+	Boolean ativo; //indica se elemento existe no jogo
+	Boolean visivel; //indicador de visibilidade
+	Boolean conhecido; //indicador de conhecimento do jogador
+	Lista contem; //itens dentro do elemento
+	Lista acao; // lista de acoes
 	//Lista animacao;
-	Spec detalhe;
+	Spec* detalhe;
 } Elemento;
 //typedef elemento* Elemento;
 
