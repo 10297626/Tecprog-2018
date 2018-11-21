@@ -2,7 +2,7 @@
 #Nome: Henrique Suzuki                 NUSP: 10297626		#
 #Nome: Rubens Gomes Neto               NUSP:  9318484		#
 #############################################################
-#$(info $(SHELL))
+$(info $(SHELL))
 CC = gcc
 CFLAGS = -Wall
 
@@ -21,14 +21,14 @@ hashtable.o: hashtable.c hashtable.h base.h
 linkedlist.o: linkedlist.c linkedlist.h base.h
 	$(CC) $(CFLAGS) -c $<
 
-teste.o: teste.c hashtable.h linkedlist.h advlib.h
+base.o: base.c base.h
 	$(CC) $(CFLAGS) -c $<
 
-base.o: base.c base.h
+teste.o: teste.c hashtable.h linkedlist.h advlib.h
 	$(CC) $(CFLAGS) -c $<
 
 jogo.o: jogo.c hashtable.h linkedlist.h advlib.h base.h
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f *.o *~ jogo
+	rm -f *.o *~ jogo teste

@@ -107,6 +107,7 @@ Elemento* inicial(){
 
 
 int main(){
+	printf("teste\n");
 	Elemento* current = inicial();
 	printf("%s \n  %s \n Voce vai para o norte \n",current->nome, current->longa);
 
