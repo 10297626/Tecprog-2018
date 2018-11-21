@@ -43,6 +43,10 @@ lugar* cria_lugar(){
 }
 */
 
+/**
+ * Faz a inicializacao por forca bruta do jogo
+ * @return retorna a sala inicial
+ */
 Elemento* inicial(){
 
 	Elemento* sala = cria_ele();
