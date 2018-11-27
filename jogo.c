@@ -88,15 +88,15 @@ Elemento* inicial(){
 
 	//saidas :::
 	//sala
-	sala->detalhe->L->saida[1] = quarto;
-	sala->detalhe->L->saida[2] = cozinha;
+	sala->detalhe->L->saida[2] = quarto;
+	sala->detalhe->L->saida[1] = cozinha;
 
 	//cozinha
-	cozinha->detalhe->L->saida[1] = entrada;
+	cozinha->detalhe->L->saida[2] = entrada;
 	cozinha->detalhe->L->saida[0] = sala;
 
 	//entrada
-	entrada->detalhe->L->saida[1] = banheiro;
+	entrada->detalhe->L->saida[2] = banheiro;
 	entrada->detalhe->L->saida[3] = cozinha;
 
 	//banheiro
@@ -105,7 +105,7 @@ Elemento* inicial(){
 
 	//quarto
 	quarto->detalhe->L->saida[3] = sala;
-	quarto->detalhe->L->saida[2] = banheiro;
+	quarto->detalhe->L->saida[1] = banheiro;
 
 	//closet
 	closet->detalhe->L->saida[0] = quarto;
@@ -126,13 +126,13 @@ int main(){
 	current=current->detalhe->L->saida[3];
 	printf("%s \n  %s \n Voce vai para o sul \n",current->nome, current->longa);
 
+	current=current->detalhe->L->saida[1];
+	printf("%s \n  %s \n Voce vai para o leste \n",current->nome, current->longa);
+
 	current=current->detalhe->L->saida[2];
 	printf("%s \n  %s \n Voce vai para o leste \n",current->nome, current->longa);
 
-	current=current->detalhe->L->saida[1];
-	printf("%s \n  %s \n Voce vai para o leste \n",current->nome, current->longa);
-
-	current=current->detalhe->L->saida[1];
+	current=current->detalhe->L->saida[2];
 	printf("%s \n  %s \n Voce vai para o norte \n",current->nome, current->longa);
 
 	current=current->detalhe->L->saida[0];

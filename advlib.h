@@ -29,8 +29,8 @@ typedef struct {
 typedef struct {
 	//Elemento ele;
 	// [0]: Norte
-	// [1]: Leste
-	// [2]: Sul
+	// [1]: Sul
+	// [2]: Leste
 	// [3]: Oeste
 	// [4]: Sobe
 	// [5]: Desce
@@ -44,7 +44,6 @@ typedef union {
 
 //Elemento
 typedef struct elemento {
-	int x;
 	char *nome; //nome do objeto
 	char *artigos[4]; // artigos
 	char *curta; //descrição curta [40]
