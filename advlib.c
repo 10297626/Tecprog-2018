@@ -16,12 +16,13 @@ Elemento* cria_ele() {
 	ele->nome = NULL;
 	ele->curta = NULL;
 	ele->longa = NULL;
-	/*ele->ativo = False;
+	ele->ativo = False;
 	ele->visivel = False;
 	ele->conhecido = False;
-	ele->contem = l_cria();
+	/*ele->contem = l_cria();
 	ele->acao = l_cria();*/
 	ele->detalhe = malloc(sizeof(Spec));
+	ele->detalhe->L = malloc(sizeof(Lugar));
 	return ele;
 }
 

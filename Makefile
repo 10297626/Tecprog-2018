@@ -4,7 +4,7 @@
 #############################################################
 $(info $(SHELL))
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -std=c99
 
 jogo: advlib.o hashtable.o linkedlist.o base.o jogo.o
 	$(CC) $(CFLAGS) -o $@ $^

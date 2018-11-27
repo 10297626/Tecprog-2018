@@ -34,7 +34,7 @@ typedef struct {
 	// [3]: Oeste
 	// [4]: Sobe
 	// [5]: Desce
-	void* saida[6];// saidas do lugar
+	struct elemento* saida[6];// saidas do lugar
 } Lugar;
 
 typedef union {
@@ -68,8 +68,8 @@ Elemento* cria_ele();
 //typedef struct {} aventureiro; //o aventureiro
 
 Boolean examinar(Elemento* e1, Elemento* e2); // função para examinar o objeto
-int pegar(Elemento* e1, Elemento* e2); //função para pegar o objeto
-int largar(Elemento* e1, Elemento* e2); // função para soltar o objeto caso ele esteja no invetário
+Boolean pegar(Elemento* e1, Elemento* e2); //função para pegar o objeto
+Boolean largar(Elemento* e1, Elemento* e2); // função para soltar o objeto caso ele esteja no invetário
 
 
 #endif /* advlib_h */
