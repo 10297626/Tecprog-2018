@@ -81,7 +81,9 @@ Elemento* inicial(){
 	entrada->curta = "Voce esta na Entrada. Pra leste tem o banheiro e pra oeste tem a cozinha.";
 
 	Elemento* sofa = cria_ele();
-	sofa->nome = "Sofa"
+	sofa->nome = "Sofa";
+	sofa->detalhe->O->atributos = l_cria();
+	sofa->detalhe->O->atributos = l_insere(sofa->detalhe->O->atributos, "(void*)20", "teste");
 
 
 	//saidas :::
@@ -115,7 +117,7 @@ Elemento* inicial(){
 
 int main(){
 	Elemento* current = inicial();
-	printf("teste\n");
+	//printf("teste\n");
 	printf("%s \n  %s \n Voce vai para o norte \n",current->nome, current->longa);
 
 	current=current->detalhe->L->saida[0];
