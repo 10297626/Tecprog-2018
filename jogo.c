@@ -81,7 +81,7 @@ Elemento* inicial(){
 	entrada->curta = "Voce esta na Entrada. Pra leste tem o banheiro e pra oeste tem a cozinha.";
 
 	Elemento* sofa = cria_ele();
-	sofa->nome = "Sofa"
+	sofa->nome = "Sofa";
 
 
 	//saidas :::

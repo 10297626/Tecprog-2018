@@ -44,6 +44,7 @@ typedef union {
 
 //Elemento
 typedef struct elemento {
+	int x;
 	char *nome; //nome do objeto
 	char *artigos[4]; // artigos
 	char *curta; //descrição curta [40]
