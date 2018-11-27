@@ -44,10 +44,10 @@ Boolean examinar(Elemento* e1, Elemento* e2) { // função para examinar o objet
 	return True;
 };
 
-int pegar(Elemento* e1, Elemento* e2) { //função para pegar o objeto
+Boolean pegar(Elemento* e1, Elemento* e2) { //função para pegar o objeto
 	return False;
 };
 
-int largar(Elemento* e1, Elemento* e2) { // função para soltar o objeto caso ele esteja no inventário
+Boolean largar(Elemento* e1, Elemento* e2) { // função para soltar o objeto caso ele esteja no inventário
 	return False;
 };
