@@ -17,12 +17,12 @@ Elemento* cria_ele() {
 	ele->curta = NULL;
 	ele->longa = NULL;
 	ele->ativo = False;
-	ele->visivel = False;
+	//ele->visivel = False;
 	ele->conhecido = False;
-	ele->contem = l_cria();
-	ele->acao = l_cria();
-	ele->detalhe = malloc(sizeof(Spec));
-	ele->detalhe->L = malloc(sizeof(Lugar));
+	ele->contem = ht_cria(10);
+	//ele->acao = l_cria();
+	//ele->detalhe = malloc(sizeof(Spec));
+	//ele->detalhe->L = malloc(sizeof(Lugar));
 	return ele;
 }
 
@@ -45,10 +45,28 @@ Boolean examinar(Elemento* e1, Elemento* e2) { // função para examinar o objet
 	return True;
 };
 
+/* Macros para testar propriedades comuns */
+#define Ativo(x) (x)->detalhe.obj.ativo
+#define Visivel(x) (x)->detalhe.obj.visivel
+#define conhecido(x) (x)->conhecido
+
+/**
+ * Move um item do mundo para o inventário
+ * @param  e1 elemento a ser tranferido
+ * @param  e2 NULL
+ * @return    status de sucesso
+ */
 Boolean pegar(Elemento* e1, Elemento* e2) { //função para pegar o objeto
+
 	return False;
 };
 
+/**
+ * Remove um item do inventário e o coloca no mundo
+ * @param  e1 objeto a ser largado
+ * @param  e2 NULL
+ * @return    status de sucesso
+ */
 Boolean largar(Elemento* e1, Elemento* e2) { // função para soltar o objeto caso ele esteja no inventário
 	return False;
 };

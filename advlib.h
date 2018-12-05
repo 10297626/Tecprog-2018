@@ -20,12 +20,6 @@ typedef struct {
 
 //Lugares
 
-/*typedef struct saidas {
-	//objeto *obj; // caracteristicas de objetos
-	char *destino; // referencia key do hashtable do destino dessa saida [100]
-	Boolean fechada; // quando True a sáida esta fechada
-} saidas;*/
-
 // struct contendo os atributos, especificos de lugares
 typedef struct {
 	//Elemento ele;
@@ -44,18 +38,19 @@ typedef struct {
 typedef struct elemento {
 	char *nome; //nome do objeto
 	//char *artigos[4]; // artigos
-	char *longa; //descrição longa para quando examinar o objeto [100]
 	char *curta; //descrição curta [40]
+	char *longa; //descrição longa para quando examinar o objeto [100]
 	Boolean ativo; //indica se elemento existe no jogo
 	//Boolean visivel; //indicador de visibilidade
 	Boolean conhecido; //indicador de conhecimento do jogador
 	TabSim contem; //itens dentro do elemento
+	int tipo;
 	//TabSim acao; // lista de acoes
 	//Lista animacao;
 	union {
-		Lugar L;
-		Objeto O;
-	} Det;
+		Lugar lug;
+		Objeto obj;
+	} detalhe;
 } Elemento;
 //typedef elemento* Elemento;
 
