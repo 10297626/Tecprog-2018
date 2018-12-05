@@ -14,6 +14,7 @@ typedef void* TipoDaTab;
 // definicao de simbolo
 typedef struct simbolo {
 	char *key;
+	int tipo;
 	TipoDaTab info;
 } simbolo;
 typedef simbolo* Simbolo;

@@ -14,7 +14,8 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 // struct contendo os atributos, especificos de objetos
 typedef struct {
 	//Elemento ele;
-	Lista atributos;
+	Boolean ativo;
+	Boolean visivel;
 } Objeto;
 
 //Lugares
@@ -34,27 +35,27 @@ typedef struct {
 	// [3]: Oeste
 	// [4]: Sobe
 	// [5]: Desce
-	struct elemento* saida[6];// saidas do lugar
+	struct elemento* saidas[6];// saidas do lugar
 } Lugar;
 
-typedef union {
-	Lugar* L;
-	Objeto* O;
-} Spec;
+
 
 //Elemento
 typedef struct elemento {
 	char *nome; //nome do objeto
-	char *artigos[4]; // artigos
-	char *curta; //descrição curta [40]
+	//char *artigos[4]; // artigos
 	char *longa; //descrição longa para quando examinar o objeto [100]
+	char *curta; //descrição curta [40]
 	Boolean ativo; //indica se elemento existe no jogo
-	Boolean visivel; //indicador de visibilidade
+	//Boolean visivel; //indicador de visibilidade
 	Boolean conhecido; //indicador de conhecimento do jogador
-	Lista contem; //itens dentro do elemento
-	Lista acao; // lista de acoes
+	TabSim contem; //itens dentro do elemento
+	//TabSim acao; // lista de acoes
 	//Lista animacao;
-	Spec* detalhe;
+	union {
+		Lugar L;
+		Objeto O;
+	} Det;
 } Elemento;
 //typedef elemento* Elemento;
 
@@ -66,10 +67,11 @@ Elemento* cria_ele();
 //} verbo; //verbos
 
 //typedef struct {} aventureiro; //o aventureiro
+typedef void (*Fptr)(Elemento *, Elemento *);
 
-Boolean examinar(Elemento* e1, Elemento* e2); // função para examinar o objeto
-Boolean pegar(Elemento* e1, Elemento* e2); //função para pegar o objeto
-Boolean largar(Elemento* e1, Elemento* e2); // função para soltar o objeto caso ele esteja no invetário
+Boolean examinar(Elemento *, Elemento *); // função para examinar o objeto
+Boolean pegar(Elemento *, Elemento *); //função para pegar o objeto
+Boolean largar(Elemento *, Elemento *); // função para soltar o objeto caso ele esteja no invetário
 
 
 #endif /* advlib_h */

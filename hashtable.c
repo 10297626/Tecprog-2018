@@ -9,7 +9,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "base.h"
 #include "hashtable.h"
 
-static simbolo HT_DUMMY = {NULL, NULL};
+static simbolo HT_DUMMY = {NULL, NULL, NULL};
 
 /**
  * Cria uma nova entrada para a hash table, associando a key ao cojunto de dados info
@@ -17,9 +17,10 @@ static simbolo HT_DUMMY = {NULL, NULL};
  * @param  key  chave usada para encontrar os dados
  * @return      retorna o endereço do simbolo criado
  */
-static Simbolo ht_novosim(TipoDaTab info, char *key) {
+static Simbolo ht_novosim(TipoDaTab info, int tipo, char *key) {
 	Simbolo i = malloc(sizeof(simbolo));
 	i->key = key;
+	i->tipo = tipo;
 	i->info = info;
 	return i;
 }
@@ -32,7 +33,7 @@ static Simbolo ht_novosim(TipoDaTab info, char *key) {
 TabSim ht_cria(int tam) {
 	TabSim tab = malloc(sizeof(tabsim));
 	tab->size = tam;
-	tab->count = 0;
+	//tab->count = 0;
 	tab->simbolos = calloc((size_t)tab->size, sizeof(Simbolo));
 	return tab;
 }

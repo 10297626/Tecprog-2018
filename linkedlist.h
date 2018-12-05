@@ -14,6 +14,7 @@ typedef void* TipoDaLista;
 // definicao de um no de uma lista
 typedef struct node {
 	char* nome;
+	int tipo;
 	TipoDaLista info;
 	struct node* next;
 } node;

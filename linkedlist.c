@@ -14,8 +14,8 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
  */
 Lista l_cria() {
 	Lista l = malloc(sizeof(lista));
-	l->count = 0;
 	l->head = NULL;
+	l->count = 0;
 	return l;
 }
 
