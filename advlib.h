@@ -28,7 +28,7 @@ typedef struct {
 	// [3]: Oeste
 	// [4]: Sobe
 	// [5]: Desce
-	struct elemento* saidas[6];// saidas do lugar
+	struct elemento* Saidas[6];// saidas do lugar
 } Lugar;
 
 //Elemento

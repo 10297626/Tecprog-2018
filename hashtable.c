@@ -11,8 +11,6 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "hashtable.h"
 
 
-//static simbolo HT_DUMMY = {NULL, NULL};
-
 /**
  * Cria uma nova entrada para a hash table, associando a key ao cojunto de dados info
  * @param  info conjunto de dados a ser adicionado na tabela

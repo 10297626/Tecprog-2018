@@ -2,8 +2,8 @@
 
 %{
 	#include <stdio.h>
-	#include "symrec.h"
-	#include "coisas.h"
+	#include "hashtable.h"
+	#include "advlib.h"
 
 	int yylex();
 	int yyerror(char *);

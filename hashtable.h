@@ -13,12 +13,12 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 typedef void* TipoDaTab;
 
 // definicao de simbolo
-typedef struct simbolo {
+/*typedef struct simbolo {
 	char *key;
 	//int tipo;
 	Lista l;
 } simbolo;
-typedef simbolo* Simbolo;
+typedef simbolo* Simbolo;*/
 
 // definicao da tabela de simbolos, com um vetor simbolos de tamanho size
 typedef struct tabsim {

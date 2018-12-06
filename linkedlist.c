@@ -7,11 +7,10 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include <stdlib.h>
 #include <string.h>
 #include "linkedlist.h"
-//#include "advlib.h"
 
 /**
  * Cria uma lista ligada
- * @return 1
+ * @return l
  */
 Lista l_cria() {
 	Lista l = malloc(sizeof(lista));
@@ -34,7 +33,6 @@ void l_destroi(Lista l) {
 		atual = prox;
 	}
 	free(l);
-	//l = NULL;
 }
 
 /**
@@ -65,7 +63,6 @@ Lista l_insere(Lista l, char* name, int tipo, void* val) {
 Node l_busca(Lista l, char* name) {
 	Node atual = l->head;
 	while(atual != (Node) 0) {
-		//char *na = atual->ele->name;
 		if(strcmp(atual->name, name) == 0) {
 			return atual;
 		}
@@ -89,11 +86,9 @@ Lista l_retira(Lista l, char* name) {
 			if(atual == l->head) {//se for o primeiro da lista
 				l->head = atual->next;
 				free(atual);
-				//atual->next = NULL;
 			} else { // caso esteja no meio da lista
 				anterior->next = atual->next;
 				free(atual);
-				//atual->next = NULL;
 			}
 			return l;
 		}

@@ -1,5 +1,5 @@
 %{
-	#include "symrec.h"
+	#include "hashtable.h"
 	#include "aventura.tab.h"
 
 	/* Para readline */
