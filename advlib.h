@@ -19,7 +19,6 @@ typedef struct {
 } Objeto;
 
 //Lugares
-
 // struct contendo os atributos, especificos de lugares
 typedef struct {
 	//Elemento ele;
@@ -31,8 +30,6 @@ typedef struct {
 	// [5]: Desce
 	struct elemento* saidas[6];// saidas do lugar
 } Lugar;
-
-
 
 //Elemento
 typedef struct elemento {
@@ -56,12 +53,7 @@ typedef struct elemento {
 
 Elemento* cria_ele();
 
-//imcompletos
-//
-//typedef struct {
-//} verbo; //verbos
-
-//typedef struct {} aventureiro; //o aventureiro
+//ponteiro parar funções
 typedef void (*Fptr)(Elemento *, Elemento *);
 
 Boolean examinar(Elemento *, Elemento *); // função para examinar o objeto

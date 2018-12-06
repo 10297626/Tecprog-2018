@@ -5,6 +5,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "linkedlist.h"
 //#include "advlib.h"
 
@@ -14,7 +15,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
  */
 Lista l_cria() {
 	Lista l = malloc(sizeof(lista));
-	l->head = NULL;
+	l->head = (Node) 0;
 	l->count = 0;
 	return l;
 }
@@ -26,13 +27,14 @@ Lista l_cria() {
 void l_destroi(Lista l) {
 	Node atual = l->head;
 	Node prox;
-	while(atual != NULL) {
+	while(atual != (Node) 0) {
 		prox = atual->next;
+		free(atual->name);
 		free(atual);
 		atual = prox;
 	}
 	free(l);
-	l = NULL;
+	//l = NULL;
 }
 
 /**
@@ -41,9 +43,11 @@ void l_destroi(Lista l) {
  * @param  val item a ser adicionado
  * @return     retorna a lista atualizada
  */
-Lista l_insere(Lista l, TipoDaLista val, char* nome) {
+Lista l_insere(Lista l, char* name, int tipo, void* val) {
 	Node new = malloc(sizeof(node));
-	new->nome = nome;
+	new->name = malloc(strlen(name)+1);
+	strcpy(new->name, name);
+	new->tipo = tipo;
 	new->info = val;
 	new->next = l->head;
 	l->head = new;
@@ -56,19 +60,18 @@ Lista l_insere(Lista l, TipoDaLista val, char* nome) {
  * @param  l          lista para busca
  * @param  n          item a ser encontrado na lista
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
- * @return            retorna o TipoDaLista encontrado , ou NULL caso não encontre
+ * @return            retorna o Node encontrado , ou NULL caso não encontre
  */
-TipoDaLista l_busca(Lista l, void* nome, int (*COMPARE)(void*, void*)) {
+Node l_busca(Lista l, char* name) {
 	Node atual = l->head;
-
-	while(atual != NULL) {
-		//char *na = atual->ele->nome;
-		if(COMPARE(atual->nome, nome) == 0) {
-			return atual->info;
+	while(atual != (Node) 0) {
+		//char *na = atual->ele->name;
+		if(strcmp(atual->name, name) == 0) {
+			return atual;
 		}
 		atual = atual->next;
 	}
-	return NULL;
+	return 0;
 }
 
 /**
@@ -76,24 +79,37 @@ TipoDaLista l_busca(Lista l, void* nome, int (*COMPARE)(void*, void*)) {
  * @param  l          lista de onde tirar o elemento
  * @param  val        elemento a ser retirado
  * @param  (*COMPARE) funcao usada para comparar os itens da lista
- * @return            retorna 1 se teve sucesso e 0 caso nao encontrado
+ * @return            retorna a lista atualizada
  */
-TipoDaLista l_retira(Lista l, void* nome, int (*COMPARE)(void*, void*)) {
+Lista l_retira(Lista l, char* name) {
 	Node atual = l->head;
 	Node anterior = atual;
-	while(atual != NULL) {
-		if(COMPARE(atual->nome, nome) == 0) {
+	while(atual != (Node) 0) {
+		if(strcmp(atual->name, name) == 0) {
 			if(atual == l->head) {//se for o primeiro da lista
 				l->head = atual->next;
-				atual->next = NULL;
+				free(atual);
+				//atual->next = NULL;
 			} else { // caso esteja no meio da lista
 				anterior->next = atual->next;
-				atual->next = NULL;
+				free(atual);
+				//atual->next = NULL;
 			}
-			return atual->info;
+			return l;
 		}
 		anterior = atual;
 		atual = atual->next;
 	}
-	return NULL;
+	return l;
+}
+
+/**
+ * Imprime conteudos da lista
+ * @param l lista a ser impressa
+ */
+void printList(Lista l) {
+  Node atual;
+  for (atual = l->head; atual != (Node) 0;
+       atual = (Node) atual->next)
+	printf("\t%s\n", atual->name);
 }

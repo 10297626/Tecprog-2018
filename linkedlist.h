@@ -7,15 +7,15 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef linkedlist_h
 #define linkedlist_h
 
-#include "base.h"
+//#include "base.h"
 
-typedef void* TipoDaLista;
+//typedef void* TipoDaLista;
 
 // definicao de um no de uma lista
 typedef struct node {
-	char* nome;
+	char* name;
 	int tipo;
-	TipoDaLista info;
+	void* info;
 	struct node* next;
 } node;
 typedef struct node* Node;
@@ -28,9 +28,10 @@ typedef struct lista {
 typedef lista* Lista;
 
 Lista l_cria();
-void l_destroi(Lista l);
-Lista l_insere(Lista l, TipoDaLista val, char* nome);
-TipoDaLista l_busca(Lista l, void* nome, int (*COMPARE)(void*, void*));
-TipoDaLista l_retira(Lista l, void* nome, int (*COMPARE)(void*, void*));
+void l_destroi(Lista);
+Lista l_insere(Lista, char*, int, void*);
+Node l_busca(Lista, char*);
+Lista l_retira(Lista, char*);
+void printList(Lista);
 
 #endif /* linkedlist_h */

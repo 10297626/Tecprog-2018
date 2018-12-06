@@ -2,7 +2,7 @@
 #Nome: Henrique Suzuki                 NUSP: 10297626		#
 #Nome: Rubens Gomes Neto               NUSP:  9318484		#
 #############################################################
-$(info $(SHELL))
+#$(info $(SHELL))
 CC = gcc
 CFLAGS = -Wall -std=c99
 

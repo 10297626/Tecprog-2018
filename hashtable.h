@@ -8,14 +8,15 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #define hashtable_h
 
 #include "base.h"
+#include "linkedlist.h"
 
 typedef void* TipoDaTab;
 
 // definicao de simbolo
 typedef struct simbolo {
 	char *key;
-	int tipo;
-	TipoDaTab info;
+	//int tipo;
+	Lista l;
 } simbolo;
 typedef simbolo* Simbolo;
 
@@ -23,14 +24,14 @@ typedef simbolo* Simbolo;
 typedef struct tabsim {
 	int size;
 	int count;
-	Simbolo* simbolos;
+	Lista* simbolos;
 } tabsim;
 typedef tabsim* TabSim;
 
-TabSim ht_cria(int tam);
-void ht_destroi(TabSim tab);
-Boolean ht_insere(TabSim tab, char *key, TipoDaTab info);
-TipoDaTab ht_busca(TabSim tab, char *key);
-Boolean ht_retira(TabSim tab, char *key, int (*COMPARE)(void*, void*));
+TabSim ht_cria(int);
+void ht_destroi(TabSim);
+Node ht_busca(TabSim, char*);
+TabSim ht_insere(TabSim, char*, int, void*);
+TabSim ht_retira(TabSim, char*);
 
 #endif /* hashtable_h */

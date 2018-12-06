@@ -1,6 +1,6 @@
 %{
 	#include "symrec.h"
-	#include "avent.tab.h"
+	#include "aventura.tab.h"
 
 	/* Para readline */
 	#include <readline/readline.h>

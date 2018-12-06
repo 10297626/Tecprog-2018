@@ -5,11 +5,13 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 
 #include <stdlib.h>
 #include <stdio.h>
-//#include <string.h>
-#include "base.h"
+#include <string.h>
+//#include "base.h"
+#include "linkedlist.h"
 #include "hashtable.h"
 
-static simbolo HT_DUMMY = {NULL, NULL, NULL};
+
+//static simbolo HT_DUMMY = {NULL, NULL};
 
 /**
  * Cria uma nova entrada para a hash table, associando a key ao cojunto de dados info
@@ -17,13 +19,12 @@ static simbolo HT_DUMMY = {NULL, NULL, NULL};
  * @param  key  chave usada para encontrar os dados
  * @return      retorna o endereço do simbolo criado
  */
-static Simbolo ht_novosim(TipoDaTab info, int tipo, char *key) {
+/*static Simbolo ht_novosim(void* info, char *key) {
 	Simbolo i = malloc(sizeof(simbolo));
 	i->key = key;
-	i->tipo = tipo;
 	i->info = info;
 	return i;
-}
+}*/
 
 /**
  * Cria uma tabela de simbolos do tamanho especificado para guardar os dados
@@ -33,8 +34,8 @@ static Simbolo ht_novosim(TipoDaTab info, int tipo, char *key) {
 TabSim ht_cria(int tam) {
 	TabSim tab = malloc(sizeof(tabsim));
 	tab->size = tam;
-	//tab->count = 0;
-	tab->simbolos = calloc((size_t)tab->size, sizeof(Simbolo));
+	tab->count = 0;
+	tab->simbolos = calloc((size_t)tab->size, sizeof(Lista));
 	return tab;
 }
 
@@ -42,14 +43,14 @@ TabSim ht_cria(int tam) {
  * Deleta o simbolo
  * @param sim simbolo a ser deletado
  */
-static void ht_delsim(Simbolo sim) {
+/*static void ht_delsim(Simbolo sim) {
 	free(sim->info);
 	sim->info = NULL;
 	free(sim->key);
 	sim->key = NULL;
 	free(sim);
 	sim = NULL;
-}
+}*/
 
 /**
  * Apaga todos os simbolos e a tabela liberando o espaço da memoria
@@ -57,14 +58,12 @@ static void ht_delsim(Simbolo sim) {
  */
 void ht_destroi(TabSim tab) {
 	for(int i = 0; i < tab->size; i++) {
-		Simbolo sim = tab->simbolos[i];
-		if(sim != NULL)
-			ht_delsim(sim);
+		Lista l = tab->simbolos[i];
+		if(l != (Lista) 0)
+			l_destroi(l);
 	}
 	free(tab->simbolos);
-	tab->simbolos = NULL;
 	free(tab);
-	tab = NULL;
 }
 
 /**
@@ -75,62 +74,14 @@ void ht_destroi(TabSim tab) {
  */
 static int hashcode(char *key, int tam) {
 	//soma todos os ascii de cada caractere da key
-	//int x = strlen(key)-1;
 	char c = *key;
 	int asc = 0;
 	while(c != 0) {
-		asc += (int)c;
+		asc += (int) c;
 		c = *key++;
 	}
 	//retorna o resultado da divisão inteira da soma pelo tamanho da hash table
 	return asc % tam;
-}
-
-/**
- * Insere um novo conjunto de dados a tabela de simbolos
- * @param  tab  tabela de simbolos
- * @param  key  chave associada
- * @param  info conjunto de dados
- * @return      retorna True se obter sucesso, e False caso contrário
- */
-Boolean ht_insere(TabSim tab, char *key, TipoDaTab info) {
-	//printf("ht_insere\n");
-
-	// retorna False caso não tenha sucesso
-	// retorna True caso tenha sucesso
-	//printf("passagem 01\n");
-
-	//nao ha espaco na tabela
-	if(tab->size == tab->count)
-		return False;
-
-	Simbolo sim1 = ht_novosim(info, key);
-	//printf("passagem 02\n");
-
-	int hi = hashcode(key, tab->size);//manda o codigo ascII do n;
-	int lim = hi;//pra saber se deu uma volta completa
-	//printf("passagem 03\n");
-
-	// esse código resolve a possibilidade de colisões na hash table
-	// a partir do hashcode verificar os seguintes items da tabela e se vazios preenche com o simbolo;
-	//int cont = 0;
-	while(tab->simbolos[hi] != NULL && tab->simbolos[hi] != &HT_DUMMY) {//até achar um espaço vazio
-		//vai pra proxima
-		//printf("while %02d\n", cont);
-		//cont++;
-
-		hi += 1;
-		//volta ao inicio caso passe
-		hi %= tab->size;
-		//se der uma volta completa e não achar espaço
-		if(hi == lim) {
-			return False;
-		}
-	}
-	//insere o item na hashtable
-	tab->simbolos[hi] = sim1;
-	tab->count += 1;
-	return True;
 }
 
 /**
@@ -139,33 +90,42 @@ Boolean ht_insere(TabSim tab, char *key, TipoDaTab info) {
  * @param  key chave associada
  * @return     retorna o conjunto de dados
  */
-TipoDaTab ht_busca(TabSim tab, char *key) {
-	//printf("ht_busca\n");
-
-	//printf("passagem 01\n");
-
+Node ht_busca(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
-	int lim = hi;
-	//printf("passagem 02 - hi: %d; lim: %d\n", hi, lim);
-	//int cont = 0;
 
-	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi] != NULL) {
-		//printf("while %02d\n", cont);
-		//cont++;
-
-		if(tab->simbolos[hi]->key == key && tab->simbolos[hi] != &HT_DUMMY)
-			return tab->simbolos[hi]->info; //encontrou
-
-		//vai pra proxima
-		hi += 1;
-		//volta ao inicio caso passe
-		hi %= tab->size;
-		//se der uma volta completa e não achar o item
-		if(hi == lim)
-			return NULL;
+	//busca o item, testando as listas
+	if(tab->simbolos[hi] != (Lista) 0) {
+		if(tab->simbolos[hi]->count == 1)
+			return tab->simbolos[hi]->head;
+		Node val;
+		if((val = l_busca(tab->simbolos[hi], key)))
+			return val; //encontrou
 	}
-	return NULL;
+	return 0;
+}
+
+/**
+ * Insere um novo conjunto de dados a tabela de simbolos
+ * @param  tab  tabela de simbolos
+ * @param  key  chave associada
+ * @param  value conjunto de dados
+ * @return      retorna True se obter sucesso, e False caso contrário
+ */
+TabSim ht_insere(TabSim tab, char *key, int tipo, void* value) {
+	//manda o codigo ASCII do n;
+	int hi = hashcode(key, tab->size);
+
+	if(tab->simbolos[hi] == (Lista) 0) {
+		Lista l = l_cria();
+		l = l_insere(l, key, tipo, value);
+		tab->simbolos[hi] = l;
+		return tab;
+	}
+	if(!ht_busca(tab, key)) {
+		tab->simbolos[hi] = l_insere(tab->simbolos[hi], key, tipo, value);
+		return tab;
+	}
+	return tab;
 }
 
 /**
@@ -174,39 +134,13 @@ TipoDaTab ht_busca(TabSim tab, char *key) {
  * @param  key chave associada
  * @return     retorna 1 se obter sucesso, e 0 caso contrário
  */
-Boolean ht_retira(TabSim tab, char *key, int (*COMPARE)(void*, void*)) {
-	//printf("ht_retira\n");
-
-	// retorna False caso não tenha sucesso
-	// retorna True caso tenha sucesso
-	//printf("passagem 01\n");
+TabSim ht_retira(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
-	int lim = hi;
-	//printf("passagem 02 - hi: %d; lim: %d\n", hi, lim);
-	//int cont = 0;
-	//se mexe até um vazio, caso encontre isso quer dizer que o item não esta na hash table
-	while(tab->simbolos[hi] != NULL) {
-		//printf("while %02d\n", cont);
-		//cont++;
-		//printf("%s\n", tab->simbolos[hi]->key);
-		Simbolo item = tab->simbolos[hi];
-		//printf("passagem 03\n");
-		if((item != &HT_DUMMY) && (COMPARE(item->key, key) == 0)) {
-			//printf("passagem 04 if - key: %s\n", key);
-			ht_delsim(item);
-			//printf("passagem 05 delsim\n");
 
-			tab->simbolos[hi] = &HT_DUMMY;
-			tab->count--;
-			return True;
-		}
-		//vai pra proxima
-		hi += 1;
-		//volta ao inicio caso passe
-		hi %= tab->size;
-		//se der uma volta completa e não achar o item
-		if(hi == lim)
-			return False;
+	//Node val;
+	if(ht_busca(tab, key)){
+		tab->simbolos[hi] = l_retira(tab->simbolos[hi], key);
+		return tab;
 	}
-	return False;
+	return tab;
 }
