@@ -102,8 +102,10 @@ Node ht_busca(TabSim tab, char *key) {
 		if(tab->simbolos[hi]->count == 1)
 			return tab->simbolos[hi]->head;
 		Node val;
-		if((val = l_busca(tab->simbolos[hi], key)))
+		if((val = l_busca(tab->simbolos[hi], key))){
+			printf("encontrou: %s\n", val->name);
 			return val; //encontrou
+		}
 	}
 	printf("testando3\n");
 
