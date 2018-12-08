@@ -218,27 +218,20 @@ void examinarEspecial(Elemento *e1, Elemento *e2) {
 }
 
 void usarFerramenta(Elemento *e1, Elemento *e2) {
-	if(strcmp(e2->nome, "Criado mudo") != 0) {
+	if(strcmp(e2->nome, "criado mudo") != 0) {
 		puts("não da pra usar isso aqui\n");
 		return;
 	}
-	int i;
-	for(i = 0; i < e1->contem->size; i++) {
-		Lista l = e1->contem->simbolos[i];
-		if(l != (Lista) 0) {
-			Node atual = l->head;
-			while(atual != (Node) 0) {
-				if(atual->tipo == OBJ) {
-					((Elemento*) atual->value)->detalhe.obj.visivel = True;
-				}
-				atual = atual->next;
-			}
-		}
-	}
+	puts("ao abrir o criado mudo você vê um cartão plástico.\n");
+	cartao.detalhe.obj.visivel = True;
 	e2->conhecido = True;
 }
 
 void usarMartelo(Elemento *e1, Elemento *e2) {
+	if(Posic != &banheiro) {
+		puts("não da pra usar isso aqui");
+		return;
+	}
 	quarto.ativo = True;
 	sala.ativo = True;
 	puts("Você abriu a porta! \n");
@@ -249,19 +242,6 @@ void usarFaca(Elemento *e1, Elemento *e2) {
 		puts("não da pra usar isso aqui\n");
 		return;
 	}
-	/*
-	int i;
-	for(i = 0; i < e1->contem->size; i++) {
-		Lista l = e1->contem->simbolos[i];
-		if(l != (Lista) 0) {
-			Node atual = l->head;
-			while(atual != (Node) 0) {
-				if(atual->tipo == OBJ) {
-					atual->value->detalhe.obj.visivel = True;
-				}
-			}
-		}
-	}*/
 	puts("ao rasgar o sofá uma chave cai aos seus pés\n");
 	chave2.detalhe.obj.visivel = True;
 	e2->conhecido = True;
@@ -289,7 +269,7 @@ void usarChave(Elemento *e1, Elemento *e2) {
 }
 
 void usarChaveP(Elemento *e1, Elemento *e2) {
-	if(strcmp(e2->nome, "Fogão") != 0) {
+	if(strcmp(e2->nome, "fogao") != 0) {
 		puts("no no no...\n");
 		return;
 	}
@@ -299,7 +279,7 @@ void usarChaveP(Elemento *e1, Elemento *e2) {
 }
 
 void usarCartao(Elemento *e1, Elemento *e2) {
-	if(strcmp(Posic->nome, "Sala de estar") != 0) {
+	if(strcmp(Posic->nome, "sala") != 0) {
 		puts("no no no...\n");
 		return;
 	}
@@ -465,9 +445,9 @@ TabSim init_table(TabSim sym_table) {
 	/* Ajustes finais */
 	criadoMudo.contem =    ht_insere(criadoMudo.contem, "examine", VERBO, examinarEspecial);
 	sofa.contem       =    ht_insere(sofa.contem,       "examine", VERBO, examinarEspecial);
-	cadeado1.contem = ht_insere(cadeado1.contem,        "examine", OBJ,   examinarEspecial);
-	cadeado2.contem = ht_insere(cadeado2.contem,        "examine", OBJ,   examinarEspecial);
-	cadeado3.contem = ht_insere(cadeado3.contem,        "examine", OBJ,   examinarEspecial);
+	cadeado1.contem   =    ht_insere(cadeado1.contem,   "examine", OBJ,   examinarEspecial);
+	cadeado2.contem   =    ht_insere(cadeado2.contem,   "examine", OBJ,   examinarEspecial);
+	cadeado3.contem   =    ht_insere(cadeado3.contem,   "examine", OBJ,   examinarEspecial);
 	ferramenta.contem =    ht_insere(ferramenta.contem, "use",     VERBO, usarFerramenta);
 	martelo.contem    =    ht_insere(martelo.contem,    "use",     VERBO, usarMartelo);
 	//banheiro.contem   =    ht_insere(banheiro.contem,   "use",     VERBO, usarMartelo);
