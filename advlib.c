@@ -283,7 +283,7 @@ void usarCartao(Elemento *e1, Elemento *e2) {
 		puts("no no no...\n");
 		return;
 	}
-	puts("*bibibp* a porta se abre");
+	puts("*bibibip* a porta se abre");
 	cozinha.ativo = True;
 	entrada.ativo = True;
 }
