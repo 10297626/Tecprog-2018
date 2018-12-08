@@ -61,7 +61,7 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 (C|Cima|CIMA)   { return CIMA;}
 (B|Baixo|BAIXO) { return BAIXO;}
 
-(chave[[:space:]]([1-3]|pequena|de[[:space:]]fenda)) {
+(chave[[:space:]]((de[[:space:]]ferro)?[1-3]|pequena|de[[:space:]]fenda)) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
 		yylval.tptr = s;

@@ -335,28 +335,31 @@ struct initobj {
 
 /* Lista de objetos */
 struct initobj lobjs[] = {
-	{"privada",        &privada},
-	{"banheira",       &banheira},
-	{"chave 1",        &chave1},
-	{"chave 2",        &chave2},
-	{"chave 3",        &chave3},
-	{"pia",            &pia},
-	{"chave pequena",  &chaveP},
-	{"sofa",           &sofa},
-	{"geladeira",      &geladeira},
-	{"faca",           &faca},
-	{"fogao",          &fogao},
-	{"martelo",        &martelo},
-	{"cama",           &cama},
-	{"criado mudo",    &criadoMudo},
-	{"cartao",         &cartao},
-	{"mesa",           &mesa},
-	{"mesa de centro", &mesa},
-	{"chave de fenda", &ferramenta},
-	{"ferramenta",     &ferramenta},
-	{"cadeado 1",      &cadeado1},
-	{"cadeado 2",      &cadeado2},
-	{"cadeado 3",      &cadeado3},
+	{"privada",         &privada},
+	{"banheira",        &banheira},
+	{"chave 1",         &chave1},
+	{"chave de ferro 1",&chave1},
+	{"chave 2",         &chave2},
+	{"chave de ferro 2",&chave2},
+	{"chave 3",         &chave3},
+	{"chave de ferro 3",&chave3},
+	{"pia",             &pia},
+	{"chave pequena",   &chaveP},
+	{"sofa",            &sofa},
+	{"geladeira",       &geladeira},
+	{"faca",            &faca},
+	{"fogao",           &fogao},
+	{"martelo",         &martelo},
+	{"cama",            &cama},
+	{"criado mudo",     &criadoMudo},
+	{"cartao",          &cartao},
+	{"mesa",            &mesa},
+	{"mesa de centro",  &mesa},
+	{"chave de fenda",  &ferramenta},
+	{"ferramenta",      &ferramenta},
+	{"cadeado 1",       &cadeado1},
+	{"cadeado 2",       &cadeado2},
+	{"cadeado 3",       &cadeado3},
 	{ 0, 0}
 };
 
@@ -396,6 +399,7 @@ TabSim init_table(TabSim sym_table) {
 		Elemento * oo = lobjs[i].obj;
 		/* insere */
 		ptr = ht_insere(ptr, lobjs[i].name, OBJ, oo);
+		ptr = ht_insere(ptr, oo->nome, OBJ, oo);
 		oo->contem = NULL;
 	}
 
