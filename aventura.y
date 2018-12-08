@@ -16,13 +16,13 @@
 	Node  AcertaF(Node f, Node o1) {
 		Node s;
 		/* Verifica se existe uma versão especial no local atual (Posic) */
-		if ((s = ht_busca(Posic->cont, f->name)))
+		if ((s = ht_busca(Posic->contem, f->name)))
 			return s;
 
 		/* Verifica se o primeiro objeto tem uma versão especial */
 		if (o1) {
 			Elemento *o = o1->value;
-			if ((s = ht_busca(o->cont, f->name)))
+			if ((s = ht_busca(o->contem, f->name)))
 				return s;
 		}
 		return f;
@@ -54,11 +54,11 @@
 input: EOL { printf("Zzzz...\n"); }
 	| cmd
 	| VAPARA dir {
-			if ($2 >= 0 && $2 < 6 && Posic->Det.lug.Saidas[$2]) {
-				if(!Ativo(Posic->Det.lug.Saidas[$2])) {
-					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$2]->nome);
+			if ($2 >= 0 && $2 < 6 && Posic->detalhe.lug.Saidas[$2]) {
+				if(!Ativo(Posic->detalhe.lug.Saidas[$2])) {
+					printf("Você ainda não consegue entrar em %s\n", Posic->detalhe.lug.Saidas[$2]->nome);
 				} else {
-					Posic = Posic->Det.lug.Saidas[$2];
+					Posic = Posic->detalhe.lug.Saidas[$2];
 					printf("Você foi para %s\n", Posic->nome);
 					Examinar(NULL,NULL);
 				}
@@ -68,11 +68,11 @@ input: EOL { printf("Zzzz...\n"); }
 
 	| dir {
 			/* movimentação  */
-			if ($1 >= 0 && $1 < 6 && Posic->Det.lug.Saidas[$1]) {
-				if(!Ativo(Posic->Det.lug.Saidas[$1])){
-					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$1]->nome);
+			if ($1 >= 0 && $1 < 6 && Posic->detalhe.lug.Saidas[$1]) {
+				if(!Ativo(Posic->detalhe.lug.Saidas[$1])){
+					printf("Você ainda não consegue entrar em %s\n", Posic->detalhe.lug.Saidas[$1]->nome);
 				} else {
-					Posic = Posic->Det.lug.Saidas[$1];
+					Posic = Posic->detalhe.lug.Saidas[$1];
 					printf("Você foi para %s\n", Posic->nome);
 					Examinar(Posic,NULL);
 				}
