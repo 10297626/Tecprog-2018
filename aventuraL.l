@@ -72,6 +72,17 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 	}
 }
 
+(cadeado[[:space:]][1-3]) {
+	Node s;
+	if ((s = ht_busca(sym_table, yytext))) {
+		yylval.tptr = s;
+		return s->tipo;
+	} else {
+		yylval.str = yytext;
+		return DESC;
+	}
+}
+
 (criado[[:space:]]mudo) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {

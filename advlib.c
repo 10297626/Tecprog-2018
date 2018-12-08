@@ -238,7 +238,7 @@ void usarMartelo(Elemento *e1, Elemento *e2) {
 }
 
 void usarFaca(Elemento *e1, Elemento *e2) {
-	if(!e2 || strcmp(e2->nome, "Sofá branco") != 0) {
+	if(!e2 || strcmp(e2->nome, "sofa") != 0) {
 		puts("não da pra usar isso aqui\n");
 		return;
 	}
