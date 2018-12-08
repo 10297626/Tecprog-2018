@@ -100,16 +100,22 @@ input: EOL { printf("Zzzz...\n"); }
 
 cmd: VERBO {
 			/* Intransitivo */
+			printf("testandoVerb1\n");
+
 			F(AcertaF($1,NULL))(NULL,NULL);
 		} eol
 
 	| VERBO obj {
 			/* Transitivo direto */
+			printf("testandoVerb2\n");
+
 			F(AcertaF($1,$2))($2->value,NULL);
 		} eol
 
 	| VERBO obj obj {
 			/* Bitransitivo */
+			printf("testandoVerb3\n");
+
 			F(AcertaF($1,$2))($2->value,$3->value);
 		} eol
 
