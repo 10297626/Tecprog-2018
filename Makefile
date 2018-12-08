@@ -18,4 +18,4 @@ aventura.c : aventura.y
 aventuraL.o: aventuraL.l aventura.c
 
 clean:
-	rm -f aventura *tab* *.o *~ aventura.c
+	rm -f aventura *.tab.* *.o *~ aventura.c
