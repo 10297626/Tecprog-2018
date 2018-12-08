@@ -73,7 +73,7 @@ int presente(char *nome) {
 }
 
 /* Macros para testar propriedades comuns de elementos*/
-#define Ativo(x) (x)->ativo
+//#define Ativo(x) (x)->ativo
 #define Visivel(x) (x)->detalhe.obj.visivel
 #define Conhecido(x) (x)->conhecido
 

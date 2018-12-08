@@ -7,6 +7,8 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #ifndef advlib_h
 #define advlib_h
 
+#define Ativo(x) (x)->ativo
+
 #include "base.h"
 #include "linkedlist.h"
 #include "hashtable.h"
@@ -59,5 +61,7 @@ void examinar(Elemento *, Elemento *); // função para examinar o objeto
 void pegar(Elemento *, Elemento *); //função para pegar o objeto
 void largar(Elemento *, Elemento *); // função para soltar o objeto caso ele esteja no invetário
 
+extern Elemento* Posic;
+extern TabSim inventario;
 
 #endif /* advlib_h */
