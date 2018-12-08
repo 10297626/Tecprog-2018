@@ -411,24 +411,24 @@ TabSim init_table(TabSim sym_table) {
 	pia.contem      = ht_insere(pia.contem,      "chave pequena", OBJ, &chaveP);
 	banheiro.contem = ht_insere(banheiro.contem, "chave pequena", OBJ, &chaveP);
 
-	quarto.contem     = ht_insere(quarto.contem,     "cama", OBJ, &cama);
+	quarto.contem     = ht_insere(quarto.contem,     "cama",        OBJ, &cama);
 	quarto.contem     = ht_insere(quarto.contem,     "criado mudo", OBJ, &criadoMudo);
-	criadoMudo.contem = ht_insere(criadoMudo.contem, "cartao", OBJ, &cartao);
-	quarto.contem     = ht_insere(quarto.contem,     "cartao", OBJ, &cartao);
+	criadoMudo.contem = ht_insere(criadoMudo.contem, "cartao",      OBJ, &cartao);
+	quarto.contem     = ht_insere(quarto.contem,     "cartao",      OBJ, &cartao);
 
-	sala.contem = ht_insere(sala.contem, "sofa",   OBJ, &sofa);
-	sofa.contem = ht_insere(sofa.contem, "chave 2", OBJ, &chave2);
-	sala.contem = ht_insere(sala.contem, "chave 2", OBJ, &chave2);
-	sala.contem = ht_insere(sala.contem, "mesa",   OBJ, &mesa);
+	sala.contem = ht_insere(sala.contem, "sofa",       OBJ, &sofa);
+	sofa.contem = ht_insere(sofa.contem, "chave 2",    OBJ, &chave2);
+	sala.contem = ht_insere(sala.contem, "chave 2",    OBJ, &chave2);
+	sala.contem = ht_insere(sala.contem, "mesa",       OBJ, &mesa);
 	mesa.contem = ht_insere(mesa.contem, "ferramenta", OBJ, &ferramenta);
 	sala.contem = ht_insere(sala.contem, "ferramenta", OBJ, &ferramenta);
 
-	cozinha.contem   = ht_insere(cozinha.contem, "geladeira",   OBJ, &geladeira);
-	geladeira.contem = ht_insere(geladeira.contem, "faca", OBJ, &faca);
-	cozinha.contem   = ht_insere(cozinha.contem, "faca", OBJ, &faca);
-	cozinha.contem   = ht_insere(cozinha.contem, "fogao",   OBJ, &fogao);
-	fogao.contem     = ht_insere(fogao.contem, "chave 3", OBJ, &chave3);
-	cozinha.contem   = ht_insere(cozinha.contem, "chave 3", OBJ, &chave3);
+	cozinha.contem   = ht_insere(cozinha.contem,   "geladeira", OBJ, &geladeira);
+	geladeira.contem = ht_insere(geladeira.contem, "faca",      OBJ, &faca);
+	cozinha.contem   = ht_insere(cozinha.contem,   "faca",      OBJ, &faca);
+	cozinha.contem   = ht_insere(cozinha.contem,   "fogao",     OBJ, &fogao);
+	fogao.contem     = ht_insere(fogao.contem,     "chave 3",   OBJ, &chave3);
+	cozinha.contem   = ht_insere(cozinha.contem,   "chave 3",   OBJ, &chave3);
 
 	entrada.contem = ht_insere(entrada.contem, "cadeado 1", OBJ, &cadeado1);
 	entrada.contem = ht_insere(entrada.contem, "cadeado 2", OBJ, &cadeado2);
@@ -442,17 +442,17 @@ TabSim init_table(TabSim sym_table) {
 
 	/* Ajustes finais */
 	criadoMudo.contem =    ht_insere(criadoMudo.contem, "examine", VERBO, examinarEspecial);
-	sofa.contem       =    ht_insere(sofa.contem, "examine", VERBO, examinarEspecial);
-	ferramenta.contem =    ht_insere(ferramenta.contem, "use", VERBO, usarFerramenta);
-	martelo.contem    =    ht_insere(martelo.contem, "use", VERBO, usarMartelo);
-	faca.contem       =    ht_insere(faca.contem, "use", VERBO, usarFaca);
-	chaveP.contem     =    ht_insere(chaveP.contem, "use", VERBO, usarChaveP);
-	chave1.contem     =    ht_insere(chave1.contem, "use", VERBO, usarChave);
-	chave2.contem     =    ht_insere(chave2.contem, "use", VERBO, usarChave);
-	chave3.contem     =    ht_insere(chave3.contem, "use", VERBO, usarChave);
-	cartao.contem     =    ht_insere(cartao.contem, "use", VERBO, usarMartelo);
+	sofa.contem       =    ht_insere(sofa.contem,       "examine", VERBO, examinarEspecial);
+	ferramenta.contem =    ht_insere(ferramenta.contem, "use",     VERBO, usarFerramenta);
+	martelo.contem    =    ht_insere(martelo.contem,    "use",     VERBO, usarMartelo);
+	faca.contem       =    ht_insere(faca.contem,       "use",     VERBO, usarFaca);
+	chaveP.contem     =    ht_insere(chaveP.contem,     "use",     VERBO, usarChaveP);
+	chave1.contem     =    ht_insere(chave1.contem,     "use",     VERBO, usarChave);
+	chave2.contem     =    ht_insere(chave2.contem,     "use",     VERBO, usarChave);
+	chave3.contem     =    ht_insere(chave3.contem,     "use",     VERBO, usarChave);
+	cartao.contem     =    ht_insere(cartao.contem,     "use",     VERBO, usarMartelo);
 
-
+	/* posição inicial */
 	Posic = &banheiro;
 	/* retorna a tabela */
 	return ptr;

@@ -13,11 +13,14 @@
 	#define F(x) (*(Fptr)(x->value))
 
 	/* Identifica qual a versão correta do verbo chamado */
-	Node  AcertaF(Node f, Node o1) {
+	Node AcertaF(Node f, Node o1) {
 		Node s;
+		printf("testando\n");
+
 		/* Verifica se existe uma versão especial no local atual (Posic) */
 		if ((s = ht_busca(Posic->contem, f->name)))
 			return s;
+		printf("testando\n");
 
 		/* Verifica se o primeiro objeto tem uma versão especial */
 		if (o1) {
@@ -25,6 +28,8 @@
 			if ((s = ht_busca(o->contem, f->name)))
 				return s;
 		}
+		printf("testando\n");
+
 		return f;
 	}
 %}
