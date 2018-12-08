@@ -32,23 +32,24 @@ Elemento* cria_ele() {
 }
 */
 /* Objetos */
+Elemento chave = {"chave","-","-",False,False,NULL,OBJ,.detalhe.obj={False}};
 Elemento chave1 = {"chave 1", "Uma chave pesada de ferro com o numero 1 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 1 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
 Elemento chave2 = {"chave 2", "Uma chave pesada de ferro com o numero 2 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 2 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
 Elemento chave3 = {"chave 3", "Uma chave pesada de ferro com o numero 3 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 3 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
 Elemento chaveP = {"chave pequena", "Uma chave pequena.", "Uma chave pequena e brilhante, parece nova.", True, False, NULL, OBJ, .detalhe.obj={False}};
 Elemento cartao = {"cartao", "Um cartão", "Um cartão similar aos de quartos de hotéis.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento privada = {"privada", "Uma privada normal.", "Uma privada, está limpa mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento banheira = {"banheira", "Uma banheira cheia.", "Uma banheira cheia, mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento pia = {"pia", "Uma pia de banheiro.", "Uma pia de banheiro, de relance algo brilha no ralo.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento privada = {"privada", "Uma privada normal.", "Uma privada, está limpa mas parece ter algo dentro dela... Uma chave estranha.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento banheira = {"banheira", "Uma banheira cheia.", "Uma banheira cheia, mas no fundo você vê um martelo.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento pia = {"pia", "Uma pia de banheiro.", "Uma pia de banheiro, de relance algo brilha no ralo, parece uma pequena chave", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento martelo = {"martelo", "Um martelo comum.", "Um martelo, posso usar ele para abrir a porta.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento cama = {"cama", "Uma cama de casal.", "Uma cama de casal comum.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento criadoMudo = {"criado mudo", "Um criado mudo vazio.", "Um criado mudo com sua gaveta parafusada, se tivesse alguma ferramenta poderia abri-lo.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento sofa = {"sofa", "Um sofa branco rasgado.", "Uma sofa branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento mesa = {"mesa", "Uma mesa de centro.", "Uma mesa de centro, debaixo dela parece ter algo preso.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento cama = {"cama", "Uma cama de casal.", "Uma cama de casal comum. Range ao deitar-se.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento criadoMudo = {"criado mudo", "Um criado mudo vazio.", "Um criado mudo com sua gaveta parafusada, se eu tivesse alguma ferramenta poderia abri-lo.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento sofa = {"sofa", "Um sofá branco rasgado.", "Uma sofá branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento mesa = {"mesa", "Uma mesa de centro.", "Uma mesa de centro, ao sentir debaixo dela você descobre uma ferramenta.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento ferramenta = {"ferramenta", "Uma chave de fenda comum.", "Uma chave de fenda, útil para tirar parafusos.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento geladeira = {"geladeira", "Uma geladeira vazia.", "Uma geladeira desligada, tem algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento faca = {"faca", "Uma faca.", "Uma faca comum.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento fogao = {"fogão", "Um fogão", "Um fogao acorrentado com um cadeado.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento geladeira = {"geladeira", "Uma geladeira vazia.", "Uma geladeira desligada, abrindo ela você vê uma faca.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento faca = {"faca", "Uma faca.", "Uma faca comum. Muito fria ao toque. Brrr...", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento fogao = {"fogao", "Um fogão", "Um fogão acorrentado com um cadeado.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento cadeado1 = {"cadeado 1", "Um cadeado aberto com o numero 1 talhado.", "Um cadeado com o numero 1 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento cadeado2 = {"cadeado 2", "Um cadeado aberto com o numero 2 talhado.", "Um cadeado com o numero 2 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento cadeado3 = {"cadeado 3", "Um cadeado aberto com o numero 3 talhado.", "Um cadeado com o numero 3 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
@@ -193,6 +194,7 @@ void largar(Elemento* e1, Elemento* e2) { // função para soltar o objeto caso 
 		Posic->contem = ht_insere(Posic->contem, e1->nome, OBJ, e1);
 		/* retira do inventario */
 		inventario = ht_retira(inventario, e1->nome);
+		printf("Larguei %s\n", e1->nome);
 		return;
 	} else {
 		puts("Tu não ta com isso não parceiro...");
@@ -274,6 +276,7 @@ void usarChave(Elemento *e1, Elemento *e2) {
 		if(strcmp(last1, last2) == 0) {
 			puts("Abriu!");
 			cadeados--;
+			e2->conhecido = True;
 		} else {
 			puts("essa não é a chave certa");
 		}
@@ -337,6 +340,7 @@ struct initobj {
 
 /* Lista de objetos */
 struct initobj lobjs[] = {
+	{"chave",           &chave},
 	{"privada",         &privada},
 	{"banheira",        &banheira},
 	{"chave 1",         &chave1},
@@ -415,12 +419,16 @@ TabSim init_table(TabSim sym_table) {
 	banheiro.contem = ht_insere(banheiro.contem, "privada",       OBJ, &privada);
 	privada.contem  = ht_insere(privada.contem,  "chave 1",       OBJ, &chave1);
 	banheiro.contem = ht_insere(banheiro.contem, "chave 1",       OBJ, &chave1);
+	privada.contem  = ht_insere(privada.contem,  "chave",         OBJ, &chave1);
+	//banheiro.contem = ht_insere(banheiro.contem, "chave",       OBJ, &chave1);
 	banheiro.contem = ht_insere(banheiro.contem, "banheira",      OBJ, &banheira);
 	banheira.contem = ht_insere(banheira.contem, "martelo",       OBJ, &martelo);
 	banheiro.contem = ht_insere(banheiro.contem, "martelo",       OBJ, &martelo);
 	banheiro.contem = ht_insere(banheiro.contem, "pia",           OBJ, &pia);
 	pia.contem      = ht_insere(pia.contem,      "chave pequena", OBJ, &chaveP);
 	banheiro.contem = ht_insere(banheiro.contem, "chave pequena", OBJ, &chaveP);
+	pia.contem      = ht_insere(pia.contem,      "chave",         OBJ, &chaveP);
+
 
 	quarto.contem     = ht_insere(quarto.contem,     "cama",        OBJ, &cama);
 	quarto.contem     = ht_insere(quarto.contem,     "criado mudo", OBJ, &criadoMudo);
@@ -430,6 +438,7 @@ TabSim init_table(TabSim sym_table) {
 	sala.contem = ht_insere(sala.contem, "sofa",       OBJ, &sofa);
 	sofa.contem = ht_insere(sofa.contem, "chave 2",    OBJ, &chave2);
 	sala.contem = ht_insere(sala.contem, "chave 2",    OBJ, &chave2);
+	sofa.contem = ht_insere(sofa.contem, "chave",      OBJ, &chave2);
 	sala.contem = ht_insere(sala.contem, "mesa",       OBJ, &mesa);
 	mesa.contem = ht_insere(mesa.contem, "ferramenta", OBJ, &ferramenta);
 	sala.contem = ht_insere(sala.contem, "ferramenta", OBJ, &ferramenta);
@@ -440,6 +449,8 @@ TabSim init_table(TabSim sym_table) {
 	cozinha.contem   = ht_insere(cozinha.contem,   "fogao",     OBJ, &fogao);
 	fogao.contem     = ht_insere(fogao.contem,     "chave 3",   OBJ, &chave3);
 	cozinha.contem   = ht_insere(cozinha.contem,   "chave 3",   OBJ, &chave3);
+	fogao.contem     = ht_insere(fogao.contem,     "chave",     OBJ, &chave3);
+
 
 	entrada.contem = ht_insere(entrada.contem, "cadeado 1", OBJ, &cadeado1);
 	entrada.contem = ht_insere(entrada.contem, "cadeado 2", OBJ, &cadeado2);
@@ -454,6 +465,9 @@ TabSim init_table(TabSim sym_table) {
 	/* Ajustes finais */
 	criadoMudo.contem =    ht_insere(criadoMudo.contem, "examine", VERBO, examinarEspecial);
 	sofa.contem       =    ht_insere(sofa.contem,       "examine", VERBO, examinarEspecial);
+	cadeado1.contem = ht_insere(cadeado1.contem,        "examine", OBJ,   examinarEspecial);
+	cadeado2.contem = ht_insere(cadeado2.contem,        "examine", OBJ,   examinarEspecial);
+	cadeado3.contem = ht_insere(cadeado3.contem,        "examine", OBJ,   examinarEspecial);
 	ferramenta.contem =    ht_insere(ferramenta.contem, "use",     VERBO, usarFerramenta);
 	martelo.contem    =    ht_insere(martelo.contem,    "use",     VERBO, usarMartelo);
 	//banheiro.contem   =    ht_insere(banheiro.contem,   "use",     VERBO, usarMartelo);
