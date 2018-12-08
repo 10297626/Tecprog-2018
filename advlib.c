@@ -303,6 +303,11 @@ void usarCartao(Elemento *e1, Elemento *e2) {
 	entrada.ativo = True;
 }
 
+void usar(Elemento *e1, Elemento *e2) {
+	return;
+}
+
+
 
 /* Para inicializar as funções, copiei da calculadora */
 struct initfunc {
@@ -318,6 +323,7 @@ struct initfunc lfunc[] = {
 	{"solte",   largar},
 	{"jogue",   largar},
 	{"examine", examinar},
+	{"use", usar},
 	{0, 0}
 };
 
@@ -450,7 +456,7 @@ TabSim init_table(TabSim sym_table) {
 	chave1.contem     =    ht_insere(chave1.contem,     "use",     VERBO, usarChave);
 	chave2.contem     =    ht_insere(chave2.contem,     "use",     VERBO, usarChave);
 	chave3.contem     =    ht_insere(chave3.contem,     "use",     VERBO, usarChave);
-	cartao.contem     =    ht_insere(cartao.contem,     "use",     VERBO, usarMartelo);
+	cartao.contem     =    ht_insere(cartao.contem,     "use",     VERBO, usarCartao);
 
 	/* posição inicial */
 	inventario = ht_cria(10);
