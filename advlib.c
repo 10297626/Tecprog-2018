@@ -441,6 +441,7 @@ TabSim init_table(TabSim sym_table) {
 	cozinha.detalhe.lug.Saidas[0] = &sala;
 	sala.detalhe.lug.Saidas[2]    = &quarto;
 	quarto.detalhe.lug.Saidas[2]  = &banheiro;
+	final.detalhe.lug.Saidas[2]   = &entrada;
 
 	/* Ajustes finais */
 	criadoMudo.contem =    ht_insere(criadoMudo.contem, "examine", VERBO, examinarEspecial);

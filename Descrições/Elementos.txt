@@ -1,15 +1,29 @@
+Nome: Henrique Suzuki                 NUSP: 10297626
+	Nome: Rubens Gomes Neto               NUSP: 9318484
+
+#Relatório Projeto Tecprog 2018 "Aventura"
+
+	Terceira Fase
+
+	Instruções:
+		Pra compilar o programa coloque todos os arquivos em um diretório e utilze o make.
+
+	Detalhes da implementação:
+		O programa segue muito oque o exemplo do professor, com a maior diferença sendo a implementação da tabela de simbolos com uma hashtable.
+		A hashtable é comum com uma função simples (soma dos char % tamanho da tabela), e lida com colisões utilizando listas ligadas, que foram implementadas normalmente.
+
 Estoria:
 Estilo escape the room onde o objetivo é escapar de uma casa.
 O Protagonista acorda nessa casa sem lembranças da noite anterior e nota que está preso
-com as janelas emparedadas e com uma porta de ferro trancada na entrada. O objetivo é resolver 
+com as janelas emparedadas e com uma porta de ferro trancada na entrada. O objetivo é resolver
 os puzzles e escapar da casa.
 
-A porta final de ferro precisa de tres chaves pra poder abrir. Uma esta na cozinha dentro de um fogão. Outra está no sofa que precisa ser rasgado pra pegar 
+A porta final de ferro precisa de tres chaves pra poder abrir. Uma esta na cozinha dentro de um fogão. Outra está no sofa que precisa ser rasgado pra pegar
 e a ultima esta dentro de uma privada (limpa pelo menos). O
 O protagonista acorda no banheiro, para facilitar os puzzles o jogo ficou divido em três etapas:
 1- escapar do banheiro
 2- escapar da sala/quarto
-3- escapar da casa 
+3- escapar da casa
 
 
 Lugares
@@ -50,7 +64,7 @@ curta: Estou em um banheiro. Pro norte tem o quarto. Eu consigo ver:
 longa: Estou em um banheiro.  Pro norte tem uma porta pregada, talvez com alguma ferramenta eu consiga abri-la. Eu consigo ver:
 ativo: 1
 conhecido: 0 (Só mudar pra conhecido após usar o martelo na porta)
-contem: 
+contem:
 {
 	nome: Privada
 	curta: Uma privada normal
@@ -68,14 +82,14 @@ contem:
 		invisivel: 1 (muda pra 0 após examinar a privada)
 	}
 	invisivel: 0
-	
-	
+
+
 	nome: Banheira
 	curta: Uma banheira cheia.
 	longa: Uma banheira cheia mas parece ter algo dentro dela.
 	ativo: 1
 	conhecido: 0 (muda pra 1 após pegar o item dentro dela)
-	contem:	
+	contem:
 	{
 		nome: Martelo
 		curta: Um martelo, posso usar ele para abrir a porta.
@@ -84,15 +98,15 @@ contem:
 		conhecido: 0
 		contem: nada.
 		invisivel; 1 (muda pra 0 após examinar a banheira)
-	}	
+	}
 	invisivel: 0
-	
+
 	nome: Pia
 	curta: Uma pia de banheiro.
 	longa: Uma pia de banheiro, tem algo no ralo.
 	ativo: 1
 	conhecido:  0 (muda pra 1 após examinar)
-	contem:	
+	contem:
 	{
 		nome: Chave pequena
 		curta: Uma pequena chave.
@@ -103,20 +117,20 @@ contem:
 		invisivel; 1 (muda pra 0 após examinar a pia)
 	}
 	invisivel: 0
-}	
+}
 Saidas
 {
 	Quarto, mas só apos usar o martelo na porta.
 }
 
 
-	
+
 nome: Quarto
 curta: Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver:
-longa: Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver: 
+longa: Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver:
 ativo: 0 (vira 1  quando usar o martelo pra abrir a porta do banheiro)
-conhecido:  0 
-contem:	
+conhecido:  0
+contem:
 {
 	nome: Cama
 	curta: Uma cama de casal.
@@ -131,7 +145,7 @@ contem:
 	longa: Um criado mudo com uma gaveta parafusada, se eu tivesse uma chave de boca poderia abrir.
 	ativo: 1
 	conhecido:  0 (muda pra 1 apos abrir com a chave de boca)
-	contem:	
+	contem:
 	{
 		nome: Cartão chave
 		curta: Um cartão chave.
@@ -145,23 +159,23 @@ contem:
 }
 Saidas
 {
-	Banheiro 
+	Banheiro
 	Sala
 }
 
 nome: Sala de estar
-curta: Estou em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto. Eu consigo ver: 
-longa: Estou em uma sala de estar. Pro sul tem uma porta fechada com um leitor de cartao e pro leste o quarto. Eu consigo ver: 
+curta: Estou em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto. Eu consigo ver:
+longa: Estou em uma sala de estar. Pro sul tem uma porta fechada com um leitor de cartao e pro leste o quarto. Eu consigo ver:
 ativo: 0 (vira 1  quando usar o martelo pra abrir a porta do banheiro)
 conhecido:  0 (vira 1 pós abrir a porta entre a a sala e a cozinha)
-contem:	
+contem:
 {
 	nome: Sofa branco
 	curta: Um sofa branco rasgado.
 	longa: Uma sofa branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.
 	ativo: 1
 	conhecido:  0 (muda pra 1 após usar a faca)
-	contem:	
+	contem:
 	{
 		nome: Chave de ferro 2
 		curta: Uma chave pesada de ferro com o numero 2 marcado nela.
@@ -172,13 +186,13 @@ contem:
 		invisivel: 1 (muda pra 0 após usar a faca no sofa)
 	}
 	invisivel: 0
-	
+
 	nome: Mesa de centro
 	curta: Um mesa de centro.
 	longa: Uma mesa de centro, debaixo dela parece ter algo preso.
 	ativo: 1
 	conhecido:  0 (muda pra 1 apos pegar a chave de boca)
-	contem:	
+	contem:
 	{
 		nome: Chave de boca
 		curta: Uma chave de boca.
@@ -197,18 +211,18 @@ Saidas
 }
 
 nome: Cozinha
-curta: Eu estou em uma cozinha. Pro norte tem a sala de estar e pro leste tem a entrada. Eu consigo ver: 
-longa: Eu estou em uma cozinha. Pro norte tem a sala de estar e pro leste tem a entrada. Eu consigo ver: 
+curta: Eu estou em uma cozinha. Pro norte tem a sala de estar e pro leste tem a entrada. Eu consigo ver:
+longa: Eu estou em uma cozinha. Pro norte tem a sala de estar e pro leste tem a entrada. Eu consigo ver:
 ativo: 0 (vira 1  quando usar o cartão chave no leitor de cartões )
-conhecido:  0 
-contem:	
+conhecido:  0
+contem:
 {
 	nome: Geladeira
 	curta: Uma geladeira vazia.
 	longa: Uma geladeira desligada, tem algo dentro dela.
 	ativo: 1
 	conhecido:  0 (muda pra 1 apos pegar a faca)
-	contem:	
+	contem:
 	{
 		nome: Faca
 		curta: Uma faca.
@@ -219,13 +233,13 @@ contem:
 		invisivel: 1 (muda pra 0 apos examinar a geladeira)
 	}
 	invisivel: 0
-	
+
 	nome: fogao
 	curta: Um fogao.
 	longa: Um fogao acorrentado com um cadeado.
 	ativo: 1
 	conhecido:  0 (muda pra 1 apos pegar a chave 3)
-	contem:	
+	contem:
 	{
 		nome: Chave de ferro 3
 		curta: Uma chave pesada de ferro com o numero 3 marcado nela.
@@ -243,11 +257,11 @@ Saidas
 }
 
 nome: Entrada
-curta: Eu estou em uma entrada da casa. Pro sul eu vejo uma porta de ferro trancada pra oeste tem a cozinha. Eu consigo ver: 
-longa: Eu estou em uma entrada da casa. Pro sul eu vejo uma porta de ferro trancada pra oeste tem a cozinha. Eu consigo ver: 
+curta: Eu estou em uma entrada da casa. Pro sul eu vejo uma porta de ferro trancada pra oeste tem a cozinha. Eu consigo ver:
+longa: Eu estou em uma entrada da casa. Pro sul eu vejo uma porta de ferro trancada pra oeste tem a cozinha. Eu consigo ver:
 ativo: 0 (vira 1  quando usar o cartão chave no leitor de cartões )
-conhecido:  0 
-contem:	
+conhecido:  0
+contem:
 {
 	nome: Cadeado 1
 	curta: Um cadeado aberto com o numero 1 talhado.
@@ -256,7 +270,7 @@ contem:
 	conhecido:  0 ( vira 1 apos usar a chave 1)
 	contem:	nada
 	invisivel: 0
-	
+
 	nome: Cadeado 2
 	curta: Um cadeado aberto com o numero 2 talhado.
 	longa: Um cadeado com o numero 2 talhado.
@@ -264,7 +278,7 @@ contem:
 	conhecido:  0 ( vira 1 apos usar a chave 2)
 	contem:	nada
 	invisivel: 0
-	
+
 	nome: Cadeado 3
 	curta: Um cadeado aberto com o numero 3 talhado.
 	longa: Um cadeado com o numero 3 talhado.
@@ -280,9 +294,9 @@ Saidas
 }
 
 nome: Fora da casa (the end)
-curta: Eu consegui fugir da casa. 
-longa: Eu consegui fugir da casa. 
+curta: Eu consegui fugir da casa.
+longa: Eu consegui fugir da casa.
 ativo: 0 (vira 1  quando abrir os tres cadeados )
-conhecido:  0 
+conhecido:  0
 contem:	nada
 Saidas : nada
