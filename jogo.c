@@ -8,7 +8,6 @@ Nome: Rubens Gomes Neto               NUSP: 9318484
 
 int yyparse();
 TabSim init_table();
-TabSim sym_table;
 
 int main() {
 	/* Monta o mundo */
