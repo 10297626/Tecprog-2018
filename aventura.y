@@ -60,7 +60,7 @@ input: EOL { printf("Zzzz...\n"); }
 				} else {
 					Posic = Posic->detalhe.lug.Saidas[$2];
 					printf("Você foi para %s\n", Posic->nome);
-					Examinar(NULL,NULL);
+					examinar(NULL,NULL);
 				}
 			}
 			else puts("Não há passagem....");
@@ -74,7 +74,7 @@ input: EOL { printf("Zzzz...\n"); }
 				} else {
 					Posic = Posic->detalhe.lug.Saidas[$1];
 					printf("Você foi para %s\n", Posic->nome);
-					Examinar(Posic,NULL);
+					examinar(Posic,NULL);
 				}
 			}
 			else puts("Não há passagem....");
