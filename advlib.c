@@ -14,10 +14,10 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "aventura.tab.h"
 
 // Variáveis globais
-TabSim   sym_table  = ht_cria(30);
-TabSim   inventario = ht_cria(10);
+TabSim   sym_table  = (TabSim)     0;
+TabSim   inventario = (TabSim)     0;
 Elemento *Posic     = (Elemento *) 0;
-int      cadeados   = 3;
+int      cadeados   =              3;
 
 /*
 Elemento* cria_ele() {
@@ -375,12 +375,13 @@ TabSim init_table(TabSim sym_table) {
 
 	/* Lista de verbos */
 	for (i = 0; lfunc[i].fname != 0; i++) {
+		printf("testando\n");
+
 		/* insere */
 		ptr = ht_insere(ptr, lfunc[i].fname, VERBO, lfunc[i].fnct);
 		/* completa os dados */
 		//ptr->value = lfunc[i].fnct;
 	}
-	printf("testando\n");
 
 	/* Lista de objetos */
 	for (i = 0; lobjs[i].name != 0; i++) {
