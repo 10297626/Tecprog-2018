@@ -172,7 +172,9 @@ void pegar(Elemento* e1, Elemento* e2) { //função para pegar o objeto
 					return;
 			}
 		}
-	}
+		printf("Não consigo ver nenhum %s!\n", e1->nome);
+	} else
+		printf("Não existe %s!!!!\n", e1->nome);
 }
 
 /**
