@@ -55,7 +55,8 @@ TabSim ht_cria(int tam) {
  * @param tab tabela a ser apagada
  */
 void ht_destroi(TabSim tab) {
-	for(int i = 0; i < tab->size; i++) {
+	int i;
+	for(i = 0; i < tab->size; i++) {
 		Lista l = tab->simbolos[i];
 		if(l != (Lista) 0)
 			l_destroi(l);

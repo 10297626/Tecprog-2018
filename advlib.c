@@ -6,6 +6,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 //#include guards
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "base.h"
 //#include "linkedlist.h"
 #include "hashtable.h"
@@ -59,10 +60,8 @@ Elemento cozinha = {"Cozinha", "Eu estou em uma cozinha. Pro norte tem a sala de
 Elemento sala = {"Sala de estar", "Estou em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto. Eu consigo ver: ", "Estou em uma sala de estar. Pro sul tem uma porta fechada com um leitor de cartao e pro leste o quarto. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, &cozinha, NULL, NULL, NULL, NULL}};
 Elemento quarto = {"Quarto", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver:", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver: ", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &sala, NULL, NULL}};
 Elemento banheiro = {"Banheiro", "Estou em um banheiro. Pro norte tem o quarto. Eu consigo ver:", "Estou em um banheiro.  Pro norte tem uma porta pregada, talvez com alguma ferramenta eu consiga abri-la. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={&quarto, NULL, NULL, NULL, NULL, NULL}};
-entrada.detalhe.lug.Saidas[2] = &cozinha;
-cozinha.detalhe.lug.Saidas[0] = &sala;
-sala.detalhe.lug.Saidas[2] = &quarto;
-quarto.detalhe.lug.Saidas[2] = &banheiro;
+
+
 
 /* verifica se um objeto está presente */
 /* retorna 1 se no local, 2 se no inventário, 0 se não existir */
@@ -113,18 +112,20 @@ void examinar(Elemento* e1, Elemento* e2) { // função para examinar o objeto
 				puts(e1->curta);
 			}
 			/* descoberta de objetos escondidos */
-			if(e1->contem != (TabSim) 0)
-				for(int i = 0; i < e1->contem->size; i++) {
+			if(e1->contem != (TabSim) 0) {
+				int i;
+				for(i = 0; i < e1->contem->size; i++) {
 					Lista l = e1->contem->simbolos[i];
 					if(l != (Lista) 0) {
 						Node atual = l->head;
 						while(atual != (Node) 0) {
 							if(atual->tipo == OBJ) {
-								atual->value->detalhe.obj.visivel = True;
+								atual->value.detalhe.obj.visivel = True;
 							}
 						}
 					}
 				}
+			}
 
 		} else puts("Oi?");
 	else
@@ -207,13 +208,14 @@ void usarFerramenta(Elemento *e1, Elemento *e2) {
 		puts("não da pra usar isso aqui\n");
 		return;
 	}
-	for(int i = 0; i < e1->contem->size; i++) {
+	int i;
+	for(i = 0; i < e1->contem->size; i++) {
 		Lista l = e1->contem->simbolos[i];
 		if(l != (Lista) 0) {
 			Node atual = l->head;
 			while(atual != (Node) 0) {
 				if(atual->tipo == OBJ) {
-					atual->value->detalhe.obj.visivel = True;
+					atual->value.detalhe.obj.visivel = True;
 				}
 			}
 		}
@@ -232,7 +234,9 @@ void usarFaca(Elemento *e1, Elemento *e2) {
 		puts("não da pra usar isso aqui\n");
 		return;
 	}
-	/*for(int i = 0; i < e1->contem->size; i++) {
+	/*
+	int i;
+	for(i = 0; i < e1->contem->size; i++) {
 		Lista l = e1->contem->simbolos[i];
 		if(l != (Lista) 0) {
 			Node atual = l->head;
@@ -251,9 +255,9 @@ void usarFaca(Elemento *e1, Elemento *e2) {
 void usarChave(Elemento *e1, Elemento *e2) {
 	if(e1 && e2) {
 		int len1 = strlen(e1->nome);
-		const char *last1 = &str[len-1];
+		const char *last1 = &e1->nome[len1-1];
 		int len2 = strlen(e2->nome);
-		const char *last2 = &str[len-1];
+		const char *last2 = &e2->nome[len2-1];
 		if(strcmp(last1, last2) == 0) {
 			puts("Abriu!");
 			cadeados--;
@@ -297,12 +301,12 @@ struct initfunc {
 
 /* Lista de verbos */
 struct initfunc lfunc[] = {
-	{"pegue",   Pegar},
-	{"cate",    Pegar},
-	{"largue",  Largar},
-	{"solte",   Largar},
-	{"jogue",   Largar},
-	{"examine", Examinar},
+	{"pegue",   pegar},
+	{"cate",    pegar},
+	{"largue",  largar},
+	{"solte",   largar},
+	{"jogue",   largar},
+	{"examine", examinar},
 	{0, 0}
 };
 
@@ -382,20 +386,20 @@ TabSim init_table(TabSim sym_table) {
 	}
 
 	/* Coloca os objetos nos lugares */
-	banheiro.contem = ht_insere(banheiro.contem, "privada", OBJ, &privada);
-	privada.contem  = ht_insere(privada.contem, "chave 1", OBJ, &chave1);
-	banheiro.contem = ht_insere(banheiro.contem, "chave 1", OBJ, &chave1);
-	banheiro.contem = ht_insere(banheiro.contem, "banheira", OBJ, &banheira);
-	banheira.contem = ht_insere(banheira.contem, "martelo", OBJ, &martelo);
-	banheiro.contem = ht_insere(banheiro.contem, "martelo", OBJ, &martelo);
-	banheiro.contem = ht_insere(banheiro.contem, "pia", OBJ, &pia);
-	pia.contem      = ht_insere(pia.contem, "chave pequena", OBJ, &chaveP);
+	banheiro.contem = ht_insere(banheiro.contem, "privada",       OBJ, &privada);
+	privada.contem  = ht_insere(privada.contem,  "chave 1",       OBJ, &chave1);
+	banheiro.contem = ht_insere(banheiro.contem, "chave 1",       OBJ, &chave1);
+	banheiro.contem = ht_insere(banheiro.contem, "banheira",      OBJ, &banheira);
+	banheira.contem = ht_insere(banheira.contem, "martelo",       OBJ, &martelo);
+	banheiro.contem = ht_insere(banheiro.contem, "martelo",       OBJ, &martelo);
+	banheiro.contem = ht_insere(banheiro.contem, "pia",           OBJ, &pia);
+	pia.contem      = ht_insere(pia.contem,      "chave pequena", OBJ, &chaveP);
 	banheiro.contem = ht_insere(banheiro.contem, "chave pequena", OBJ, &chaveP);
 
-	quarto.contem     = ht_insere(quarto.contem, "cama", OBJ, &cama);
-	quarto.contem     = ht_insere(quarto.contem, "criado mudo", OBJ, &criadoMudo);
+	quarto.contem     = ht_insere(quarto.contem,     "cama", OBJ, &cama);
+	quarto.contem     = ht_insere(quarto.contem,     "criado mudo", OBJ, &criadoMudo);
 	criadoMudo.contem = ht_insere(criadoMudo.contem, "cartao", OBJ, &cartao);
-	quarto.contem     = ht_insere(quarto.contem, "cartao", OBJ, &cartao);
+	quarto.contem     = ht_insere(quarto.contem,     "cartao", OBJ, &cartao);
 
 	sala.contem = ht_insere(sala.contem, "sofa",   OBJ, &sofa);
 	sofa.contem = ht_insere(sofa.contem, "chave 2", OBJ, &chave2);
@@ -414,6 +418,12 @@ TabSim init_table(TabSim sym_table) {
 	entrada.contem = ht_insere(entrada.contem, "cadeado 1", OBJ, &cadeado1);
 	entrada.contem = ht_insere(entrada.contem, "cadeado 2", OBJ, &cadeado2);
 	entrada.contem = ht_insere(entrada.contem, "cadeado 3", OBJ, &cadeado3);
+
+	/* saidas */
+	entrada.detalhe.lug.Saidas[2] = &cozinha;
+	cozinha.detalhe.lug.Saidas[0] = &sala;
+	sala.detalhe.lug.Saidas[2]    = &quarto;
+	quarto.detalhe.lug.Saidas[2]  = &banheiro;
 
 	/* Ajustes finais */
 	criadoMudo.contem =    ht_insere(criadoMudo.contem, "examine", VERBO, examinarEspecial);

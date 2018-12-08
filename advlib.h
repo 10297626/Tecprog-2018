@@ -55,9 +55,9 @@ Elemento* cria_ele();
 //ponteiro parar funções
 typedef void (*Fptr)(Elemento *, Elemento *);
 
-Boolean examinar(Elemento *, Elemento *); // função para examinar o objeto
-Boolean pegar(Elemento *, Elemento *); //função para pegar o objeto
-Boolean largar(Elemento *, Elemento *); // função para soltar o objeto caso ele esteja no invetário
+void examinar(Elemento *, Elemento *); // função para examinar o objeto
+void pegar(Elemento *, Elemento *); //função para pegar o objeto
+void largar(Elemento *, Elemento *); // função para soltar o objeto caso ele esteja no invetário
 
 
 #endif /* advlib_h */
