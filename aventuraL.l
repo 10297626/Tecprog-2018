@@ -64,36 +64,33 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 (chave[[:space:]]([1-3]|pequena|de[[:space:]]fenda)) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
-	yylval.tptr = s;
-	return s->tipo;
-	}
-	else {
-	yylval.str = yytext;
-	return DESC;
+		yylval.tptr = s;
+		return s->tipo;
+	} else {
+		yylval.str = yytext;
+		return DESC;
 	}
 }
 
 (criado[[:space:]]mudo) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
-	yylval.tptr = s;
-	return s->tipo;
-	}
-	else {
-	yylval.str = yytext;
-	return DESC;
+		yylval.tptr = s;
+		return s->tipo;
+	} else {
+		yylval.str = yytext;
+		return DESC;
 	}
 }
 
-(mesa[[:space:]]de[[:space:]]centro) {
+(mesa([[:space:]]de[[:space:]]centro)?) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
-	yylval.tptr = s;
-	return s->tipo;
-	}
-	else {
-	yylval.str = yytext;
-	return DESC;
+		yylval.tptr = s;
+		return s->tipo;
+	} else {
+		yylval.str = yytext;
+		return DESC;
 	}
 }
 
