@@ -110,7 +110,12 @@ Node ht_busca(TabSim tab, char *key) {
  * @param  value conjunto de dados
  * @return      retorna True se obter sucesso, e False caso contrário
  */
-TabSim ht_insere(TabSim tab, char *key, int tipo, void* value) {
+TabSim ht_insere(TabSim symTable, char *key, int tipo, void* value) {
+	TabSim tab;
+	if(symTable == (TabSim) 0)
+		tab = ht_cria(10);
+	else
+		tab = symTable;
 
 	//manda o codigo ASCII do n;
 	int hi = hashcode(key, tab->size);
