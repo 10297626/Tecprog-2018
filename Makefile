@@ -11,7 +11,7 @@ CFLAGS = -Wall -g
 	bison $<
 	mv $*.tab.c $*.c
 
-aventura: jogo.o advlib.o hashtable.o linkedlist.o base.o
+aventura: jogo.o advlib.o aventura.o aventuraL.o hashtable.o linkedlist.o base.o
 
 aventura.c : aventura.y
 
