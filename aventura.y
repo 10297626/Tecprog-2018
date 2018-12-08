@@ -15,7 +15,6 @@
 	/* Identifica qual a versão correta do verbo chamado */
 	Node AcertaF(Node f, Node o1) {
 		Node s;
-		printf("testando\n");
 
 		/* Verifica se existe uma versão especial no local atual (Posic) */
 		if ((s = ht_busca(Posic->contem, f->name)))
