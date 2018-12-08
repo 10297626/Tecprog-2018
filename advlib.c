@@ -370,7 +370,7 @@ struct initlug llugs[] = {
 
 /* Inicializa a tabela de símbolos passada como argumento */
 TabSim init_table(TabSim sym_table) {
-	int i;
+	int i;//int
 	TabSim ptr = sym_table;		/* cabeça da lista */
 	ptr = ht_cria(30);
 
