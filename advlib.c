@@ -95,9 +95,9 @@ void examinar(Elemento* e1, Elemento* e2) { // função para examinar o objeto
 		puts("Aqui tem:");
 		int i;
 		for(i=0; i<Posic->contem->size; i++) {
-			if(Posic->simbolos[i] != (Lista) 0) {
-				//ptr = Posic->simbolos[i]->head;
-				for(ptr = Posic->simbolos[i]->head; ptr != (Node) 0; ptr = (Node)ptr->next) {
+			if(Posic->contem->simbolos[i] != (Lista) 0) {
+				//ptr = Posic->contem->simbolos[i]->head;
+				for(ptr = Posic->contem->simbolos[i]->head; ptr != (Node) 0; ptr = (Node)ptr->next) {
 					/* como a lista contém tods os nomes, precisamos filtrar */
 					if(ptr->tipo == OBJ) {
 						Elemento *oo = (Elemento *)ptr->value;
@@ -126,7 +126,7 @@ void examinar(Elemento* e1, Elemento* e2) { // função para examinar o objeto
 						Node atual = l->head;
 						while(atual != (Node) 0) {
 							if(atual->tipo == OBJ) {
-								(Elemento*)(atual->value)->detalhe.obj.visivel = True;
+								((Elemento*) atual->value)->detalhe.obj.visivel = True;
 							}
 						}
 					}
@@ -221,7 +221,7 @@ void usarFerramenta(Elemento *e1, Elemento *e2) {
 			Node atual = l->head;
 			while(atual != (Node) 0) {
 				if(atual->tipo == OBJ) {
-					(Elemento*)(atual->value)->detalhe.obj.visivel = True;
+					((Elemento*) atual->value)->detalhe.obj.visivel = True;
 				}
 			}
 		}
