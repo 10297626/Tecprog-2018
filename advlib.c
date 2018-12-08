@@ -69,7 +69,7 @@ int presente(char *nome) {
 	/* inventário? */
 	Node n;
 	if ((n=ht_busca(inventario, nome)))  return 2;
-	if (((n=ht_busca(Posic->contem, nome))) return 1;
+	if ((n=ht_busca(Posic->contem, nome))) return 1;
 	return 0;
 }
 
