@@ -136,10 +136,12 @@ TabSim ht_insere(TabSim symTable, char *key, int tipo, void* value) {
 		Lista l = l_cria();
 		l = l_insere(l, key, tipo, value);
 		tab->simbolos[hi] = l;
+		tab->count++;
 		return tab;
 	}
 	if(!ht_busca(tab, key)) {
 		tab->simbolos[hi] = l_insere(tab->simbolos[hi], key, tipo, value);
+		tab->count++;
 		return tab;
 	}
 	return tab;
@@ -156,6 +158,7 @@ TabSim ht_retira(TabSim tab, char *key) {
 	//Node val;
 	if(tab->simbolos[hi] != (Lista) 0){
 		tab->simbolos[hi] = l_retira(tab->simbolos[hi], key);
+		tab->count--;
 		return tab;
 	}
 	return tab;

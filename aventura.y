@@ -89,7 +89,7 @@ input: EOL { printf("Zzzz...\n"); }
 
 	| INVENT {
 			/* listagem do inventário */
-			if (inventario) {
+			if (inventario->count > 0) {
 				puts("Você tem:");
 				printHT(inventario);
 			}
