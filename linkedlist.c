@@ -110,6 +110,8 @@ Lista l_retira(Lista l, char* name) {
  * @param l lista a ser impressa
  */
 void printList(Lista l) {
+	if(l == (Lista) 0)
+		return;
 	Node atual;
 	for (atual = l->head; atual != (Node) 0; atual = (Node) atual->next)
 		printf("\t%s\n", atual->name);

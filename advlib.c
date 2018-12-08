@@ -67,6 +67,7 @@ Elemento banheiro = {"Banheiro", "Estou em um banheiro. Pro norte tem o quarto. 
 /* retorna 1 se no local, 2 se no inventário, 0 se não existir */
 int presente(char *nome) {
 	/* inventário? */
+	printHT(Posic->contem);
 	if (ht_busca(inventario, nome))  return 2;
 	if (ht_busca(Posic->contem, nome)) return 1;
 	return 0;
