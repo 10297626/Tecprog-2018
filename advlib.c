@@ -375,8 +375,6 @@ TabSim init_table(TabSim sym_table) {
 
 	/* Lista de verbos */
 	for (i = 0; lfunc[i].fname != 0; i++) {
-		printf("testando\n");
-
 		/* insere */
 		ptr = ht_insere(ptr, lfunc[i].fname, VERBO, lfunc[i].fnct);
 		/* completa os dados */
