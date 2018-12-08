@@ -92,25 +92,25 @@ static int hashcode(char *key, int tam) {
 Node ht_busca(TabSim tab, char *key) {
 	if(tab == (TabSim) 0 || tab->size == 0)
 		return 0;
-	printf("testando1 %s\n", key);
+	//printf("testando1 %s\n", key);
 
 	int hi = hashcode(key, tab->size);
-	printf("testando2\n");
+	//printf("testando2\n");
 
 	//busca o item, testando a lista
 	if(tab->simbolos[hi] != (Lista) 0) {
 		if(tab->simbolos[hi]->count == 1 && strcmp(tab->simbolos[hi]->head->name, key) == 0) {
-			printf("encontrou1: ");
-			printf("%s\n", tab->simbolos[hi]->head->name);
+			//printf("encontrou1: ");
+			//printf("%s\n", tab->simbolos[hi]->head->name);
 			return tab->simbolos[hi]->head;
 		}
 		Node val;
 		if((val = l_busca(tab->simbolos[hi], key))) {
-			printf("encontrou2: %s\n", val->name);
+			//printf("encontrou2: %s\n", val->name);
 			return val; //encontrou
 		}
 	}
-	printf("testando3\n");
+	//printf("testando3\n");
 
 	return 0;
 }

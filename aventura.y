@@ -18,8 +18,8 @@
 
 		/* Verifica se existe uma versão especial no local atual (Posic) */
 		if ((s = ht_busca(Posic->contem, f->name))) {
-			printf("testandoS: ");
-			printf("%s\n", s->name);
+			//printf("testandoS: ");
+			//printf("%s\n", s->name);
 			return s;
 		}
 
@@ -30,7 +30,7 @@
 			if ((s = ht_busca(o->contem, f->name)))
 				return s;
 		}
-		printf("testando\n");
+		//printf("testando\n");
 
 		return f;
 	}
@@ -103,21 +103,21 @@ input: EOL { printf("Zzzz...\n"); }
 
 cmd: VERBO {
 			/* Intransitivo */
-			printf("testandoVerb1\n");
+			//printf("testandoVerb1\n");
 
 			F(AcertaF($1,NULL))(NULL,NULL);
 		} eol
 
 	| VERBO obj {
 			/* Transitivo direto */
-			printf("testandoVerb2\n");
+			//printf("testandoVerb2\n");
 
 			F(AcertaF($1,$2))($2->value,NULL);
 		} eol
 
 	| VERBO obj obj {
 			/* Bitransitivo */
-			printf("testandoVerb3\n");
+			//printf("testandoVerb3\n");
 
 			F(AcertaF($1,$2))($2->value,$3->value);
 		} eol
