@@ -370,10 +370,10 @@ struct initlug llugs[] = {
 
 /* Inicializa a tabela de símbolos passada como argumento */
 TabSim init_table(TabSim sym_table) {
-	printf("testando\n");
-
 	int i;
 	TabSim ptr = sym_table;		/* cabeça da lista */
+	printf("testando\n");
+
 	/* Lista de verbos */
 	for (i = 0; lfunc[i].fname != 0; i++) {
 		/* insere */
