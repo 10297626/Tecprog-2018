@@ -33,7 +33,7 @@ TabSim ht_cria(int tam) {
 	TabSim tab = malloc(sizeof(tabsim));
 	tab->size = tam;
 	tab->count = 0;
-	tab->simbolos = calloc((size_t)tab->size, sizeof(Lista));
+	tab->simbolos = malloc(tam*sizeof(Lista));//calloc((size_t)tab->size, sizeof(Lista));
 	return tab;
 }
 
