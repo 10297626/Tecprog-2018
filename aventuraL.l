@@ -61,15 +61,33 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 (C|Cima|CIMA)   { return CIMA;}
 (B|Baixo|BAIXO) { return BAIXO;}
 
+(chave ([1-3]|pequena|de fenda)) {
+	Node s;
+	if ((s = ht_busca(sym_table, yytext))) {
+	yylval.tptr = s;
+	return s->tipo;
+	}
+	else {
+	yylval.str = yytext;
+	return DESC;
+	}
+}
 
-[ao]|uma?
+(criado mudo) {
+	Node s;
+	if ((s = ht_busca(sym_table, yytext))) {
+	yylval.tptr = s;
+	return s->tipo;
+	}
+	else {
+	yylval.str = yytext;
+	return DESC;
+	}
+}
 
-d[aoe]|em|n[ao]
-
-[[:alpha:]]+ {
-	/* identificador */
-	symrec *s;
-	if ((s = getsym(sym_table, yytext))) {
+(mesa de centro) {
+	Node s;
+	if ((s = ht_busca(sym_table, yytext))) {
 	yylval.tptr = s;
 	return s->tipo;
 	}
@@ -80,8 +98,24 @@ d[aoe]|em|n[ao]
 }
 
 
+[ao]|uma?
+
+d[aoe]|em|n[ao]
+
+[[:alpha:]]+ {
+	/* identificador */
+	Node s;
+	if ((s = ht_busca(sym_table, yytext))) {
+	yylval.tptr = s;
+	return s->tipo;
+	}
+	else {
+	yylval.str = yytext;
+	return DESC;
+	}
+}
+
 [ \t]+
 [\n;] {/* ';' também termina linhas */return EOL;}
-
 
 . {yylval.str = yytext; return DESC;}

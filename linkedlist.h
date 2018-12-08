@@ -15,7 +15,7 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 typedef struct node {
 	char* name;
 	int tipo;
-	void* info;
+	void* value;
 	struct node* next;
 } node;
 typedef struct node* Node;

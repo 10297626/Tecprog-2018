@@ -2,6 +2,7 @@
 
 %{
 	#include <stdio.h>
+	#include "linkedlist.h"
 	#include "hashtable.h"
 	#include "advlib.h"
 
@@ -12,17 +13,16 @@
 	#define F(x) (*(Fptr)(x->value))
 
 	/* Identifica qual a versão correta do verbo chamado */
-	symrec * AcertaF(symrec *f, symrec *o1) {
-		symrec *s;
-
+	Node  AcertaF(Node f, Node o1) {
+		Node s;
 		/* Verifica se existe uma versão especial no local atual (Posic) */
-		if ((s = getsym(Posic->cont, f->name)))
+		if ((s = ht_busca(Posic->cont, f->name)))
 			return s;
 
 		/* Verifica se o primeiro objeto tem uma versão especial */
 		if (o1) {
 			Elemento *o = o1->value;
-			if ((s = getsym(o->cont, f->name)))
+			if ((s = ht_busca(o->cont, f->name)))
 				return s;
 		}
 		return f;
@@ -31,7 +31,7 @@
 
 /* Declaracoes */
 %union {
-	symrec *tptr;
+	Node tptr;
 	char *str;
 	int direc;
 }
@@ -53,33 +53,38 @@
 
 input: EOL { printf("Zzzz...\n"); }
 	| cmd
-	| VAPARA {
-			/* movimentação */
-			printf("Seguindo para ");
-		}
-		dir {
-			if ($3 >= 0 && Posic->Det.lug.Saidas[$3]) {
-				Posic = Posic->Det.lug.Saidas[$3];
-				Examinar(NULL,NULL);
+	| VAPARA dir {
+			if ($3 >= 0 && $3 < 6 && Posic->Det.lug.Saidas[$3]) {
+				if(!Ativo(Posic->Det.lug.Saidas[$3])) {
+					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$3]->nome);
+				} else {
+					Posic = Posic->Det.lug.Saidas[$3];
+					printf("Você foi para %s\n", Posic->nome);
+					Examinar(NULL,NULL);
+				}
 			}
 			else puts("Não há passagem....");
 		} eol
 
 	| dir {
 			/* movimentação  */
-			if ($1 >= 0 && Posic->Det.lug.Saidas[$1]) {
-				 Posic = Posic->Det.lug.Saidas[$1];
-				 printf("Você foi para %s\n", Posic->nome);
-				 Examinar(Posic,NULL);
-			 }
-			 else puts("Não há passagem....");
+			if ($1 >= 0 && $1 < 6 && Posic->Det.lug.Saidas[$1]) {
+				if(!Ativo(Posic->Det.lug.Saidas[$1])){
+					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$1]->nome);
+				} else {
+					Posic = Posic->Det.lug.Saidas[$1];
+					printf("Você foi para %s\n", Posic->nome);
+					Examinar(Posic,NULL);
+				}
+			}
+			else puts("Não há passagem....");
 		} eol
 
 	| INVENT {
 			/* listagem do inventário */
 			if (inventario) {
 				puts("Você tem:");
-				printsym(inventario);
+				printHT(inventario);
 			}
 			else puts("Você está sem nada no momento...");
 		} eol

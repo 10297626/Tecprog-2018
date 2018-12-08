@@ -134,11 +134,21 @@ TabSim ht_insere(TabSim tab, char *key, int tipo, void* value) {
  */
 TabSim ht_retira(TabSim tab, char *key) {
 	int hi = hashcode(key, tab->size);
-
 	//Node val;
-	if(ht_busca(tab, key)){
+	if(tab->simbolos[hi] != (Lista) 0){
 		tab->simbolos[hi] = l_retira(tab->simbolos[hi], key);
 		return tab;
 	}
 	return tab;
+}
+
+/**
+ * Imprime tabela
+ * @param tab tabela hash
+ */
+void printHT(TabSim tab) {
+	int i;
+	for(i=0; i<tab->size; i++)
+		if(tab->simbolos[i] != (Lista) 0)
+			printList(tab->simbolos[i]);
 }

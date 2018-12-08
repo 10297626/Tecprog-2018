@@ -33,5 +33,6 @@ void ht_destroi(TabSim);
 Node ht_busca(TabSim, char*);
 TabSim ht_insere(TabSim, char*, int, void*);
 TabSim ht_retira(TabSim, char*);
+void printHT(TabSim);
 
 #endif /* hashtable_h */

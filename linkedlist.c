@@ -46,7 +46,7 @@ Lista l_insere(Lista l, char* name, int tipo, void* val) {
 	new->name = malloc(strlen(name)+1);
 	strcpy(new->name, name);
 	new->tipo = tipo;
-	new->info = val;
+	new->value = val;
 	new->next = l->head;
 	l->head = new;
 	l->count++;
@@ -103,8 +103,7 @@ Lista l_retira(Lista l, char* name) {
  * @param l lista a ser impressa
  */
 void printList(Lista l) {
-  Node atual;
-  for (atual = l->head; atual != (Node) 0;
-       atual = (Node) atual->next)
-	printf("\t%s\n", atual->name);
+	Node atual;
+	for (atual = l->head; atual != (Node) 0; atual = (Node) atual->next)
+		printf("\t%s\n", atual->name);
 }

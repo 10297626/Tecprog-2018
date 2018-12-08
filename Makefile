@@ -3,32 +3,19 @@
 #Nome: Rubens Gomes Neto               NUSP:  9318484		#
 #############################################################
 #$(info $(SHELL))
+LOADLIBES= -lfl -lreadline
 CC = gcc
-CFLAGS = -Wall -std=c99
+CFLAGS = -Wall -g
 
-jogo: advlib.o hashtable.o linkedlist.o base.o jogo.o
-	$(CC) $(CFLAGS) -o $@ $^
+%.c: %.y
+	bison $<
+	mv $*.tab.c $*.c
 
-teste: advlib.o hashtable.o linkedlist.o teste.o base.o
-	$(CC) $(CFLAGS) -o $@ $^
+aventura: jogo.o advlib.o hashtable.o linkedlist.o base.o
 
-advlib.o: advlib.c advlib.h linkedlist.h hashtable.h base.h
-	$(CC) $(CFLAGS) -c $<
+aventura.c : aventura.y
 
-hashtable.o: hashtable.c hashtable.h base.h
-	$(CC) $(CFLAGS) -c $<
-
-linkedlist.o: linkedlist.c linkedlist.h base.h
-	$(CC) $(CFLAGS) -c $<
-
-base.o: base.c base.h
-	$(CC) $(CFLAGS) -c $<
-
-teste.o: teste.c hashtable.h linkedlist.h advlib.h
-	$(CC) $(CFLAGS) -c $<
-
-jogo.o: jogo.c hashtable.h linkedlist.h advlib.h base.h
-	$(CC) $(CFLAGS) -c $<
+aventuraL.o: aventuraL.l aventura.c
 
 clean:
 	rm -f *.o *~ jogo teste

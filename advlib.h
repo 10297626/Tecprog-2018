@@ -14,14 +14,13 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 // struct contendo os atributos, especificos de objetos
 typedef struct {
 	//Elemento ele;
-	Boolean ativo;
+	//Boolean ativo;
 	Boolean visivel;
 } Objeto;
 
 //Lugares
 // struct contendo os atributos, especificos de lugares
 typedef struct {
-	//Elemento ele;
 	// [0]: Norte
 	// [1]: Sul
 	// [2]: Leste
