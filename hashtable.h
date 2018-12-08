@@ -28,6 +28,8 @@ typedef struct tabsim {
 } tabsim;
 typedef tabsim* TabSim;
 
+extern TabSim sym_table;
+
 TabSim ht_cria(int);
 void ht_destroi(TabSim);
 Node ht_busca(TabSim, char*);
