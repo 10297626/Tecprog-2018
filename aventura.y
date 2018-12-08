@@ -54,11 +54,11 @@
 input: EOL { printf("Zzzz...\n"); }
 	| cmd
 	| VAPARA dir {
-			if ($3 >= 0 && $3 < 6 && Posic->Det.lug.Saidas[$3]) {
-				if(!Ativo(Posic->Det.lug.Saidas[$3])) {
-					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$3]->nome);
+			if ($2 >= 0 && $2 < 6 && Posic->Det.lug.Saidas[$2]) {
+				if(!Ativo(Posic->Det.lug.Saidas[$2])) {
+					printf("Você ainda não consegue entrar em %s\n", Posic->Det.lug.Saidas[$2]->nome);
 				} else {
-					Posic = Posic->Det.lug.Saidas[$3];
+					Posic = Posic->Det.lug.Saidas[$2];
 					printf("Você foi para %s\n", Posic->nome);
 					Examinar(NULL,NULL);
 				}
