@@ -61,7 +61,7 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 (C|Cima|CIMA)   { return CIMA;}
 (B|Baixo|BAIXO) { return BAIXO;}
 
-(chave ([1-3]|pequena|de fenda)) {
+(chave[[:space:]]([1-3]|pequena|de[[:space:]]fenda)) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
 	yylval.tptr = s;
@@ -73,7 +73,7 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 	}
 }
 
-(criado mudo) {
+(criado[[:space:]]mudo) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
 	yylval.tptr = s;
@@ -85,7 +85,7 @@ v(á|Á|a)[[:space:]]+para { return VAPARA;}
 	}
 }
 
-(mesa de centro) {
+(mesa[[:space:]]de[[:space:]]centro) {
 	Node s;
 	if ((s = ht_busca(sym_table, yytext))) {
 	yylval.tptr = s;
