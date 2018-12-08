@@ -111,18 +111,13 @@ Node ht_busca(TabSim tab, char *key) {
  * @return      retorna True se obter sucesso, e False caso contrário
  */
 TabSim ht_insere(TabSim tab, char *key, int tipo, void* value) {
-	printf("testando\n");
 
 	//manda o codigo ASCII do n;
 	int hi = hashcode(key, tab->size);
-	printf("testando\n");
 
 	if(tab->simbolos[hi] == (Lista) 0) {
-		printf("testando\n");
 		Lista l = l_cria();
-		printf("testando\n");
 		l = l_insere(l, key, tipo, value);
-		printf("testando\n");
 		tab->simbolos[hi] = l;
 		return tab;
 	}
