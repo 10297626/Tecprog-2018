@@ -17,9 +17,12 @@
 		Node s;
 
 		/* Verifica se existe uma versão especial no local atual (Posic) */
-		if ((s = ht_busca(Posic->contem, f->name)))
+		if ((s = ht_busca(Posic->contem, f->name))) {
+			printf("testandoS: ");
+			printf("%s\n", s->name);
 			return s;
-		printf("testando\n");
+		}
+
 
 		/* Verifica se o primeiro objeto tem uma versão especial */
 		if (o1) {
