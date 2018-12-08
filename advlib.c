@@ -454,7 +454,7 @@ TabSim init_table(TabSim sym_table) {
 	sofa.contem       =    ht_insere(sofa.contem,       "examine", VERBO, examinarEspecial);
 	ferramenta.contem =    ht_insere(ferramenta.contem, "use",     VERBO, usarFerramenta);
 	martelo.contem    =    ht_insere(martelo.contem,    "use",     VERBO, usarMartelo);
-	banheiro.contem   =    ht_insere(banheiro.contem,   "use",     VERBO, usarMartelo);
+	//banheiro.contem   =    ht_insere(banheiro.contem,   "use",     VERBO, usarMartelo);
 	faca.contem       =    ht_insere(faca.contem,       "use",     VERBO, usarFaca);
 	chaveP.contem     =    ht_insere(chaveP.contem,     "use",     VERBO, usarChaveP);
 	chave1.contem     =    ht_insere(chave1.contem,     "use",     VERBO, usarChave);
