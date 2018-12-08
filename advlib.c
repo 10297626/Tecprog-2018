@@ -14,10 +14,10 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
 #include "aventura.tab.h"
 
 // Variáveis globais
-TabSim sym_table  = (TabSim)     0;
-TabSim inventario = (TabSim)     0;
-Elemento *Posic   = (Elemento *) 0;
-int cadeados = 3;
+TabSim   sym_table  = (TabSim)     0;
+TabSim   inventario = (TabSim)     0;
+Elemento *Posic     = (Elemento *) 0;
+int      cadeados   =              3;
 
 /*
 Elemento* cria_ele() {

@@ -10,6 +10,7 @@ int yyparse();
 TabSim init_table();
 
 int main() {
+	printf("testando\n");
 	/* Monta o mundo */
 	sym_table = init_table(sym_table);
 	/* Descrição inicial */
