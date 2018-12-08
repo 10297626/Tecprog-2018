@@ -66,6 +66,8 @@ Lista l_insere(Lista list, char* name, int tipo, void* val) {
  * @return            retorna o Node encontrado , ou NULL caso não encontre
  */
 Node l_busca(Lista l, char* name) {
+	if(l == (Lista) 0)
+		return 0;
 	Node atual = l->head;
 	while(atual != (Node) 0) {
 		if(strcmp(atual->name, name) == 0) {
