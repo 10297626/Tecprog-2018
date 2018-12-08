@@ -90,9 +90,12 @@ static int hashcode(char *key, int tam) {
  * @return     retorna o conjunto de dados
  */
 Node ht_busca(TabSim tab, char *key) {
+	if(tab == (TabSim) 0 || tab->size == 0)
+		return 0;
+
 	int hi = hashcode(key, tab->size);
 
-	//busca o item, testando as listas
+	//busca o item, testando a lista
 	if(tab->simbolos[hi] != (Lista) 0) {
 		if(tab->simbolos[hi]->count == 1)
 			return tab->simbolos[hi]->head;

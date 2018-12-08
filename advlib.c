@@ -381,7 +381,6 @@ TabSim init_table(TabSim sym_table) {
 		/* completa os dados */
 		//ptr->value = lfunc[i].fnct;
 	}
-	printf("testando\n");
 
 	/* Lista de objetos */
 	for (i = 0; lobjs[i].name != 0; i++) {
@@ -390,15 +389,12 @@ TabSim init_table(TabSim sym_table) {
 		ptr = ht_insere(ptr, lobjs[i].name, OBJ, oo);
 		oo->contem = NULL;
 	}
-	printf("testando\n");
 
 	/* Lista de lugares */
 	for (i = 0; llugs[i].name != 0; i++) {
 		/* insere */
 		ptr = ht_insere(ptr, llugs[i].name, LUGAR,llugs[i].lug);
 	}
-	printf("testando\n");
-
 
 	/* Coloca os objetos nos lugares */
 	banheiro.contem = ht_insere(banheiro.contem, "privada",       OBJ, &privada);

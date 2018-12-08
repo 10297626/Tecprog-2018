@@ -41,7 +41,12 @@ void l_destroi(Lista l) {
  * @param  val item a ser adicionado
  * @return     retorna a lista atualizada
  */
-Lista l_insere(Lista l, char* name, int tipo, void* val) {
+Lista l_insere(Lista list, char* name, int tipo, void* val) {
+	Lista l;
+	if(list == (Lista) 0)
+		l = l_cria();
+	else
+		l = list;
 	Node new = malloc(sizeof(node));
 	new->name = malloc(strlen(name)+1);
 	strcpy(new->name, name);
