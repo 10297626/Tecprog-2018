@@ -40,7 +40,7 @@ Elemento cartao = {"Cartão", "Um cartão", "Um cartão similar aos de quartos d
 Elemento privada = {"Privada", "Uma privada normal.", "Uma privada, está limpa mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento banheira = {"Banheira", "Uma banheira cheia.", "Uma banheira cheia, mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento pia = {"Pia", "Uma pia de banheiro.", "Uma pia de banheiro, de relance algo brilha no ralo.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento martelo = {"Martelo", "Um martelo comum.", "Um martelo, posso usar ele para abrir a porta.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento martelo = {"martelo", "Um martelo comum.", "Um martelo, posso usar ele para abrir a porta.", True, False, NULL, OBJ, .detalhe.obj={False}};
 Elemento cama = {"Cama", "Uma cama de casal.", "Uma cama de casal comum.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento criadoMudo = {"Criado mudo", "Um criado mudo vazio.", "Um criado mudo com sua gaveta parafusada, se tivesse alguma ferramenta poderia abri-lo.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento sofa = {"Sofá", "Um sofa branco rasgado.", "Uma sofa branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.", True, False, NULL, OBJ, .detalhe.obj={True}};
