@@ -92,7 +92,7 @@ static int hashcode(char *key, int tam) {
 Node ht_busca(TabSim tab, char *key) {
 	if(tab == (TabSim) 0 || tab->size == 0)
 		return 0;
-	printf("testando1\n");
+	printf("testando1 %s\n", key);
 
 	int hi = hashcode(key, tab->size);
 	printf("testando2\n");
@@ -105,7 +105,7 @@ Node ht_busca(TabSim tab, char *key) {
 			return tab->simbolos[hi]->head;
 		}
 		Node val;
-		if((val = l_busca(tab->simbolos[hi], key))){
+		if((val = l_busca(tab->simbolos[hi], key))) {
 			printf("encontrou2: %s\n", val->name);
 			return val; //encontrou
 		}
