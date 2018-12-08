@@ -32,34 +32,34 @@ Elemento* cria_ele() {
 }
 */
 /* Objetos */
-Elemento chave1 = {"Chave de ferro 1", "Uma chave pesada de ferro com o numero 1 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 1 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento chave2 = {"Chave de ferro 2", "Uma chave pesada de ferro com o numero 2 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 2 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento chave3 = {"Chave de ferro 3", "Uma chave pesada de ferro com o numero 3 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 3 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento chaveP = {"Chave pequena", "Uma chave pequena.", "Uma chave pequena e brilhante, parece nova.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento cartao = {"Cartão", "Um cartão", "Um cartão similar aos de quartos de hotéis.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento privada = {"Privada", "Uma privada normal.", "Uma privada, está limpa mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento banheira = {"Banheira", "Uma banheira cheia.", "Uma banheira cheia, mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento pia = {"Pia", "Uma pia de banheiro.", "Uma pia de banheiro, de relance algo brilha no ralo.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento chave1 = {"chave 1", "Uma chave pesada de ferro com o numero 1 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 1 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento chave2 = {"chave 2", "Uma chave pesada de ferro com o numero 2 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 2 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento chave3 = {"chave 3", "Uma chave pesada de ferro com o numero 3 marcado nela.", "Uma chave pesada de ferro, em sua base pode ser visto o número 3 gravado.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento chaveP = {"chave pequena", "Uma chave pequena.", "Uma chave pequena e brilhante, parece nova.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento cartao = {"cartao", "Um cartão", "Um cartão similar aos de quartos de hotéis.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento privada = {"privada", "Uma privada normal.", "Uma privada, está limpa mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento banheira = {"banheira", "Uma banheira cheia.", "Uma banheira cheia, mas parece ter algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento pia = {"pia", "Uma pia de banheiro.", "Uma pia de banheiro, de relance algo brilha no ralo.", True, False, NULL, OBJ, .detalhe.obj={True}};
 Elemento martelo = {"martelo", "Um martelo comum.", "Um martelo, posso usar ele para abrir a porta.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento cama = {"Cama", "Uma cama de casal.", "Uma cama de casal comum.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento criadoMudo = {"Criado mudo", "Um criado mudo vazio.", "Um criado mudo com sua gaveta parafusada, se tivesse alguma ferramenta poderia abri-lo.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento sofa = {"Sofá", "Um sofa branco rasgado.", "Uma sofa branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento mesa = {"Mesa de centro", "Uma mesa de centro.", "Uma mesa de centro, debaixo dela parece ter algo preso.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento ferramenta = {"Chave de fenda", "Uma chave de fenda comum.", "Uma chave de fenda, útil para tirar parafusos.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento geladeira = {"Geladeira", "Uma geladeira vazia.", "Uma geladeira desligada, tem algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento faca = {"Faca", "Uma faca.", "Uma faca comum.", True, False, NULL, OBJ, .detalhe.obj={False}};
-Elemento fogao = {"Fogão", "Um fogão", "Um fogao acorrentado com um cadeado.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento cadeado1 = {"Cadeado 1", "Um cadeado aberto com o numero 1 talhado.", "Um cadeado com o numero 1 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento cadeado2 = {"Cadeado 2", "Um cadeado aberto com o numero 2 talhado.", "Um cadeado com o numero 2 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
-Elemento cadeado3 = {"Cadeado 3", "Um cadeado aberto com o numero 3 talhado.", "Um cadeado com o numero 3 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento cama = {"cama", "Uma cama de casal.", "Uma cama de casal comum.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento criadoMudo = {"criado mudo", "Um criado mudo vazio.", "Um criado mudo com sua gaveta parafusada, se tivesse alguma ferramenta poderia abri-lo.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento sofa = {"sofa", "Um sofa branco rasgado.", "Uma sofa branco, consigo sentir algo dentro dele, se eu tivesse uma faca poderia ver.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento mesa = {"mesa", "Uma mesa de centro.", "Uma mesa de centro, debaixo dela parece ter algo preso.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento ferramenta = {"ferramenta", "Uma chave de fenda comum.", "Uma chave de fenda, útil para tirar parafusos.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento geladeira = {"geladeira", "Uma geladeira vazia.", "Uma geladeira desligada, tem algo dentro dela.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento faca = {"faca", "Uma faca.", "Uma faca comum.", True, False, NULL, OBJ, .detalhe.obj={False}};
+Elemento fogao = {"fogão", "Um fogão", "Um fogao acorrentado com um cadeado.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento cadeado1 = {"cadeado 1", "Um cadeado aberto com o numero 1 talhado.", "Um cadeado com o numero 1 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento cadeado2 = {"cadeado 2", "Um cadeado aberto com o numero 2 talhado.", "Um cadeado com o numero 2 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
+Elemento cadeado3 = {"cadeado 3", "Um cadeado aberto com o numero 3 talhado.", "Um cadeado com o numero 3 talhado.", True, False, NULL, OBJ, .detalhe.obj={True}};
 
 /* Lugares */
-Elemento final = {"Fora da casa", "Eu consegui fugir da casa.", "Eu consegui fugir da casa.", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, NULL, NULL, NULL}};
-Elemento entrada = {"Entrada", "Eu estou em uma entrada da casa. Pro oeste eu vejo uma porta de ferro trancada pra leste tem a cozinha. Eu consigo ver: ", "Eu estou em uma entrada da casa. Pro oeste eu vejo uma porta de ferro trancada pra leste tem a cozinha. Eu consigo ver: ", True, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &final, NULL, NULL}};
-Elemento cozinha = {"Cozinha", "Eu estou em uma cozinha. Pro norte tem a sala de estar e pro oeste tem a entrada. Eu consigo ver: ", "Eu estou em uma cozinha. Pro norte tem a sala de estar e pro oeste tem a entrada. Eu consigo ver: ", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &entrada, NULL, NULL}};
-Elemento sala = {"Sala de estar", "Estou em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto. Eu consigo ver: ", "Estou em uma sala de estar. Pro sul tem uma porta fechada com um leitor de cartao e pro leste o quarto. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, &cozinha, NULL, NULL, NULL, NULL}};
-Elemento quarto = {"Quarto", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver:", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver: ", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &sala, NULL, NULL}};
-Elemento banheiro = {"Banheiro", "Estou em um banheiro. Pro norte tem o quarto. Eu consigo ver:", "Estou em um banheiro.  Pro norte tem uma porta pregada, talvez com alguma ferramenta eu consiga abri-la. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={&quarto, NULL, NULL, NULL, NULL, NULL}};
+Elemento final = {"final", "Eu consegui fugir da casa.", "Eu consegui fugir da casa.", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, NULL, NULL, NULL}};
+Elemento entrada = {"entrada", "Eu estou em uma entrada da casa. Pro oeste eu vejo uma porta de ferro trancada pra leste tem a cozinha. Eu consigo ver: ", "Eu estou em uma entrada da casa. Pro oeste eu vejo uma porta de ferro trancada pra leste tem a cozinha. Eu consigo ver: ", True, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &final, NULL, NULL}};
+Elemento cozinha = {"cozinha", "Eu estou em uma cozinha. Pro norte tem a sala de estar e pro oeste tem a entrada. Eu consigo ver: ", "Eu estou em uma cozinha. Pro norte tem a sala de estar e pro oeste tem a entrada. Eu consigo ver: ", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &entrada, NULL, NULL}};
+Elemento sala = {"sala", "Estou em uma sala de estar. Pro sul tem a cozinha e pro leste o quarto. Eu consigo ver: ", "Estou em uma sala de estar. Pro sul tem uma porta fechada com um leitor de cartao e pro leste o quarto. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, &cozinha, NULL, NULL, NULL, NULL}};
+Elemento quarto = {"quarto", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver:", "Eu estou em um quarto. Pro sul tem o banheiro e pra oeste tem uma sala de estar. Eu consigo ver: ", False, False, NULL, LUGAR, .detalhe.lug.Saidas={NULL, NULL, NULL, &sala, NULL, NULL}};
+Elemento banheiro = {"banheiro", "Estou em um banheiro. Pro norte tem o quarto. Eu consigo ver:", "Estou em um banheiro.  Pro norte tem uma porta pregada, talvez com alguma ferramenta eu consiga abri-la. Eu consigo ver:", True, False, NULL, LUGAR, .detalhe.lug.Saidas={&quarto, NULL, NULL, NULL, NULL, NULL}};
 
 
 
@@ -304,7 +304,7 @@ void usarCartao(Elemento *e1, Elemento *e2) {
 }
 
 void usar(Elemento *e1, Elemento *e2) {
-	return;
+	printf("no no no...\n");
 }
 
 
@@ -376,7 +376,7 @@ struct initlug llugs[] = {
 	{"cozinha",  &cozinha},
 	{"banheiro", &banheiro},
 	{"entrada",  &entrada},
-	{"sala",     &sala},
+	{"final",    &final},
 	{ 0, 0}
 };
 
@@ -399,7 +399,7 @@ TabSim init_table(TabSim sym_table) {
 		Elemento * oo = lobjs[i].obj;
 		/* insere */
 		ptr = ht_insere(ptr, lobjs[i].name, OBJ, oo);
-		ptr = ht_insere(ptr, oo->nome, OBJ, oo);
+		//ptr = ht_insere(ptr, oo->nome, OBJ, oo);
 		oo->contem = NULL;
 	}
 
