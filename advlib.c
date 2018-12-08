@@ -372,6 +372,7 @@ struct initlug llugs[] = {
 TabSim init_table(TabSim sym_table) {
 	int i;
 	TabSim ptr = sym_table;		/* cabeça da lista */
+	ptr = ht_cria(30);
 
 	/* Lista de verbos */
 	for (i = 0; lfunc[i].fname != 0; i++) {
