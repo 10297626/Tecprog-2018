@@ -14,7 +14,7 @@ int main(){
 
 	//teste de hash table
 	//criação da hash table
-	TabSim tab = ht_cria(30);
+	TabSim tab = ht_cria(10);
 	printf("hash table criada\n");
 	//item exemplo
 	Elemento* ele = cria_ele();

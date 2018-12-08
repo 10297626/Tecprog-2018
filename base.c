@@ -11,7 +11,8 @@ Nome: Rubens Gomes Neto               NUSP:  9318484
  * @param  q segunda string
  * @return   retorna 0 para o caso igual, inteiro negativo se p<q, inteiro positivo se p>q
  */
-int compareStr(void* p, void* q) {
+
+/*int compareStr(void* p, void* q) {
 	char *pp = (char*) p;
 	char *qq = (char*) q;
 	unsigned char c1, c2;
@@ -20,7 +21,7 @@ int compareStr(void* p, void* q) {
             return 0;
     }
     return c1 - c2;
-}
+}*/
 
 /**
  * Funcao para comparar valores inteiros, para buscas e sorting
@@ -28,8 +29,9 @@ int compareStr(void* p, void* q) {
  * @param  q ponteiro para o segundo inteiro
  * @return   retorna 0 para o caso igual, inteiro negativo se p<q, inteiro positivo se p>q
  */
-int compareInt(void* p, void* q) {
+
+/*int compareInt(void* p, void* q) {
 	int pp = *((int*) p);
 	int qq = *((int*) q);
 	return pp-qq;
-}
+}*/

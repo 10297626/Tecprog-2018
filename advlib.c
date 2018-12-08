@@ -128,6 +128,7 @@ void examinar(Elemento* e1, Elemento* e2) { // função para examinar o objeto
 							if(atual->tipo == OBJ) {
 								((Elemento*) atual->value)->detalhe.obj.visivel = True;
 							}
+							atual = atual->next;
 						}
 					}
 				}
@@ -223,6 +224,7 @@ void usarFerramenta(Elemento *e1, Elemento *e2) {
 				if(atual->tipo == OBJ) {
 					((Elemento*) atual->value)->detalhe.obj.visivel = True;
 				}
+				atual = atual->next;
 			}
 		}
 	}
